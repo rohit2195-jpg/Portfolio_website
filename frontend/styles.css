@@ -1,0 +1,22 @@
+body {
+  margin: 16px;
+  line-height: 1.5;
+}
+
+main,
+footer {
+  margin-top: 24px;
+}
+
+section,
+article {
+  margin-bottom: 24px;
+}
+
+nav ul {
+  padding-left: 20px;
+}
+
+a[aria-current="page"] {
+  text-decoration: underline;
+}
