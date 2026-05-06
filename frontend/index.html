@@ -5,42 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal portfolio website homepage.">
   <title>My Portfolio | Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h2><strong>Rohit Sattuluri</strong></h2>
-    <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>   
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Rohit Sattuluri home">
+        <span class="brand-text">
+          <span class="brand-name">Rohit Sattuluri</span>
+          <span class="brand-role">Purdue CS student</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <section>
-      <p>
-        I am a Computer Science student at Purdue University. I build software across full-stack development, machine learning, and data-driven applications, with experience spanning web apps, predictive systems, and AI-powered tools.
-      </p>
-    </section>
+    <main class="page-content">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio</p>
+          <h1>
+            Building <span class="text-accent">thoughtful software</span> for the web,
+            data, and machine learning.
+          </h1>
+          <p class="hero-lead">
+            I am a Computer Science student at Purdue University working across full-stack
+            development, machine learning, and practical AI applications.
+          </p>
+        </div>
+        <aside class="hero-aside">
+          <p class="aside-label">Current focus</p>
+          <p>
+            Software engineering, predictive systems, and AI tools that are actually useful.
+          </p>
+        </aside>
+      </section>
 
-    <section>
-      <h2>Quick Summary</h2>
-      <p>
-        This site is a quick overview of my background, technical skills, project work, and experience across software engineering and machine learning.
-      </p>
-      <ul>
-        <li><strong>What I Do:</strong> I develop full-stack applications, build machine learning models, and work on systems that turn data into practical tools.</li>
-        <li><strong>What I'm Learning:</strong> I am continuing to deepen my understanding in machine learning, AI applications, systems programming, and data engineering.</li>
-        <li><strong>What To See Next:</strong> I have many exciting plans of new personal projects I want to undertake in the near future!</li>
-      </ul>
-    </section>
-  </main>
+      <section class="content-grid">
+        <article class="content-panel">
+          <p class="eyebrow"><i class="fa-regular fa-star icon-inline" aria-hidden="true"></i> What I do</p>
+          <p>
+            I build software across web apps, predictive systems, and AI-powered tools,
+            with an emphasis on clean interfaces and practical outcomes.
+          </p>
+        </article>
 
-  <footer>
-    <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
-  </footer>
+        <article class="content-panel">
+          <p class="eyebrow"><i class="fa-solid fa-seedling icon-inline" aria-hidden="true"></i> What I am learning</p>
+          <p>
+            I am continuing to deepen my understanding in machine learning, AI
+            applications, systems programming, and data engineering.
+          </p>
+        </article>
+
+        <article class="content-panel">
+          <p class="eyebrow"><i class="fa-regular fa-compass icon-inline" aria-hidden="true"></i> What to explore</p>
+          <p>
+            Use this site to get a quick view of my background, technical skills,
+            project work, and the areas I am actively building in.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

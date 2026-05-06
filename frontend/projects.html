@@ -5,86 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Projects and work samples.">
   <title>My Portfolio | Projects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h2><strong>Rohit Sattuluri</strong></h2>
-    <nav aria-label="Main navigation">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Rohit Sattuluri home">
+        <span class="brand-text">
+          <span class="brand-name">Rohit Sattuluri</span>
+          <span class="brand-role">Purdue CS student</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <section>
-      <h1>Projects</h1>
-      <p>
-        A selection of projects covering AI, machine learning, full-stack development, and real-time data systems. More work is available on my GitHub.
-      </p>
+    <main class="page-content">
+      <section class="page-intro page-intro-compact">
+        <p class="eyebrow">Projects</p>
+        <h1>A selection of work spanning AI, machine learning, full-stack software, and real-time systems.</h1>
+        <p class="page-lead">
+          More work and experiments are available on GitHub, but these projects show
+          the kind of products and systems I enjoy building most.
+        </p>
+      </section>
 
-      <ul>
-        <li>
-          <strong>Veritas - AI Financial Assistant</strong>
-          <ul>
-            <li>Built a secure full-stack budgeting application with React, Flask, Firebase Auth, PostgreSQL, and AWS that helps users track and analyze personal spending through a personalized dashboard with spending breakdowns, trends, and charts.</li>
-            <li>Implemented an LLM-powered transaction parsing and categorization system that reached 92% accuracy against manual labels on a test set, and created a RAG-based conversational assistant for custom finance Q&amp;A.</li>
-            <li><strong>Built with:</strong> ReactJS, Python, PostgreSQL, AWS, Firebase</li>
-            <li><a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a></li>
-          </ul>
-        </li>
-        <li>
-          <strong>NYC Subway Tracker</strong>
-          <ul>
-            <li>Developed a live tracking system using the MTA API and static transit datasets to gather real-time updates on more than 500 trains and estimate train positions every three seconds using linear interpolation.</li>
-            <li>Optimized distance calculations with the Haversine formula, reducing update time and improving efficiency by 85%.</li>
-            <li><strong>Built with:</strong> JavaScript, Python</li>
-            <li><a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a></li>
-          </ul>
-        </li>
-        <li>
-          <strong>Airport Wait Time Predictor</strong>
-          <ul>
-            <li>Engineered machine learning models including Gradient Boosting, Neural Networks, and Decision Trees on more than 200,000 rows of passenger data to predict airport wait times.</li>
-            <li>Designed holiday-based feature engineering that improved R² by 10%, uncovered key congestion patterns, and supported a full-stack prototype built with Flask and JavaScript/HTML for real-time predictions.</li>
-            <li><strong>Built with:</strong> JavaScript, Python, Flask, HTML</li>
-            <li><a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a></li>
-          </ul>
-        </li>
-        <li>
-          <strong>Music Translator App</strong>
-          <ul>
-            <li>Created a live-real time translating application to Spotify playback</li>
-<li>Utilized Google translate and AI translation for accurate meanings and definitions</li>
+      <section class="project-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-regular fa-star icon-inline" aria-hidden="true"></i> Featured build</p>
+            <h2>Veritas - AI Financial Assistant</h2>
+          </div>
+          <p>
+            Built a secure full-stack budgeting application with React, Flask, Firebase
+            Auth, PostgreSQL, and AWS that helps users track and analyze personal
+            spending through a personalized dashboard with spending breakdowns,
+            trends, and charts.
+          </p>
+          <p>
+            Implemented an LLM-powered transaction parsing and categorization system
+            that reached 92% accuracy against manual labels on a test set, and created
+            a RAG-based conversational assistant for custom finance Q&amp;A.
+          </p>
+          <p class="project-stack">ReactJS, Python, PostgreSQL, AWS, Firebase</p>
+          <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
 
-            <li><a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a></li>
-          </ul>
-        </li>
-        <li>
-          <strong>Catapult 2026</strong>
-          <ul>
-            <li>Site Scouter is a map-first decision-support tool for analyzing a user-selected polygon and recommending subregions for solar panels, wind turbines, and data centers.</li>
-            <li><strong>Repository:</strong> Reversal9/catapult2026</li>
-            <li><a href="https://github.com/Reversal9/catapult2026" target="_blank" rel="noreferrer">View on GitHub</a></li>
-          </ul>
-        </li>
-        <li>
-          <strong>More Projects</strong>
-          <ul>
-            <li>I have additional experiments and builds beyond the projects listed here, including work across software engineering, machine learning, and personal technical interests.</li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">github.com/rohit2195-jpg</a></li>
-          </ul>
-        </li>
-      </ul>
+        <article class="project-card">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-regular fa-clock icon-inline" aria-hidden="true"></i> Real-time systems</p>
+            <h2>NYC Subway Tracker</h2>
+          </div>
+          <p>
+            Developed a live tracking system using the MTA API and static transit
+            datasets to gather real-time updates on more than 500 trains and estimate
+            train positions every three seconds using linear interpolation.
+          </p>
+          <p>
+            Optimized distance calculations with the Haversine formula, reducing update
+            time and improving efficiency by 85%.
+          </p>
+          <p class="project-stack">JavaScript, Python</p>
+          <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
 
-    </section>
-  </main>
+        <article class="project-card">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-solid fa-brain icon-inline" aria-hidden="true"></i> Machine learning</p>
+            <h2>Airport Wait Time Predictor</h2>
+          </div>
+          <p>
+            Engineered machine learning models including Gradient Boosting, Neural
+            Networks, and Decision Trees on more than 200,000 rows of passenger data
+            to predict airport wait times.
+          </p>
+          <p>
+            Designed holiday-based feature engineering that improved R² by 10%,
+            uncovered key congestion patterns, and supported a full-stack prototype
+            built with Flask and JavaScript/HTML for real-time predictions.
+          </p>
+          <p class="project-stack">JavaScript, Python, Flask, HTML</p>
+          <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
 
-  <footer>
-    <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
-  </footer>
+        <article class="project-card">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-regular fa-music icon-inline" aria-hidden="true"></i> Experimental app</p>
+            <h2>Music Translator App</h2>
+          </div>
+          <p>
+            Created a live real-time translation experience connected to Spotify
+            playback to help listeners understand songs as they play.
+          </p>
+          <p>
+            Used Google Translate and AI-assisted translation to improve the quality
+            of meanings and contextual definitions.
+          </p>
+          <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-regular fa-map icon-inline" aria-hidden="true"></i> Decision-support</p>
+            <h2>Catapult 2026</h2>
+          </div>
+          <p>
+            Site Scouter is a map-first decision-support tool for analyzing a
+            user-selected polygon and recommending subregions for solar panels,
+            wind turbines, and data centers.
+          </p>
+          <p class="project-stack">Repository: Reversal9/catapult2026</p>
+          <a href="https://github.com/Reversal9/catapult2026" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="project-card project-card-muted">
+          <div class="project-header">
+            <p class="project-kicker"><i class="fa-regular fa-folder-open icon-inline" aria-hidden="true"></i> More work</p>
+            <h2>Additional projects and experiments</h2>
+          </div>
+          <p>
+            I have additional builds beyond the projects listed here, including work
+            across software engineering, machine learning, and personal technical
+            interests.
+          </p>
+          <a href="https://github.com/rohit2195-jpg" target="_blank" rel="noreferrer">Browse GitHub</a>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

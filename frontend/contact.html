@@ -5,31 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact information and links.">
   <title>My Portfolio | Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h2><strong>Rohit Sattuluri</strong></h2>
-    <nav aria-label="Main navigation">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Rohit Sattuluri home">
+        <span class="brand-text">
+          <span class="brand-name">Rohit Sattuluri</span>
+          <span class="brand-role">Purdue CS student</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <section>
-      <h1>Contact</h1>
-       <ul>
-        <li><strong>Email:</strong> <a href="mailto:rohit.sattuluri@gmail.com">rohit.sattuluri@gmail.com</a></li>
-      </ul>
-    </section>
-  </main>
+    <main class="page-content">
+      <section class="contact-card">
+        <p class="eyebrow">Contact</p>
+        <h1>Let&#39;s build something thoughtful.</h1>
+        <p class="page-lead">
+          The easiest way to reach me is by email. I am always open to conversations
+          around software, machine learning, and new product ideas.
+        </p>
 
-  <footer>
-    <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
-  </footer>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:rohit.sattuluri@gmail.com">
+            <span class="contact-label"><i class="fa-regular fa-envelope icon-inline" aria-hidden="true"></i> Email</span>
+            <span class="contact-value">rohit.sattuluri@gmail.com</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
