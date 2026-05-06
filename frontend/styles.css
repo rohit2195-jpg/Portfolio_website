@@ -135,6 +135,22 @@ h2 {
   font-size: 1rem;
 }
 
+.nav-icon-regular {
+  display: inline-block !important;
+}
+
+.nav-icon-solid {
+  display: none !important;
+}
+
+.site-nav a[aria-current="page"] .nav-icon-regular {
+  display: none !important;
+}
+
+.site-nav a[aria-current="page"] .nav-icon-solid {
+  display: inline-block !important;
+}
+
 .page-content {
   display: grid;
   gap: 2.5rem;
