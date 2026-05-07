@@ -1,43 +1,51 @@
-# Personal Portfolio Website
+# Portfolio Website
 
-This is a simple personal portfolio website built with plain HTML, CSS, and JavaScript.
+This project is now a `Vite + React` portfolio app with hash-based routing so it can be hosted on GitHub Pages without server-side routing support.
 
-It is designed to be:
+## Local setup
 
-- easy to read
-- easy to edit
-- ready to publish on GitHub Pages
+1. Install dependencies:
 
-## Files
+   ```bash
+   npm install
+   ```
 
-- `index.html` contains the homepage
-- `about.html` contains your background and skills
-- `projects.html` contains your project list
-- `contact.html` contains your contact links
-- `styles.css` controls the styling for all pages
-- `script.js` handles the mobile menu, active navigation link, and footer year
+2. Start the dev server:
 
-## How To Edit
+   ```bash
+   npm run dev
+   ```
 
-1. Open each HTML file and replace `Your Name` with your real name.
-2. Replace the placeholder text with your actual bio, project details, and links.
-3. In `contact.html`, update the email, GitHub, and LinkedIn URLs.
-4. In `projects.html`, replace the sample project cards with your own work.
+3. Open the local URL Vite prints in the terminal.
 
-## How To Publish On GitHub Pages
+## Project structure
+
+- `src/App.jsx` wires up the routes.
+- `src/components/` contains shared layout pieces.
+- `src/pages/` contains the page content for Home, About, Projects, and Contact.
+- `src/styles.css` contains the shared site styling.
+
+## Build for production
+
+```bash
+npm run build
+```
+
+The production output is written to `dist/`.
+
+## GitHub Pages deployment
+
+This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that deploys the built `dist/` folder to GitHub Pages whenever you push to `main`.
+
+Before using it:
 
 1. Push this folder to a GitHub repository.
-2. Open the repository on GitHub.
-3. Go to `Settings`.
-4. Click `Pages`.
-5. Under the build and deployment section, choose:
-   - Source: `Deploy from a branch`
-   - Branch: `main` or `master`
-   - Folder: `/ (root)`
-6. Save the settings and wait for GitHub Pages to publish the site.
+2. In GitHub, open `Settings > Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Push to `main`.
 
 ## Notes
 
-- No build step is required.
-- No framework is required.
-- You can add more pages later by copying the same header and footer structure.
+- Routing uses `HashRouter`, so page URLs will look like `/#/about`.
+- `vite.config.js` uses `base: "./"` so the built app can be served from a GitHub Pages project path.
+- Static images can be stored in `public/` and referenced as `/your-image.jpg`, or imported from `src/` when you want them bundled.

@@ -1,95 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio website homepage.">
-  <title>My Portfolio | Home</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Rohit Sattuluri home">
-        <span class="brand-text">
-          <span class="brand-name">Rohit Sattuluri</span>
-          <span class="brand-role">Purdue CS student</span>
-        </span>
-      </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html" aria-label="Home" title="Home">
-          <i class="fa-regular fa-house nav-icon nav-icon-regular" aria-hidden="true"></i>
-          <i class="fa-solid fa-house nav-icon nav-icon-solid" aria-hidden="true"></i>
-        </a>
-        <a href="about.html" aria-label="About" title="About">
-          <i class="fa-regular fa-user nav-icon nav-icon-regular" aria-hidden="true"></i>
-          <i class="fa-solid fa-user nav-icon nav-icon-solid" aria-hidden="true"></i>
-        </a>
-        <a href="projects.html" aria-label="Projects" title="Projects">
-          <i class="fa-regular fa-folder-open nav-icon nav-icon-regular" aria-hidden="true"></i>
-          <i class="fa-solid fa-folder-open nav-icon nav-icon-solid" aria-hidden="true"></i>
-        </a>
-        <a href="contact.html" aria-label="Contact" title="Contact">
-          <i class="fa-regular fa-envelope nav-icon nav-icon-regular" aria-hidden="true"></i>
-          <i class="fa-solid fa-envelope nav-icon nav-icon-solid" aria-hidden="true"></i>
-        </a>
-      </nav>
-    </header>
-
-    <main class="page-content">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Portfolio</p>
-          <h1>
-
-          </h1>
-          <p class="hero-lead">
-            Welcome to my corner of the internet! 
-
-            I am a Computer Science student at Purdue University working across full-stack development, machine learning, and practical AI applications.
-          </p>
-        </div>
-        <aside class="hero-aside">
-          <p class="aside-label">Current focus</p>
-          <p>
-            Software engineering, predictive systems, and AI tools that are actually useful.
-          </p>
-        </aside>
-      </section>
-
-      <section class="content-grid">
-        <article class="content-panel">
-          <p class="eyebrow"><i class="fa-regular fa-star icon-inline" aria-hidden="true"></i> What I do</p>
-          <p>
-            I build software across web apps, predictive systems, and AI-powered tools,
-            with an emphasis on clean interfaces and practical outcomes.
-          </p>
-        </article>
-
-        <article class="content-panel">
-          <p class="eyebrow"><i class="fa-solid fa-seedling icon-inline" aria-hidden="true"></i> What I am learning</p>
-          <p>
-            I am continuing to deepen my understanding in machine learning, AI
-            applications, systems programming, and data engineering.
-          </p>
-        </article>
-
-        <article class="content-panel">
-          <p class="eyebrow"><i class="fa-regular fa-compass icon-inline" aria-hidden="true"></i> What to explore</p>
-          <p>
-            Use this site to get a quick view of my background, technical skills,
-            project work, and the areas I am actively building in.
-          </p>
-        </article>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>&copy; <span class="footer-year"></span> Rohit Sattuluri</p>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio website for Rohit Sattuluri."
+    />
+    <link rel="icon" href="data:," />
+    <title>Rohit Sattuluri | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

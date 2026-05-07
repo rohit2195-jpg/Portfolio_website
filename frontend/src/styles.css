@@ -48,6 +48,10 @@ h2 {
   margin-top: 0;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .page-shell {
   width: min(calc(100% - 2rem), var(--content-width));
   margin: 0 auto;
@@ -64,10 +68,6 @@ h2 {
   color: var(--text);
   text-decoration: none;
   margin-bottom: 1rem;
-}
-
-.brand-mark {
-  display: none;
 }
 
 .brand-text {
@@ -135,19 +135,13 @@ h2 {
   font-size: 1rem;
 }
 
-.nav-icon-regular {
-  display: inline-block !important;
-}
-
+.nav-icon-regular,
 .nav-icon-solid {
   display: none !important;
 }
 
-.site-nav a[aria-current="page"] .nav-icon-regular {
-  display: none !important;
-}
-
-.site-nav a[aria-current="page"] .nav-icon-solid {
+.nav-icon-regular[data-active="true"],
+.nav-icon-solid[data-active="true"] {
   display: inline-block !important;
 }
 
