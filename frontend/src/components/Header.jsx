@@ -26,9 +26,15 @@ const navItems = [
     regularIcon: "fa-regular fa-envelope",
     solidIcon: "fa-solid fa-envelope",
   },
+  {
+    to: "/photos",
+    label: "Photos",
+    regularIcon: "fa-regular fa-image",
+    solidIcon: "fa-solid fa-image",
+  },
 ];
 
-export default function Header() {
+export default function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" aria-label="Rohit Sattuluri home" end>
@@ -38,26 +44,41 @@ export default function Header() {
         </span>
       </NavLink>
 
-      <nav className="site-nav" aria-label="Main navigation">
-        {navItems.map(({ to, label, regularIcon, solidIcon, end }) => (
-          <NavLink key={label} to={to} aria-label={label} title={label} end={end}>
-            {({ isActive }) => (
-              <>
-                <i
-                  className={`${regularIcon} nav-icon nav-icon-regular`}
-                  aria-hidden="true"
-                  data-active={isActive ? "false" : "true"}
-                />
-                <i
-                  className={`${solidIcon} nav-icon nav-icon-solid`}
-                  aria-hidden="true"
-                  data-active={isActive ? "true" : "false"}
-                />
-              </>
-            )}
-          </NavLink>
-        ))}
-      </nav>
+      <div className="site-header-controls">
+        <nav className="site-nav" aria-label="Main navigation">
+          {navItems.map(({ to, label, regularIcon, solidIcon, end }) => (
+            <NavLink key={label} to={to} aria-label={label} title={label} end={end}>
+              {({ isActive }) => (
+                <>
+                  <i
+                    className={`${regularIcon} nav-icon nav-icon-regular`}
+                    aria-hidden="true"
+                    data-active={isActive ? "false" : "true"}
+                  />
+                  <i
+                    className={`${solidIcon} nav-icon nav-icon-solid`}
+                    aria-hidden="true"
+                    data-active={isActive ? "true" : "false"}
+                  />
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          <i
+            className={`fa-solid ${theme === "dark" ? "fa-sun" : "fa-moon"}`}
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
     </header>
   );
 }
