@@ -3,7 +3,10 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="hero-copy">
-          <h2>Portfolio</h2>
+          <h2>
+            Portfolio
+            <span className="page-pronunciation">[pawrt-foh-lee-oh]</span>
+          </h2>
           <h1></h1>
           
           <p className="hero-lead">

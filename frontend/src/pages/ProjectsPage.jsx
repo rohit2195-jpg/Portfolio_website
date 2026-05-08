@@ -69,7 +69,10 @@ export default function ProjectsPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <h2>Projects</h2>
+        <h2>
+          Projects
+          <span className="page-pronunciation">[proj-ekts]</span>
+        </h2>
 
         <p className="page-lead">
          a large undertaking that is usually contemplated or planned

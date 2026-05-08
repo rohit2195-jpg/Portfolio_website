@@ -269,6 +269,14 @@ figure {
   color: var(--muted);
 }
 
+.page-pronunciation {
+  display: inline-block;
+  margin: 0 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
 .hero-aside {
   max-width: 32rem;
   padding: 0;

@@ -2,9 +2,12 @@ export default function AboutPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <h2>About</h2>
+        <h2>
+          About
+          <span className="page-pronunciation">[uh-bout]</span>
+        </h2>
 
-        <p className="page-lead"> a collection of facts regarding a specific entity </p>
+        <p className="page-lead">a collection of facts regarding a specific entity</p>
 
 
       </section>

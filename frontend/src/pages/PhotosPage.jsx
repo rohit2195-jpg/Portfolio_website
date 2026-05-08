@@ -5,7 +5,10 @@ export default function PhotosPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <h2>Photos</h2>
+        <h2>
+          Photos
+          <span className="page-pronunciation">[foh-tohz]</span>
+        </h2>
 
         <p className="page-lead">
           A small collection of albums. Open any album to browse the full set.

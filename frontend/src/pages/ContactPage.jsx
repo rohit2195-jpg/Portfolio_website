@@ -3,7 +3,10 @@ import resumePdf from "../assets/Rohit_Sattuluri_Resume.pdf";
 export default function ContactPage() {
   return (
     <section className="contact-card">
-      <h2>Contact</h2>
+      <h2>
+        Contact
+        <span className="page-pronunciation">[kon-takt]</span>
+      </h2>
       <p className="page-lead">
         an establishing of communication with someone.
       </p>
