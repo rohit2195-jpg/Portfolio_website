@@ -4,12 +4,9 @@ export default function AboutPage() {
       <section className="page-intro page-intro-compact">
         <h2>About</h2>
 
-        <p className="page-lead">
-          My coursework includes Data Engineering in Python, Object-Oriented
-          Programming in Java, Programming in C, Great Issues in Computer Science,
-          Computer Architecture, Data Structures and Algorithms, Systems Programming,
-          and Information Systems.
-        </p>
+        <p className="page-lead"> A collection of facts regarding a specific entity </p>
+
+
       </section>
 
       <section className="stacked-sections">
@@ -36,6 +33,24 @@ export default function AboutPage() {
             </div>
           </div>
         </article>
+        
+        <article className="section-card">
+          <p className="eyebrow">
+            <i className="fa-regular fa-lightbulb icon-inline" aria-hidden="true"></i>
+            CourseWork
+          </p>
+          <div className="definition-list">
+
+            <div className="definition-item">
+              <h2>Courses </h2>
+<p> Data Engineering in Python, Object-Oriented
+          Programming in Java, Programming in C, Great Issues in Computer Science,
+          Computer Architecture, Data Structures and Algorithms, Systems Programming,
+          and Information Systems. </p>
+            </div>
+          </div>
+        </article>
+
 
         <article className="section-card">
           <p className="eyebrow">

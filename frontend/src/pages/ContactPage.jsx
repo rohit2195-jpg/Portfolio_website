@@ -5,7 +5,7 @@ export default function ContactPage() {
     <section className="contact-card">
       <h2>Contact</h2>
       <p className="page-lead">
-        The best way to reach me is by email. Thanks for reaching out!
+        An establishing of communication with someone.
       </p>
 
       <div className="contact-links">

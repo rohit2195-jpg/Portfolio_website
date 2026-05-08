@@ -29,8 +29,8 @@ const navItems = [
   {
     to: "/miscellaneous",
     label: "Miscellaneous",
-    regularIcon: "fa-regular fa-image",
-    solidIcon: "fa-solid fa-image",
+    regularIcon: "fa-regular fa-list",
+    solidIcon: "fa-solid fa-list",
   },
 ];
 

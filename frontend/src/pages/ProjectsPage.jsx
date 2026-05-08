@@ -72,9 +72,8 @@ export default function ProjectsPage() {
         <h2>Projects</h2>
 
         <p className="page-lead">
-          More work and experiments are available on GitHub, but these projects show
-          the kind of products and systems I enjoy building most.
-        </p>
+         a large undertaking that is usually contemplated or planned
+         </p>
       </section>
 
       <section className="project-grid">

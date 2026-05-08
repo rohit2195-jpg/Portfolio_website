@@ -6,7 +6,7 @@ export default function Miscellaneous() {
       <section className="page-intro page-intro-compact">
         <h2>Miscellaneous</h2>
         <p className="page-lead">
-          A collection of things that do not fit anywhere else.
+          a collection of things that do not fit anywhere else.
         </p>
       </section>
 
