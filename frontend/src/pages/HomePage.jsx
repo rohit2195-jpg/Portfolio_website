@@ -12,13 +12,7 @@ export default function HomePage() {
             full-stack development, machine learning, and practical AI applications.
           </p>
         </div>
-        <aside className="hero-aside">
-          <p className="aside-label">Current focus</p>
-          <p>
-            Software engineering, predictive systems, and AI tools that are actually
-            useful.
-          </p>
-        </aside>
+
       </section>
 
       <section className="content-grid">
@@ -28,8 +22,7 @@ export default function HomePage() {
             What I do
           </p>
           <p>
-            I build software across web apps, predictive systems, and AI-powered
-            tools, with an emphasis on clean interfaces and practical outcomes.
+            I am passionate about building software that has an beneficial impact on daily life 
           </p>
         </article>
 
