@@ -5,7 +5,7 @@ export default function ContactPage() {
     <section className="contact-card">
       <h2>Contact</h2>
       <p className="page-lead">
-        An establishing of communication with someone.
+        an establishing of communication with someone.
       </p>
 
       <div className="contact-links">

@@ -4,7 +4,7 @@ export default function AboutPage() {
       <section className="page-intro page-intro-compact">
         <h2>About</h2>
 
-        <p className="page-lead"> A collection of facts regarding a specific entity </p>
+        <p className="page-lead"> a collection of facts regarding a specific entity </p>
 
 
       </section>

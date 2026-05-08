@@ -30,8 +30,7 @@ export default function HomePage() {
             What I am learning
           </p>
           <p>
-            I am continuing to deepen my understanding in machine learning, AI
-            applications, systems programming, and data engineering.
+            I am a Computer Science student at Purdue University and continuing to deepen my understanding in machine learning, AI applications, systems programming, and data engineering.
           </p>
         </article>
 
