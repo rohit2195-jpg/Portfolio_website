@@ -5,11 +5,9 @@ export default function HomePage() {
         <div className="hero-copy">
           <h2>Portfolio</h2>
           <h1></h1>
+          
           <p className="hero-lead">
-            Welcome to my corner of the internet!
-            {" "}
-            I am a Computer Science student at Purdue University working across
-            full-stack development, machine learning, and practical AI applications.
+            a curated collection of materials or work compiled over a period of time
           </p>
         </div>
 
@@ -43,7 +41,7 @@ export default function HomePage() {
             What to explore
           </p>
           <p>
-            Use this site to get a quick view of my background, technical skills,
+            Check out this website to view my background, technical skills,
             project work, and the areas I am actively building in.
           </p>
         </article>
