@@ -49,7 +49,7 @@ export default function PhotoAlbumPage() {
         <p>
           The album you requested does not exist or is missing a cover image.
           <br />
-          <Link to="/photos">Return to all photos</Link>
+          <Link to="/miscellaneous/photos">Return to all photos</Link>
         </p>
       </section>
     );
@@ -62,7 +62,7 @@ export default function PhotoAlbumPage() {
       <section className="page-intro page-intro-compact">
         <p className="eyebrow">
           <i className="fa-regular fa-image icon-inline" aria-hidden="true"></i>
-          <Link to="/photos">All albums</Link>
+          <Link to="/miscellaneous/photos">All albums</Link>
         </p>
         <h2>{album.title}</h2>
 

@@ -15,7 +15,7 @@ export default function PhotosPage() {
       {photoAlbums.length ? (
         <section className="album-grid" aria-label="Photo albums">
           {photoAlbums.map((album) => (
-            <Link key={album.slug} className="album-card" to={`/photos/${album.slug}`}>
+            <Link key={album.slug} className="album-card" to={album.slug}>
               <div className="album-cover-frame">
                 <img className="album-cover" src={album.coverSrc} alt={`${album.title} cover`} />
               </div>
