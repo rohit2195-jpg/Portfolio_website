@@ -7,6 +7,16 @@
   --accent-hover: #163b7b;
   --surface: #f3f3f1;
   --content-width: 900px;
+  /* Metro palette (light) */
+  --metro-land: #ffffff;
+  --metro-water: #A6D2FF;
+  --metro-park: #C1D8AC;
+  --metro-line-red: #BF0D3E;
+  --metro-line-orange: #E3801C;
+  --metro-line-blue: #0072CE;
+  --metro-line-silver: #A1A1A4;
+  --metro-line-yellow: #FFD200;
+  --metro-line-green: #00B140;
   color-scheme: light;
 }
 
@@ -18,7 +28,174 @@
   --accent: #8fb8ff;
   --accent-hover: #bfd4ff;
   --surface: #1a1d20;
+  /* Metro palette (dark / night map) */
+  --metro-land: #1a1d24;
+  --metro-water: #2a4d6e;
+  --metro-park: #2d4a32;
   color-scheme: dark;
+}
+
+.metro-map {
+  width: 100vw;
+  max-width: 1400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 24px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1400px) {
+  .metro-map {
+    width: 1400px;
+    left: 50%;
+    margin-left: -700px;
+    margin-right: -700px;
+  }
+}
+
+.metro-map-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 18px 24px;
+}
+
+.metro-map-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.metro-map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.metro-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+}
+
+.metro-marker-ring {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 3px #fff;
+  transition: transform 160ms ease;
+  flex-shrink: 0;
+}
+
+.metro-marker-ring-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metro-marker-ring-inner::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #111;
+}
+
+.metro-marker:hover .metro-marker-ring,
+.metro-marker:focus-visible .metro-marker-ring {
+  transform: scale(1.15);
+}
+
+.metro-marker:focus-visible {
+  outline: none;
+}
+
+.metro-marker:focus-visible .metro-marker-ring {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--accent);
+}
+
+.metro-marker-label {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.metro-marker-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.metro-marker-pron {
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.metro-marker--label-left {
+  flex-direction: row-reverse;
+}
+
+.metro-marker--label-left .metro-marker-label {
+  align-items: flex-end;
+}
+
+.metro-marker--label-top {
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.metro-marker--label-top .metro-marker-label {
+  align-items: center;
+}
+
+.metro-marker--label-bottom {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metro-marker--label-bottom .metro-marker-label {
+  align-items: center;
+}
+
+[data-theme="dark"] .metro-map-frame {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .metro-marker-label {
+  background: rgba(255, 255, 255, 0.95);
 }
 
 *,
