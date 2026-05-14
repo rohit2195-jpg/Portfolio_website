@@ -133,8 +133,7 @@
 }
 
 [data-theme="dark"] .metro-map-frame {
-  background: var(--metro-land);
-  outline: 1px solid #3a3d40;
+  background: #000000;
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-outer {
@@ -142,12 +141,12 @@
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-mid {
-  fill: var(--metro-land);
+  fill: #000000;
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-label {
   fill: #f3f1ea;
-  stroke: var(--metro-land);
+  stroke: #000000;
 }
 
 /* ============================
@@ -1860,7 +1859,7 @@ figure {
 
 .departure-board .contact-row {
   display: grid;
-  grid-template-columns: 52px 1fr 80px;
+  grid-template-columns: 52px 1fr 90px;
   gap: 12px;
   align-items: center;
   padding: 14px 18px;
@@ -1912,15 +1911,25 @@ figure {
 .departure-platform {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.departure-platform-code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--metro-line-yellow);
 }
 
 .departure-platform-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--metro-line-yellow);
   box-shadow: 0 0 8px var(--metro-line-yellow);
+  flex-shrink: 0;
 }
 
 .departure-board-footer {
@@ -2365,6 +2374,10 @@ figure {
 /* ============================
    Phase 2: Station Entrance Sign (Contact)
    ============================ */
+
+.section-contact {
+  padding-left: 0;
+}
 
 .contact-board-wrapper {
   max-width: 600px;
