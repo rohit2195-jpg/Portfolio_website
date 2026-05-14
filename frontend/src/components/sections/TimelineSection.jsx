@@ -1,4 +1,5 @@
 import { experience, leadership } from "../../data/timeline";
+import FadeIn from "../FadeIn";
 import LineManifest from "./LineManifest";
 import SectionHeader from "./SectionHeader";
 
@@ -55,11 +56,10 @@ function TimelineGroup({ heading, items, variant }) {
         <span className="timeline-group-text">{heading}</span>
       </h3>
       <div className="timeline-track">
-        {items.map((item) => (
-          <StationEntry
-            key={`${item.title}-${item.company}`}
-            item={item}
-          />
+        {items.map((item, idx) => (
+          <FadeIn key={`${item.title}-${item.company}`} delay={idx * 0.1}>
+            <StationEntry item={item} />
+          </FadeIn>
         ))}
       </div>
     </div>

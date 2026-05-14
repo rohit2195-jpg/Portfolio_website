@@ -4,7 +4,6 @@ import BackToMap from "../components/sections/BackToMap";
 import ContactSection from "../components/sections/ContactSection";
 import MetroMap from "../components/MetroMap/MetroMap";
 import MetroMapMobile from "../components/MetroMap/MetroMapMobile";
-import MiniMap from "../components/MetroMap/MiniMap";
 import { PORTFOLIO_STATIONS } from "../components/MetroMap/stations";
 import MiscellaneousSection from "../components/sections/MiscellaneousSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
@@ -67,7 +66,6 @@ export default function HomePage({ initialSection }) {
         style={{ "--scroll-pct": `${scrollPct}%`, "--bar-color": activeColor }}
         aria-hidden="true"
       />
-      <MiniMap activeSection={activeSection} onNavigateToSection={handleNavigate} />
       <MetroMap onNavigateToSection={handleNavigate} />
       <MetroMapMobile onNavigateToSection={handleNavigate} />
       <div className="system-status-bar" aria-hidden="true">

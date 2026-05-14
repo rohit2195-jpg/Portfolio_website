@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { photoAlbums } from "../photoAlbums";
+import BackToMap from "../components/sections/BackToMap";
 
 export default function PhotosPage() {
   return (
@@ -46,6 +47,7 @@ export default function PhotosPage() {
           </p>
         </section>
       )}
+      <BackToMap />
     </>
   );
 }

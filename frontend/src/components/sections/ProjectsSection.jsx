@@ -1,4 +1,5 @@
 import { projects } from "../../data/projects";
+import FadeIn from "../FadeIn";
 import LineManifest from "./LineManifest";
 import SectionHeader from "./SectionHeader";
 
@@ -44,7 +45,7 @@ export default function ProjectsSection() {
           const color = KICKER_COLOR[p.kickerIcon] || "#A1A1A4";
           const platform = String(idx + 1).padStart(2, "0");
           return (
-            <article key={p.title} className="project-card-v2">
+            <FadeIn key={p.title} delay={idx * 0.08} as="article" className="project-card-v2">
               {p.image ? (
                 <div className="project-card-hero project-card-hero-image">
                   <img src={p.image} alt={`${p.title} preview`} loading="lazy" />
@@ -69,7 +70,7 @@ export default function ProjectsSection() {
                     {para}
                   </p>
                 ))}
-                {p.stack && <StackStripMap stack={p.stack} color={color} />}
+                {p.stack && <StackStripMap stack={p.stack} color="var(--metro-line-blue)" />}
               </div>
               <div className="project-card-footer">
                 {p.repoHref && (
@@ -95,7 +96,7 @@ export default function ProjectsSection() {
                   </a>
                 )}
               </div>
-            </article>
+            </FadeIn>
           );
         })}
       </div>
