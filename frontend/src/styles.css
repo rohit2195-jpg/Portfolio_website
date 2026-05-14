@@ -17,6 +17,12 @@
   --metro-line-silver: #A1A1A4;
   --metro-line-yellow: #FFD200;
   --metro-line-green: #00B140;
+  --metro-line-purple: #6950A1;
+  /* Project card palette */
+  --card-bg: #f9f4e2;
+  --card-text: #2a2a2a;
+  --card-muted: #4a4538;
+  --card-hero-img-bg: #e8e2cd;
   color-scheme: light;
 }
 
@@ -32,13 +38,18 @@
   --metro-land: #1a1d24;
   --metro-water: #2a4d6e;
   --metro-park: #2d4a32;
+  /* Project card palette (dark) */
+  --card-bg: #2a2620;
+  --card-text: #f3f1ea;
+  --card-muted: #d4ccb8;
+  --card-hero-img-bg: #1f1c17;
   color-scheme: dark;
 }
 
 .metro-map {
   width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .metro-map-hint {
@@ -52,12 +63,10 @@
 .metro-map-frame {
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: min(1100px, calc((100vh - 140px) * 760 / 630));
   margin: 0 auto;
-  border-radius: 24px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
   aspect-ratio: 760 / 630;
 }
 
@@ -86,7 +95,8 @@
 .metro-marker-svg-outer {
   fill: #111111;
   transition: transform 160ms ease;
-  transform-origin: 0 0;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .metro-marker-svg-mid {
@@ -99,13 +109,13 @@
 }
 
 .metro-marker-svg:focus-visible .metro-marker-svg-outer {
-  stroke: #FFD200;
-  stroke-width: 2;
+  stroke: var(--accent);
+  stroke-width: 2.5;
 }
 
 .metro-marker-svg-label {
   font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   fill: #111111;
   paint-order: stroke fill;
@@ -117,13 +127,27 @@
 }
 
 .metro-marker-svg--secondary .metro-marker-svg-label {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   stroke-width: 3;
 }
 
 [data-theme="dark"] .metro-map-frame {
-  background: #ffffff;
+  background: var(--metro-land);
+  outline: 1px solid #3a3d40;
+}
+
+[data-theme="dark"] .metro-map-markers .metro-marker-svg-outer {
+  fill: #f3f1ea;
+}
+
+[data-theme="dark"] .metro-map-markers .metro-marker-svg-mid {
+  fill: var(--metro-land);
+}
+
+[data-theme="dark"] .metro-map-markers .metro-marker-svg-label {
+  fill: #f3f1ea;
+  stroke: var(--metro-land);
 }
 
 /* ============================
@@ -320,8 +344,8 @@
 
 .about-subheading {
   font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 36px;
+  font-weight: 600;
+  font-size: 26px;
   line-height: 1.1;
   margin: 0 0 1rem;
   color: var(--text);
@@ -354,7 +378,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--metro-line-red);
+  background: #6950A1;
   flex-shrink: 0;
 }
 
@@ -430,7 +454,7 @@
 }
 
 .project-card-v2 {
-  background: #f9f4e2;
+  background: var(--card-bg);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -453,7 +477,7 @@
 }
 
 .project-card-hero-image {
-  background: #e8e2cd;
+  background: var(--card-hero-img-bg);
 }
 
 .project-card-hero-image img {
@@ -464,7 +488,7 @@
 }
 
 [data-theme="dark"] .project-card-hero-image {
-  background: #1f1c17;
+  background: var(--card-hero-img-bg);
 }
 
 .project-card-body {
@@ -481,14 +505,14 @@
   font-size: 24px;
   line-height: 1.2;
   margin: 0 0 4px;
-  color: #2a2a2a;
+  color: var(--card-text);
 }
 
 .project-card-text {
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
-  color: #4a4538;
+  color: var(--card-muted);
 }
 
 .project-card-stack {
@@ -504,7 +528,7 @@
   display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  color: #4a4538;
+  color: var(--card-muted);
   background: rgba(0, 0, 0, 0.06);
   padding: 3px 8px;
   border-radius: 999px;
@@ -529,7 +553,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #2a2a2a;
+  color: var(--card-text);
   background: rgba(0, 0, 0, 0.05);
   text-decoration: none;
   transition: background 160ms ease, transform 160ms ease;
@@ -541,23 +565,18 @@
   transform: translateY(-1px);
 }
 
-[data-theme="dark"] .project-card-v2 {
-  background: #2a2620;
-}
-[data-theme="dark"] .project-card-title { color: #f3f1ea; }
-[data-theme="dark"] .project-card-text { color: #d4ccb8; }
 [data-theme="dark"] .project-card-iconlink {
-  color: #f3f1ea;
+  color: var(--card-text);
   background: rgba(255, 255, 255, 0.08);
 }
 
 .project-card-iconlink--live {
-  color: #87CEEB;
+  color: #0066b8;
 }
 .project-card-iconlink--live:hover,
 .project-card-iconlink--live:focus-visible {
-  color: #5bb8e8;
-  background: rgba(135, 206, 235, 0.12);
+  color: #004d8a;
+  background: rgba(0, 102, 184, 0.1);
 }
 [data-theme="dark"] .project-card-iconlink--live {
   color: #87CEEB;
@@ -1006,7 +1025,7 @@ figure {
 .page-shell {
   width: min(calc(100% - 2rem), var(--content-width));
   margin: 0 auto;
-  padding: 1.25rem 0 3rem;
+  padding: 0.5rem 0 3rem;
 }
 
 .site-header {
@@ -1014,7 +1033,7 @@ figure {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
   gap: 1rem;
-  padding: 0.25rem 0 2rem;
+  padding: 0.25rem 0 1rem;
 }
 
 .site-header-controls {
@@ -1745,7 +1764,7 @@ figure {
   height: 14px;
   border-radius: 50%;
   background: var(--strip-color, #0072CE);
-  box-shadow: 0 0 0 3px #f9f4e2, 0 0 0 5px var(--strip-color, #0072CE);
+  box-shadow: 0 0 0 3px var(--card-bg), 0 0 0 5px var(--strip-color, #0072CE);
   flex-shrink: 0;
   margin-bottom: 8px;
 }
@@ -1755,18 +1774,14 @@ figure {
 }
 
 .stack-strip-label {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #4a4538;
+  color: var(--card-muted);
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
-}
-
-[data-theme="dark"] .stack-strip-label {
-  color: #b8ae98;
 }
 
 /* ============================
@@ -1913,7 +1928,7 @@ figure {
   background: var(--surface);
   border-top: 1px solid var(--border);
   font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1953,7 +1968,7 @@ figure {
   align-items: center;
   gap: 12px;
   padding: 10px 16px;
-  background: var(--metro-line-red);
+  background: #6950A1;
   color: #fff;
 }
 
@@ -1968,7 +1983,7 @@ figure {
   justify-content: center;
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   flex-shrink: 0;
   font-family: "Courier New", Courier, monospace;
 }
@@ -2270,7 +2285,7 @@ figure {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2390,7 +2405,7 @@ figure {
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
   font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;

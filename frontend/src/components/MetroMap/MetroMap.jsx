@@ -9,8 +9,8 @@ const RADII = {
 };
 
 const LABEL_OFFSET = {
-  primary:   { right: [16, 0], left: [-16, 0], top: [0, -16], bottom: [0, 20] },
-  secondary: { right: [12, 0], left: [-12, 0], top: [0, -12], bottom: [0, 14] },
+  primary:   { right: [20, 0], left: [-20, 0], top: [0, -20], bottom: [0, 24] },
+  secondary: { right: [14, 0], left: [-14, 0], top: [0, -14], bottom: [0, 18] },
 };
 
 const LABEL_ANCHOR = { right: "start", left: "end", top: "middle", bottom: "middle" };

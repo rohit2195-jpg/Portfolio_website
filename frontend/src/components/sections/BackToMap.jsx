@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function BackToMap() {
-  const [onSubPage] = useState(() => !document.getElementById("map"));
+  const { pathname } = useLocation();
+  const onSubPage = pathname !== "/";
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (onSubPage) return;
     const map = document.getElementById("map");
     if (!map) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { rootMargin: "-80px 0px 0px 0px", threshold: 0 },
-    );
-    observer.observe(map);
-    return () => observer.disconnect();
+    const check = () => setVisible(map.getBoundingClientRect().bottom < 80);
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check, { passive: true });
+    // rAF ensures layout is stable before first check
+    const raf = requestAnimationFrame(check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+      cancelAnimationFrame(raf);
+    };
   }, [onSubPage]);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    const map = document.getElementById("map");
-    if (map) map.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   if (onSubPage) {
     return (
@@ -40,7 +39,10 @@ export default function BackToMap() {
     <a
       href="#map"
       className={`back-to-map-fab${visible ? " back-to-map-fab--visible" : ""}`}
-      onClick={handleClick}
+      onClick={(e) => {
+        e.preventDefault();
+        document.getElementById("map")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }}
       aria-label="Back to map"
     >
       <i className="fa-solid fa-arrow-up" aria-hidden="true" />

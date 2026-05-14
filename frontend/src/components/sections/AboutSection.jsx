@@ -36,10 +36,10 @@ export default function AboutSection() {
   }, [alertOpen]);
 
   return (
-    <section id="about" data-line="red" className="section section-about">
+    <section id="about" data-line="silver" className="section section-about">
       <div onDoubleClick={() => setAlertOpen(true)} style={{ cursor: "default" }}>
         <SectionHeader
-          color="#BF0D3E"
+          color="#6950A1"
           title="About"
           pronunciation="[uh-bout]"
           definition="a collection of facts regarding a specific entity"

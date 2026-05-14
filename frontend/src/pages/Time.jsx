@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Clock from "../components/Clock";
 import BackToMap from "../components/sections/BackToMap";
 
@@ -14,6 +15,10 @@ export default function Time() {
   return (
     <>
       <section className="page-intro page-intro-compact">
+        <p className="eyebrow">
+          <i className="fa-solid fa-arrow-left icon-inline" aria-hidden="true"></i>
+          <Link to="/" state={{ scrollTo: "miscellaneous" }}>Miscellaneous</Link>
+        </p>
         <h2>
           Clock
           <span className="page-pronunciation">[klok]</span>

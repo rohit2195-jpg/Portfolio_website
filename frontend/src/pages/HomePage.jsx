@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import AboutSection from "../components/sections/AboutSection";
 import BackToMap from "../components/sections/BackToMap";
 import ContactSection from "../components/sections/ContactSection";
@@ -14,8 +15,8 @@ const SECTION_TO_ANCHOR = {
   about: "about",
   projects: "projects",
   timeline: "timeline",
-  photos: "photos",
-  clock: "clock",
+  photos: "miscellaneous",
+  clock: "miscellaneous",
   contact: "contact",
 };
 
@@ -26,6 +27,7 @@ const SECTION_COLOR = Object.fromEntries(
 const OBSERVED_IDS = ["about", "projects", "timeline", "photos", "clock", "contact"];
 
 export default function HomePage({ initialSection }) {
+  const location = useLocation();
   const [scrollPct, setScrollPct] = useState(0);
 
   useEffect(() => {
@@ -40,17 +42,18 @@ export default function HomePage({ initialSection }) {
   }, []);
 
   const activeSection = useActiveSection(OBSERVED_IDS);
-  const activeColor = SECTION_COLOR[activeSection] ?? "#BF0D3E";
+  const activeColor = SECTION_COLOR[activeSection] ?? "#A1A1A4";
 
   useEffect(() => {
-    if (!initialSection) return;
-    const anchor = SECTION_TO_ANCHOR[initialSection];
+    const section = initialSection ?? location.state?.scrollTo;
+    if (!section) return;
+    const anchor = SECTION_TO_ANCHOR[section] ?? section;
     if (!anchor) return;
     const timer = setTimeout(() => {
       document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 150);
     return () => clearTimeout(timer);
-  }, [initialSection]);
+  }, [initialSection, location.state?.scrollTo]);
 
   const handleNavigate = useCallback((section) => {
     const anchor = SECTION_TO_ANCHOR[section];
@@ -70,7 +73,7 @@ export default function HomePage({ initialSection }) {
       <MetroMapMobile onNavigateToSection={handleNavigate} />
       <div className="system-status-bar" aria-hidden="true">
         <span className="system-status-dot" />
-        <span className="system-status-text">All Lines Operating Normally — Rohit Sattuluri Transit Authority</span>
+        <span className="system-status-text">All Lines Operating Normally — RS Transit Authority</span>
       </div>
 
       <AboutSection />
