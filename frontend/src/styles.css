@@ -58,139 +58,72 @@
   overflow: hidden;
   background: #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
-  padding: 18px 24px;
+  aspect-ratio: 760 / 630;
 }
 
-.metro-map-image {
+.metro-map-layer {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
-  user-select: none;
-  pointer-events: none;
 }
 
-.metro-map-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.metro-map-layer > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.metro-marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+.metro-map-markers {
+  overflow: visible;
 }
 
-.metro-marker-ring {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #111;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 3px #fff;
-  transition: transform 160ms ease;
-  flex-shrink: 0;
-}
-
-.metro-marker-ring-inner {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.metro-marker-ring-inner::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #111;
-}
-
-.metro-marker:hover .metro-marker-ring,
-.metro-marker:focus-visible .metro-marker-ring {
-  transform: scale(1.15);
-}
-
-.metro-marker:focus-visible {
+.metro-marker-svg {
   outline: none;
 }
 
-.metro-marker:focus-visible .metro-marker-ring {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #111, 0 0 0 9px #FFD200;
+.metro-marker-svg-outer {
+  fill: #111111;
+  transition: transform 160ms ease;
+  transform-origin: 0 0;
 }
 
-.metro-marker-label {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #ffffff;
-  padding: 3px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-  white-space: nowrap;
-  line-height: 1.1;
+.metro-marker-svg-mid {
+  fill: #ffffff;
 }
 
-.metro-marker-title {
+.metro-marker-svg:hover .metro-marker-svg-outer,
+.metro-marker-svg:focus-visible .metro-marker-svg-outer {
+  transform: scale(1.25);
+}
+
+.metro-marker-svg:focus-visible .metro-marker-svg-outer {
+  stroke: #FFD200;
+  stroke-width: 2;
+}
+
+.metro-marker-svg-label {
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  fill: #111111;
+  paint-order: stroke fill;
+  stroke: #ffffff;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+.metro-marker-svg--secondary .metro-marker-svg-label {
+  font-size: 13px;
   font-weight: 600;
-  font-size: 1rem;
-  color: #111;
-}
-
-
-.metro-marker-pron {
-  font-weight: 400;
-  font-size: 0.7rem;
-  color: #555;
-}
-
-.metro-marker--label-left {
-  flex-direction: row-reverse;
-}
-
-.metro-marker--label-left .metro-marker-label {
-  align-items: flex-end;
-}
-
-.metro-marker--label-top {
-  flex-direction: column-reverse;
-  gap: 4px;
-}
-
-.metro-marker--label-top .metro-marker-label {
-  align-items: center;
-}
-
-.metro-marker--label-bottom {
-  flex-direction: column;
-  gap: 4px;
-}
-
-.metro-marker--label-bottom .metro-marker-label {
-  align-items: center;
+  stroke-width: 3;
 }
 
 [data-theme="dark"] .metro-map-frame {
   background: #ffffff;
-}
-
-[data-theme="dark"] .metro-marker-label {
-  background: rgba(255, 255, 255, 0.95);
 }
 
 /* ============================
