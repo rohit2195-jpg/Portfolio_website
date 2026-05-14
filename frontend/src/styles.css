@@ -133,7 +133,7 @@
 }
 
 [data-theme="dark"] .metro-map-frame {
-  background: #000000;
+  background: var(--bg);
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-outer {
@@ -141,12 +141,12 @@
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-mid {
-  fill: #000000;
+  fill: var(--bg);
 }
 
 [data-theme="dark"] .metro-map-markers .metro-marker-svg-label {
   fill: #f3f1ea;
-  stroke: #000000;
+  stroke: var(--bg);
 }
 
 /* ============================
