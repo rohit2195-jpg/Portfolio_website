@@ -3,9 +3,13 @@ import AboutSection from "../components/sections/AboutSection";
 import BackToMap from "../components/sections/BackToMap";
 import ContactSection from "../components/sections/ContactSection";
 import MetroMap from "../components/MetroMap/MetroMap";
+import MetroMapMobile from "../components/MetroMap/MetroMapMobile";
+import MiniMap from "../components/MetroMap/MiniMap";
+import { PORTFOLIO_STATIONS } from "../components/MetroMap/stations";
 import MiscellaneousSection from "../components/sections/MiscellaneousSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
 import TimelineSection from "../components/sections/TimelineSection";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 const SECTION_TO_ANCHOR = {
   about: "about",
@@ -16,17 +20,14 @@ const SECTION_TO_ANCHOR = {
   contact: "contact",
 };
 
-const LINE_COLORS = {
-  red: "#BF0D3E",
-  blue: "#0072CE",
-  green: "#00B140",
-  orange: "#E3801C",
-  yellow: "#FFD200",
-};
+const SECTION_COLOR = Object.fromEntries(
+  PORTFOLIO_STATIONS.map((s) => [s.section, s.color])
+);
 
-export default function HomePage() {
+const OBSERVED_IDS = ["about", "projects", "timeline", "photos", "clock", "contact"];
+
+export default function HomePage({ initialSection }) {
   const [scrollPct, setScrollPct] = useState(0);
-  const [activeColor, setActiveColor] = useState("#BF0D3E");
 
   useEffect(() => {
     const onScroll = () => {
@@ -39,20 +40,18 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const activeSection = useActiveSection(OBSERVED_IDS);
+  const activeColor = SECTION_COLOR[activeSection] ?? "#BF0D3E";
+
   useEffect(() => {
-    const sections = document.querySelectorAll("section[data-line]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length === 0) return;
-        const line = visible[visible.length - 1].target.dataset.line;
-        if (LINE_COLORS[line]) setActiveColor(LINE_COLORS[line]);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+    if (!initialSection) return;
+    const anchor = SECTION_TO_ANCHOR[initialSection];
+    if (!anchor) return;
+    const timer = setTimeout(() => {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [initialSection]);
 
   const handleNavigate = useCallback((section) => {
     const anchor = SECTION_TO_ANCHOR[section];
@@ -68,7 +67,9 @@ export default function HomePage() {
         style={{ "--scroll-pct": `${scrollPct}%`, "--bar-color": activeColor }}
         aria-hidden="true"
       />
+      <MiniMap activeSection={activeSection} onNavigateToSection={handleNavigate} />
       <MetroMap onNavigateToSection={handleNavigate} />
+      <MetroMapMobile onNavigateToSection={handleNavigate} />
       <div className="system-status-bar" aria-hidden="true">
         <span className="system-status-dot" />
         <span className="system-status-text">All Lines Operating Normally — Rohit Sattuluri Transit Authority</span>
