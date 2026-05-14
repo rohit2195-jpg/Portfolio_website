@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { photoAlbums } from "../photoAlbums";
+import BackToMap from "../components/sections/BackToMap";
 
 export default function PhotosPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
+        <p className="eyebrow">
+          <i className="fa-solid fa-arrow-left icon-inline" aria-hidden="true"></i>
+          <Link to="/" state={{ scrollTo: "miscellaneous" }}>Miscellaneous</Link>
+        </p>
         <h2>
           Photos
           <span className="page-pronunciation">[foh-tohz]</span>
@@ -46,6 +51,7 @@ export default function PhotosPage() {
           </p>
         </section>
       )}
+      <BackToMap />
     </>
   );
 }
