@@ -24,15 +24,15 @@ export default function AboutPage() {
           <div className="definition-list">
             <div className="definition-item">
               <h2>Languages</h2>
-              <p>{skills.languages.items}</p>
+              <p>{skills.languages.map((s) => s.name).join(", ")}</p>
             </div>
             <div className="definition-item">
               <h2>Frameworks &amp; libraries</h2>
-              <p>{skills.libraries.items}</p>
+              <p>{skills.libraries.map((s) => s.name).join(", ")}</p>
             </div>
             <div className="definition-item">
               <h2>Tools</h2>
-              <p>{skills.tools.items}</p>
+              <p>{skills.tools.map((s) => s.name).join(", ")}</p>
             </div>
           </div>
         </article>
@@ -45,7 +45,7 @@ export default function AboutPage() {
           <div className="definition-list">
             <div className="definition-item">
               <h2>Courses </h2>
-              <p>{coursework}</p>
+              <p>{coursework.join(", ")}</p>
             </div>
           </div>
         </article>

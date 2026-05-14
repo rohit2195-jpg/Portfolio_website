@@ -12,8 +12,7 @@ export const experience = [
     location: "West Lafayette, IN",
     dateRange: "Aug 2025 - Present",
     bullets: [
-      "Collaborating with Johnson & Johnson to automate departmental budget and invoice reports by integrating financial data pipelines directly into Power BI.",
-      "Designing interactive dashboards in Power BI to visualize budgets, invoices, and committed spending, enabling faster financial tracking across departments.",
+      "Partnering with Johnson & Johnson to automate budget and invoice reporting through Power BI pipelines and interactive dashboards that surface committed spending across departments.",
     ],
   },
   {
@@ -22,8 +21,7 @@ export const experience = [
     location: "Pittsburgh, PA",
     dateRange: "Dec 2023 - Feb 2024",
     bullets: [
-      "Developed a full-stack web application using Node.js, HTML, CSS, and JavaScript to generate customized power meter recommendations.",
-      "Designed and implemented a centralized database of 12 power meters, consolidating technical specifications into one source.",
+      "Built a Node.js full-stack web app backed by a unified database of 12 power meters that generates customized meter recommendations from their consolidated specifications.",
     ],
   },
 ];
@@ -35,8 +33,7 @@ export const leadership = [
     location: "Williamsport, PA",
     dateRange: "June 2025 - Aug 2025",
     bullets: [
-      "Supervised students during meals, free time, and overnight hours and responded to unexpected situations, including medical emergencies.",
-      "Processed keys, prepared dorms, and organized materials to support smooth day-to-day operations.",
+      "Supervised students through meals, free time, and overnight hours while handling logistics like keys and dorm prep and responding to medical and other emergencies as they arose.",
     ],
   },
   {
@@ -45,8 +42,7 @@ export const leadership = [
     location: "Pittsburgh, PA",
     dateRange: "Jun 2024 - Aug 2024",
     bullets: [
-      "Supervised and engaged campers in daily activities while helping maintain a safe, inclusive, and positive environment.",
-      "Collaborated with staff on a six-week program that supported camper growth and development.",
+      "Led campers through a six-week program of daily activities alongside fellow staff, fostering a safe and inclusive environment that supported their growth.",
     ],
   },
 ];

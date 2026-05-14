@@ -34,7 +34,7 @@ export default function ProjectsPage() {
 
             {project.stack ? <p className="project-stack">{project.stack}</p> : null}
 
-            <a href={project.href} target="_blank" rel="noreferrer">
+            <a href={project.repoHref} target="_blank" rel="noreferrer">
               {project.linkLabel ?? "View on GitHub"}
             </a>
           </article>

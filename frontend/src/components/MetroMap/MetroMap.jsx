@@ -14,7 +14,7 @@ export default function MetroMap({ onNavigateToSection }) {
   };
 
   return (
-    <div className="metro-map">
+    <section id="map" className="metro-map" aria-labelledby="metro-map-hint">
       <div
         className="metro-map-frame"
         style={{ aspectRatio: `${MAP_VIEWBOX.w} / ${MAP_VIEWBOX.h}` }}
@@ -24,7 +24,7 @@ export default function MetroMap({ onNavigateToSection }) {
           alt="Washington DC Metro map"
           className="metro-map-image"
         />
-        <div className="metro-map-overlay" aria-hidden="false">
+        <nav className="metro-map-overlay" aria-label="Portfolio sections">
           {PORTFOLIO_STATIONS.map((s) => {
             const leftPct = (s.x / MAP_VIEWBOX.w) * 100;
             const topPct = (s.y / MAP_VIEWBOX.h) * 100;
@@ -47,8 +47,11 @@ export default function MetroMap({ onNavigateToSection }) {
               </button>
             );
           })}
-        </div>
+        </nav>
       </div>
-    </div>
+      <p id="metro-map-hint" className="metro-map-hint">
+        Click any station to jump to that section.
+      </p>
+    </section>
   );
 }
