@@ -4,9 +4,10 @@ export default function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" aria-label="Rohit Sattuluri home" end>
+        <span className="brand-rsta-badge" aria-hidden="true">RSTA</span>
         <span className="brand-text">
           <span className="brand-name">Rohit Sattuluri</span>
-          <span className="brand-role">Purdue CS student</span>
+          <span className="brand-role">Purdue CS · Pittsburgh, PA</span>
         </span>
       </NavLink>
 

@@ -12,6 +12,7 @@ export default function SectionHeader({
       <div className="section-header-row">
         <LineHeader color={color} />
         <DictionaryHeader
+          color={color}
           title={title}
           pronunciation={pronunciation}
           definition={definition}
