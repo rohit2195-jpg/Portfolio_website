@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { bio, bioTagline, coursework, skills } from "../../data/about";
+import FadeIn from "../FadeIn";
+import { AuroraText } from "../magicui/aurora-text";
 import SectionHeader from "./SectionHeader";
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
@@ -49,7 +51,7 @@ export default function AboutSection() {
       {/* Station pylon card — bio wrapped as Red Line station sign */}
       <div className="station-pylon">
         <div className="station-pylon-header" aria-hidden="true">
-          <span className="station-pylon-badge">RD</span>
+          <span className="station-pylon-badge">PL</span>
           <span className="station-pylon-name">Dupont Circle</span>
         </div>
         <div className="station-pylon-body">
@@ -57,6 +59,18 @@ export default function AboutSection() {
           <p className="section-bio">{bio}</p>
         </div>
       </div>
+
+      <FadeIn>
+        <div className="passion-callout">
+          <h2 className="passion-headline">
+            <AuroraText speed={16}>Building the missing features I want to see in the world.</AuroraText>
+          </h2>
+          <p className="passion-body">
+            Instead of waiting for Spotify to add foreign lyric translation, I built a Node.js
+            and AWS app to inject real-time translations into my live playback.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* GHOST STATION — Abandoned platforms in the Rohit Sattuluri Transit System:
           v0.1 AI Financial Dashboard (deprecated 2023),

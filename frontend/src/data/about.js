@@ -1,6 +1,6 @@
 export const bioTagline = "CS student · Pittsburgh, PA · Software & ML";
 
-export const bio = `Hi, I'm a Computer Science student at Purdue University graduating in Spring 2027, based in Pittsburgh, PA. I'm interested in software development, systems programming, machine learning, and artificial intelligence with a year of experience as an undergraduate researcher for the Purdue Data Mine and Johnson & Johnson.`;
+export const bio = `Hi, I'm a Computer Science student at Purdue University graduating in Spring 2027, based in Pittsburgh, PA. I'm interested in software development, systems programming, machine learning, and artificial intelligence with a year of experience as an undergraduate researcher for the Purdue Data Mine and Johnson & Johnson. I'm passionate about creating software that has a real-world impact.`;
 
 // Each skill is { name, icon? (devicon slug), variant? (devicon variant, default "original"), iconUrl? (overrides icon entirely) }.
 export const skills = {

@@ -37,6 +37,24 @@ export default function MiscellaneousSection() {
           </div>
         </article>
 
+        <article id="board" className="misc-strip-stop">
+          <div className="misc-strip-marker" aria-hidden="true">
+            <div className="misc-strip-node" />
+          </div>
+          <div className="misc-strip-body">
+            <header className="misc-strip-head">
+              <h3 className="misc-strip-title">Status Board</h3>
+              <p className="misc-strip-pron">[stay-tuhs bord]</p>
+            </header>
+            <p className="misc-strip-blurb">
+              All RSTA lines. Live service status on a split-flap departure board.
+            </p>
+            <Link to="/miscellaneous/board" className="misc-card-link">
+              View board →
+            </Link>
+          </div>
+        </article>
+
         <article id="clock" className="misc-strip-stop">
           <div className="misc-strip-marker" aria-hidden="true">
             <div className="misc-strip-node" />
