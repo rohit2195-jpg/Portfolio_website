@@ -7,18 +7,21 @@ const CONTACTS = [
     label: "Email",
     value: "rohit.sattuluri@gmail.com",
     href: "mailto:rohit.sattuluri@gmail.com",
+    platform: "A1",
   },
   {
     icon: "fa-brands fa-github",
     label: "GitHub",
     value: "github.com/rohit2195-jpg",
     href: "https://github.com/rohit2195-jpg",
+    platform: "B2",
   },
   {
     icon: "fa-brands fa-linkedin",
     label: "LinkedIn",
     value: "linkedin.com/in/rohit-sattuluri",
     href: "https://www.linkedin.com/in/rohit-sattuluri/",
+    platform: "C3",
   },
   {
     icon: "fa-solid fa-file",
@@ -26,6 +29,7 @@ const CONTACTS = [
     value: "Rohit_Sattuluri_Resume.pdf",
     href: resumePdf,
     download: "Rohit_Sattuluri_Resume.pdf",
+    platform: "D4",
   },
 ];
 
@@ -68,6 +72,7 @@ export default function ContactSection() {
                 <span className="contact-row-value">{c.value}</span>
               </span>
               <span className="departure-platform" aria-hidden="true">
+                <span className="departure-platform-code">{c.platform}</span>
                 <span className="departure-platform-dot" />
               </span>
             </a>
