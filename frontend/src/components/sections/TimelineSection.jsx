@@ -50,10 +50,15 @@ function StationEntry({ item }) {
 }
 
 function TimelineGroup({ heading, items, variant }) {
+  const code = variant === "experience" ? "EXP" : "LD";
   return (
     <div className="timeline-group" data-variant={variant}>
       <h3 className="timeline-group-heading">
+        <span className="timeline-group-badge">{code}</span>
         <span className="timeline-group-text">{heading}</span>
+        <span className="timeline-group-count">
+          {items.length} {items.length === 1 ? "stop" : "stops"}
+        </span>
       </h3>
       <div className="timeline-track">
         {items.map((item, idx) => (

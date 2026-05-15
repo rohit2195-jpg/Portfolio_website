@@ -7,6 +7,7 @@ import ContactSection from "../components/sections/ContactSection";
 import { Dock, DockIcon } from "../components/magicui/dock";
 import MetroMap from "../components/MetroMap/MetroMap";
 import MetroMapMobile from "../components/MetroMap/MetroMapMobile";
+import StatusFlap from "../components/StatusFlap";
 import { PORTFOLIO_STATIONS } from "../components/MetroMap/stations";
 import MiscellaneousSection from "../components/sections/MiscellaneousSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
@@ -17,6 +18,7 @@ const SECTION_TO_ANCHOR = {
   about: "about",
   projects: "projects",
   timeline: "timeline",
+  miscellaneous: "miscellaneous",
   photos: "miscellaneous",
   clock: "miscellaneous",
   contact: "contact",
@@ -26,13 +28,13 @@ const SECTION_COLOR = Object.fromEntries(
   PORTFOLIO_STATIONS.map((s) => [s.section, s.color])
 );
 
-const OBSERVED_IDS = ["about", "projects", "timeline", "photos", "clock", "contact"];
+const OBSERVED_IDS = ["about", "projects", "timeline", "miscellaneous", "contact"];
 
 const DOCK_ITEMS = [
   { section: "about",    icon: "fa-solid fa-user",     label: "About" },
   { section: "projects", icon: "fa-solid fa-code",     label: "Projects" },
   { section: "timeline", icon: "fa-solid fa-timeline", label: "Timeline" },
-  { section: "photos",   icon: "fa-solid fa-compass",  label: "Misc" },
+  { section: "miscellaneous", icon: "fa-solid fa-compass", label: "Misc" },
   { section: "contact",  icon: "fa-solid fa-envelope", label: "Contact" },
 ];
 
@@ -92,14 +94,11 @@ export default function HomePage({ initialSection }) {
         style={{ "--scroll-pct": `${scrollPct}%`, "--bar-color": activeColor }}
         aria-hidden="true"
       />
-      <div ref={mapRef}>
+      <div id="map" ref={mapRef}>
         <MetroMap onNavigateToSection={handleNavigate} />
         <MetroMapMobile onNavigateToSection={handleNavigate} />
       </div>
-      <div className="system-status-bar" aria-hidden="true">
-        <span className="system-status-dot" />
-        <span className="system-status-text">All Lines Operating Normally — RS Transit Authority</span>
-      </div>
+      <StatusFlap />
 
       <AboutSection />
       <div className="station-divider" aria-hidden="true">

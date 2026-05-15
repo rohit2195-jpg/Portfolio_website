@@ -24,7 +24,7 @@ export default function MetroMap({ onNavigateToSection }) {
   };
 
   return (
-    <section id="map" className="metro-map" aria-labelledby="metro-map-hint">
+    <section className="metro-map" aria-labelledby="metro-map-hint">
       <div className="metro-map-frame">
         <div
           className="metro-map-layer"

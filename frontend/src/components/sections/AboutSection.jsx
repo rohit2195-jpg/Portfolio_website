@@ -63,7 +63,7 @@ export default function AboutSection() {
       <FadeIn>
         <div className="passion-callout">
           <h2 className="passion-headline">
-            <AuroraText>Building the missing features I want to see in the world.</AuroraText>
+            <AuroraText speed={16}>Building the missing features I want to see in the world.</AuroraText>
           </h2>
           <p className="passion-body">
             Instead of waiting for Spotify to add foreign lyric translation, I built a Node.js

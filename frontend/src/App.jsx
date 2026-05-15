@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
+import FlapBoard from "./pages/FlapBoard";
 import HomePage from "./pages/HomePage";
 import Miscellaneous from "./pages/Miscellaneous";
 import PhotoAlbumPage from "./pages/PhotoAlbumPage";
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="photos" element={<PhotosPage />} />
           <Route path="photos/:albumSlug" element={<PhotoAlbumPage />} />
           <Route path="time" element={<Time />} />
+          <Route path="board" element={<FlapBoard />} />
         </Route>
       </Route>
     </Routes>
