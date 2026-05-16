@@ -74,7 +74,7 @@
   --spot-misc: rgba(227, 128, 28, 0.22);
   --spot-contact: rgba(255, 210, 0, 0.16);
   /* Tile texture dark */
-  --tile-pattern: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='46' height='46' rx='2' fill='none' stroke='%23fff' stroke-width='0.6' opacity='0.04'/%3E%3C/svg%3E");
+  --tile-pattern: none;
   color-scheme: dark;
 }
 
@@ -305,55 +305,6 @@
   font-size: 18px;
   color: var(--muted);
   margin: 0;
-}
-
-.back-to-map-fab {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 50;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--bg);
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity 200ms ease, transform 200ms ease, background 160ms ease;
-}
-
-.back-to-map-fab--visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.back-to-map-fab:hover,
-.back-to-map-fab:focus-visible {
-  background: var(--accent);
-  color: #fff;
-  outline: none;
-}
-
-.back-to-map-fab-label {
-  letter-spacing: 0.02em;
-}
-
-@media (max-width: 640px) {
-  .back-to-map-fab {
-    right: 16px;
-    bottom: 16px;
-    padding: 10px 14px;
-    font-size: 13px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -662,19 +613,21 @@
   display: flex;
   flex-direction: column;
   border: 2px solid var(--text);
-  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 240ms ease;
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 260ms ease, border-color 160ms ease;
   will-change: transform;
 }
 
 .project-card-v2:hover {
-  transform: translateY(-5px) translateX(-3px);
-  box-shadow: 5px 5px 0 0 var(--text);
+  transform: translateY(-10px) translateX(-4px) scale(1.02);
+  box-shadow: 10px 10px 0 0 var(--text);
+  border-color: #0072CE;
   position: relative;
   z-index: 1;
 }
 
 [data-theme="dark"] .project-card-v2:hover {
-  box-shadow: 5px 5px 0 0 rgba(243, 241, 234, 0.7);
+  box-shadow: 10px 10px 0 0 rgba(243, 241, 234, 0.8);
+  border-color: #4AABFF;
 }
 
 .project-card-hero {

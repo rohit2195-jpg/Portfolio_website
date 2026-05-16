@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AboutSection from "../components/sections/AboutSection";
-import BackToMap from "../components/sections/BackToMap";
 import ContactSection from "../components/sections/ContactSection";
 import { Dock, DockIcon } from "../components/magicui/dock";
 import MetroMap from "../components/MetroMap/MetroMap";
@@ -31,11 +30,12 @@ const SECTION_COLOR = Object.fromEntries(
 const OBSERVED_IDS = ["about", "projects", "timeline", "miscellaneous", "contact"];
 
 const DOCK_ITEMS = [
-  { section: "about",    icon: "fa-solid fa-user",     label: "About" },
-  { section: "projects", icon: "fa-solid fa-code",     label: "Projects" },
-  { section: "timeline", icon: "fa-solid fa-timeline", label: "Timeline" },
+  { section: "map",      icon: "fa-solid fa-train-subway", label: "Map" },
+  { section: "about",    icon: "fa-solid fa-user",         label: "About" },
+  { section: "projects", icon: "fa-solid fa-code",         label: "Projects" },
+  { section: "timeline", icon: "fa-solid fa-timeline",     label: "Timeline" },
   { section: "miscellaneous", icon: "fa-solid fa-compass", label: "Misc" },
-  { section: "contact",  icon: "fa-solid fa-envelope", label: "Contact" },
+  { section: "contact",  icon: "fa-solid fa-envelope",     label: "Contact" },
 ];
 
 export default function HomePage({ initialSection }) {
@@ -81,6 +81,10 @@ export default function HomePage({ initialSection }) {
   }, [initialSection, location.state?.scrollTo]);
 
   const handleNavigate = useCallback((section) => {
+    if (section === "map") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const anchor = SECTION_TO_ANCHOR[section];
     if (!anchor) return;
     const el = document.getElementById(anchor);
@@ -129,8 +133,6 @@ export default function HomePage({ initialSection }) {
         <span className="station-divider-line" style={{ background: "var(--metro-line-yellow)" }} />
       </div>
       <ContactSection />
-
-      <BackToMap />
 
       <AnimatePresence>
         {dockVisible && (

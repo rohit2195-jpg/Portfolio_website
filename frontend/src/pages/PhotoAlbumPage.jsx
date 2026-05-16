@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getPhotoAlbum } from "../photoAlbums";
-import BackToMap from "../components/sections/BackToMap";
 
 export default function PhotoAlbumPage() {
   const { albumSlug } = useParams();
@@ -152,7 +151,6 @@ export default function PhotoAlbumPage() {
           ) : null}
         </div>
       ) : null}
-      <BackToMap />
     </>
   );
 }
