@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FlapDisplay, Presets } from "react-split-flap-effect";
 import { LINES } from "../data/transitMessages";
-import BackToMap from "../components/sections/BackToMap";
 
 const LINE_LEN = 12;
 const STATUS_LEN = 20;
@@ -193,7 +192,6 @@ export default function FlapBoard() {
         ))}
       </div>
 
-      <BackToMap />
     </>
   );
 }
