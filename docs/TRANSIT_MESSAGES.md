@@ -1,8 +1,10 @@
 # Transit Messages Guide
 
-The flap board at `/flapboard` cycles through entries in `src/data/transitMessages.js`. Each entry simulates a real split-flap departure board — the kind you'd find in a train station or airport — and cycles through messages at random. The goal is to feel authentic enough that a real DC Metro rider does a double-take, while being funny enough that anyone else enjoys the bit.
+The flap board at `/flapboard` cycles through entries in `src/data/transitMessages.js`. Each entry simulates a real split-flap departure board — the kind you'd find in a train station or airport — and cycles through messages at random. The goal is to feel authentic enough that a real NYC subway rider does a double-take, while being funny enough that anyone else enjoys the bit.
 
 This document covers the format, the character constraints, all the line colors, and a detailed breakdown of how to write great messages in each category.
+
+> **Origin note — DC → NYC (May 2026):** The messages were originally modeled on DC Metro (WMATA). Station names, geographic humor, and cultural references all drew from the DC system. In May 2026 the entire pool was converted to NYC. The line color hex values are kept from the original DC palette (no new colors for the G, J, or Z lines — those trains share existing colors). The `line` field values — RED LINE, BLUE LINE, etc. — now map to NYC subway lines per the table below. All station references, transit jargon, and geographic jokes are NYC-specific. **If you're extending the message pool: don't use DC station names, WMATA terminology, or SmarTrip references.** Use MTA, MetroCard/OMNY, and the NYC station lists in this doc.
 
 ---
 
@@ -15,13 +17,13 @@ Each entry is a plain JavaScript object with four fields:
   line:   "RED LINE",
   color:  "#BF0D3E",
   status: "15 MIN DELAY",
-  detail: "Track obstruction between Dupont Circle and Woodley Park."
+  detail: "Track obstruction between 72 St and 96 St."
 }
 ```
 
 These map directly to the three visible columns on the flap board display:
 
-- **`line`** — The leftmost column. Which Metro line (or ALL LINES).
+- **`line`** — The leftmost column. Which subway line (or ALL LINES).
 - **`status`** — The middle column. What is happening. The headline.
 - **`detail`** — The rightmost column. The elaboration. Where the personality lives.
 - **`color`** — Not displayed directly, but drives the color accent on the line label.
@@ -61,42 +63,42 @@ The split-flap component can only render characters that exist in its physical c
 
 ## Line colors
 
-Use these exact hex values. They match the official WMATA line colors and are used to tint the line label on the display.
+Use these exact hex values. They match the NYC Subway line colors and are used to tint the line label on the display.
 
 | Line        | Hex       | Notes                                      |
 |-------------|-----------|--------------------------------------------|
-| RED LINE    | `#BF0D3E` | Shady Grove ↔ Glenmont                     |
-| BLUE LINE   | `#0072CE` | Franconia-Springfield ↔ Largo Town Center  |
-| GREEN LINE  | `#00B140` | Branch Ave ↔ Greenbelt                     |
-| ORANGE LINE | `#E3801C` | Vienna ↔ New Carrollton                    |
-| YELLOW LINE | `#FFD200` | Huntington ↔ Greenbelt                     |
-| PURPLE LINE | `#6950A1` | New Carrollton ↔ Largo (newer line)        |
-| SILVER LINE | `#A1A1A4` | Ashburn ↔ Largo Town Center                |
+| RED LINE    | `#BF0D3E` | 1/2/3 — Broadway-7th Ave                  |
+| BLUE LINE   | `#0072CE` | A/C/E — 8th Ave / Nassau                  |
+| GREEN LINE  | `#00B140` | 4/5/6 — Lexington Ave                     |
+| ORANGE LINE | `#E3801C` | B/D/F/M — 6th Ave / Queens Blvd           |
+| YELLOW LINE | `#FFD200` | N/Q/R/W — Broadway-BMT                    |
+| PURPLE LINE | `#6950A1` | 7 — Flushing                              |
+| SILVER LINE | `#A1A1A4` | L — 14 St-Canarsie                        |
 | ALL LINES   | `#A1A1A4` | Use for system-wide notices                |
 
 **When to use ALL LINES:** System-wide notices, jokes that don't fit a specific line, safety reminders, fourth-wall messages, and anything that feels like it comes from "management" rather than operations.
 
-**When to pick a specific line:** When the joke or detail is tied to a real station or route, always use the correct line. It rewards DC Metro riders who recognize the geography. Putting a Shady Grove joke on the Red Line, or a Dulles joke on the Silver Line, is a small detail that makes the whole thing feel more real.
+**When to pick a specific line:** When the joke or detail is tied to a real station or route, always use the correct line. It rewards NYC subway riders who recognize the geography. Putting a Wakefield Branch joke on the Red Line, or a Canarsie joke on the Silver Line, is a small detail that makes the whole thing feel more real.
 
 ---
 
-## Real DC Metro station names
+## Real NYC subway station names
 
-Using real station names makes realistic delays feel authentic and makes funny delays funnier. Here's a quick reference grouped by line:
+Using real station names makes realistic delays feel authentic and makes funny delays funnier. Here's a quick reference grouped by color line:
 
-**Red Line:** Shady Grove, Rockville, White Flint, Grosvenor-Strathmore, Bethesda, Friendship Heights, Tenleytown, Van Ness-UDC, Cleveland Park, Woodley Park, Dupont Circle, Farragut North, Metro Center, Gallery Place, Judiciary Square, Union Station, NoMa-Gallaudet, Rhode Island Ave, Brookland, Fort Totten, Takoma, Silver Spring, Forest Glen, Wheaton, Glenmont
+**Red Line (1/2/3):** Van Cortlandt Park-242 St, 238 St, 231 St, 215 St, 207 St, 191 St, 181 St, 168 St, 145 St, 137 St, 125 St, 116 St, 110 St, 103 St, 96 St, 86 St, 79 St, 72 St, 66 St-Lincoln Center, 59 St-Columbus Circle, 50 St, Times Sq-42 St, 34 St-Penn Station, 28 St, 23 St, 14 St, Christopher St, Houston St, Canal St, Chambers St, Fulton St, Wall St, Clark St, Borough Hall, Atlantic Ave-Barclays Ctr, Wakefield-241 St (2), New Lots Ave (3), Bay Ridge-95 St (R)
 
-**Blue Line:** Franconia-Springfield, Van Dorn Street, King Street-Old Town, Braddock Road, National Airport, Crystal City, Pentagon City, Pentagon, Arlington Cemetery, Rosslyn, Foggy Bottom, Farragut West, Metro Center, McPherson Square, Federal Triangle, Smithsonian, L'Enfant Plaza, Federal Center SW, Capitol South, Eastern Market, Potomac Ave, Stadium-Armory, Benning Road, Capitol Heights, Addison Road, Morgan Blvd, Largo Town Center
+**Blue Line (A/C/E):** Inwood-207 St, 181 St, 175 St, 168 St, 145 St, 125 St, 96 St, 72 St, 59 St-Columbus Circle, 50 St, 42 St-Port Authority, 34 St-Penn Station, 23 St, 14 St, West 4 St, Spring St, Canal St, Fulton St, Jay St-MetroTech, Hoyt-Schermerhorn, Broadway Junction, Far Rockaway, Ozone Park-Lefferts Blvd
 
-**Orange Line:** Vienna, Dunn Loring, West Falls Church, East Falls Church, Ballston, Virginia Square, Clarendon, Court House, Rosslyn, *(shares Blue Line corridor into DC)*, Stadium-Armory, Cheverly, Landover, New Carrollton
+**Green Line (4/5/6):** Woodlawn (4), Pelham Bay Park (6), 238 St-Nereid Ave, 125 St, 116 St, 110 St, 103 St, 96 St, 86 St, 77 St, 68 St-Hunter College, 59 St, 51 St, Grand Central-42 St, 33 St, 28 St, 23 St, 14 St-Union Sq, Astor Pl, Bleecker St, Spring St, Fulton St, Wall St, Bowling Green, Borough Hall, Atlantic Ave-Barclays Ctr
 
-**Green Line:** Branch Ave, Suitland, Naylor Road, Southern Ave, Congress Heights, Anacostia, Navy Yard, Waterfront, L'Enfant Plaza, Archives, Gallery Place, Shaw-Howard, U Street, Columbia Heights, Georgia Ave, Fort Totten, West Hyattsville, Prince George's Plaza, College Park, Greenbelt
+**Orange Line (B/D/F/M):** 205 St (D), Bedford Park Blvd, 161 St-Yankee Stadium, 145 St, 125 St, 47-50 Sts-Rockefeller Ctr, 42 St-Bryant Park, 34 St-Herald Sq, 23 St, 14 St, W 4 St, Broadway-Lafayette St, Spring St, Canal St, Jay St-MetroTech, Atlantic Ave-Barclays Ctr, DeKalb Ave, Church Ave, Kings Hwy, Coney Island-Stillwell Ave, Jamaica-179 St (F)
 
-**Yellow Line:** Huntington, Eisenhower Ave, King Street-Old Town, Braddock Road, National Airport, Crystal City, Pentagon City, Pentagon, L'Enfant Plaza, Archives, Gallery Place, Mt Vernon Square, Shaw-Howard, U Street, Columbia Heights, Georgia Ave, Fort Totten, West Hyattsville, Prince George's Plaza, College Park, Greenbelt
+**Yellow Line (N/Q/R/W):** Astoria-Ditmars Blvd, Astoria Blvd, Queensboro Plaza, 57 St-7 Av, Times Sq-42 St, 34 St-Herald Sq, 28 St, 23 St, 14 St-Union Sq, Canal St, City Hall, Whitehall St-South Ferry, DeKalb Ave, Atlantic Ave-Barclays Ctr, Bay Ridge-95 St, Jamaica-179 St, Coney Island-Stillwell Ave
 
-**Silver Line:** Ashburn, Dulles Airport, Loudoun Gateway, Innovation Center, Herndon, Reston Town Center, Wiehle-Reston East, Spring Hill, Greensboro, Tysons Corner, McLean, East Falls Church, *(shares Orange Line corridor into DC)*, Largo Town Center
+**Purple Line (7):** Flushing-Main St, Mets-Willets Point, Junction Blvd, 74 St-Broadway/Jackson Hts-Roosevelt Av, 61 St-Woodside, Queensboro Plaza, Court Sq, Vernon Blvd-Jackson Av, Grand Central-42 St, 5 Av, Times Sq-42 St, 34 St-Hudson Yards
 
-**Purple Line:** New Carrollton, Riverdale Park, Beacon Heights, Annapolis Road, College Park, Adelphi Road, Takoma-Langley, Long Branch, Piney Branch, Silver Spring Transit Center, Fenton Village, Dale Drive, Bethesda
+**Silver Line (L):** 8 Av, 6 Av, 14 St-Union Sq, 3 Av, 1 Av, Bedford Av, Lorimer St, Graham Av, Grand St, Montrose Av, Morgan Av, Jefferson St, DeKalb Av, Myrtle-Wyckoff Avs, Broadway Junction, Atlantic Av, Canarsie-Rockaway Pkwy
 
 ---
 
@@ -132,21 +134,21 @@ status: "GOOD SERVICE"       detail: "No disruptions reported system-wide."
 
 ### 2. Realistic delays
 
-These are the messages that DC Metro riders recognize immediately. Specific station names, plausible causes, real-sounding jargon. The goal is for someone to read one and think "yep, sounds right" before moving on.
+These are the messages that NYC subway riders recognize immediately. Specific station names, plausible causes, real-sounding jargon. The goal is for someone to read one and think "yep, sounds right" before moving on.
 
 **The formula:** status = what the disruption is (with or without a time), detail = one sentence explaining where and why.
 
 **Examples:**
 ```
-status: "SINGLE TRACKING"    detail: "Between Greenbelt and College Park for track inspection."
-status: "PLATFORM HOLD"      detail: "Hold at Judiciary Square for train spacing. Approx. 2 min."
-status: "CROWDING"           detail: "Trains at capacity from McLean to Rosslyn. Allow extra time."
-status: "TRACK WORK"         detail: "Slow zone between Bethesda and Shady Grove. Don't ask why."
+status: "SINGLE TRACKING"    detail: "Between Woodlawn and 161 St for track inspection."
+status: "PLATFORM HOLD"      detail: "Hold at 72 St for train spacing. Approx. 2 min."
+status: "CROWDING"           detail: "Trains at capacity from Canarsie to Union Sq. Allow extra time."
+status: "TRACK WORK"         detail: "Slow zone between 96 St and 110 St. Don't ask why."
 status: "WEEKEND SVC"        detail: "Reduced frequency this weekend. Trains every 12 minutes."
-status: "MINOR DELAY"        detail: "Earlier disabled train at Vienna cleared. Expect 8 min gaps."
+status: "MINOR DELAY"        detail: "Earlier disabled train at Jamaica-179 St cleared. Expect 8 min gaps."
 ```
 
-**Real WMATA jargon to use:**
+**Real MTA jargon to use:**
 - *Single tracking* — trains sharing one track, usually for maintenance
 - *Disabled train* — a broken-down train blocking the line
 - *Slow zone* — section of track where trains run at reduced speed
@@ -159,8 +161,8 @@ status: "MINOR DELAY"        detail: "Earlier disabled train at Vienna cleared. 
 - *Has cleared* / *now cleared* — the thing that was blocking is gone
 
 **Common realistic causes:**
-- Signal problems (very common on Red Line)
-- Switch problems (junction points where lines diverge)
+- Signal problems (common on all lines; especially A/C/E corridor and outer sections of 1/2/3)
+- Switch problems (junction points where lines diverge — Broadway Junction is a rich target)
 - Disabled train at [station]
 - Police activity at [station]
 - Passenger assistance at [station]
@@ -170,17 +172,18 @@ status: "MINOR DELAY"        detail: "Earlier disabled train at Vienna cleared. 
 - Rail inspection
 - Track obstruction
 - Crowding / platform congestion
+- Flooding (a genuine NYC problem — heavy rain, burst pipes, hurricane remnants)
 - Weather (heat in summer causes rail expansion; any snow causes chaos)
 - Elevator / escalator outage
 
 **Tips for writing realistic delays:**
 
-- Station names are everything. "Track obstruction between Dupont Circle and Woodley Park" is 10x more believable than "track obstruction near downtown." Use the real names.
-- Real delays on the Red Line are very common — bias toward Red Line for realistic disruptions.
+- Station names are everything. "Track obstruction between 72 St and 96 St" is 10x more believable than "track obstruction near uptown." Use the real names.
+- Spread realistic delays across lines — NYC delays hit the whole system. The 1/2/3 (Red) and A/C/E (Blue) are good targets since they cover a lot of ground and riders know their quirks.
 - For timed delays, lean slightly odd: "8 minutes" feels more like a real estimate than "10 minutes." Round numbers feel made up.
 - The detail should answer: *what happened, where, and what's the current status?* You rarely need more than one sentence to do this.
-- Phrases like "Allow extra travel time" and "Plan for additional delays" are classic WMATA and add instant authenticity.
-- The Orange Line's Vienna terminus and the Silver Line's Dulles corridor are both known for signal and switch issues. Good geography for realistic troubles.
+- Phrases like "Allow extra travel time" and "Plan for additional delays" are classic MTA and add instant authenticity.
+- The Red Line's upper sections and the outer Queens/Brooklyn tails are both known for signal and switch issues. Good geography for realistic troubles.
 
 ---
 
@@ -192,10 +195,10 @@ Same structure as realistic delays, but the cause or resolution is absurd. The c
 
 **Examples:**
 ```
-status: "WILDLIFE ON TRACK"   detail: "Squirrel at Branch Ave. Negotiations ongoing."
+status: "WILDLIFE ON TRACK"   detail: "Squirrel at Pelham Bay Park. Negotiations ongoing."
 status: "MEDICAL EMERGENCY"   detail: "Passenger insisted on finishing their podcast first."
 status: "DOOR MALFUNCTION"    detail: "Doors opening on wrong side again. Classic."
-status: "SMELL REPORTED"      detail: "At College Park station. We're on it. (We're not.)"
+status: "SMELL REPORTED"      detail: "At Grand Central station. We're on it. (We're not.)"
 status: "GHOST CHIME"         detail: "Door chimed but refused to close. We have called a priest."
 status: "OPERATOR NOTE"       detail: "Train operator said 'have a nice day.' First time in history."
 ```
@@ -249,9 +252,9 @@ detail: "Train stuck behind a train stuck behind a train. Looking into it."
 - Use "we" consistently. The narrator is always the transit authority — a faceless institution that is vaguely aware of problems and not particularly motivated to fix them.
 - Avoid adjectives that editorialize. Don't say "hilariously" or "unfortunately." Let the situation speak.
 - The best funny statuses still look plausible at a glance: WILDLIFE ON TRACK, DOOR MALFUNCTION, SMELL REPORTED. The absurdity is in the detail, not the status.
-- Specificity is always funnier than vagueness. "The squirrel at Branch Ave" beats "an animal on the tracks." Naming things commits to the bit.
+- Specificity is always funnier than vagueness. "The squirrel at Pelham Bay Park" beats "an animal on the tracks." Naming things commits to the bit.
 - Never use `!`. The board doesn't do enthusiasm. Even catastrophic failures are communicated flatly.
-- Real WMATA events that actually happened (and are public knowledge) are fair game: the station fires, the car that had to be cleaned, the operators who forgot stops. The closer to a real incident the funnier it reads to Metro riders.
+- Real MTA events that actually happened (and are public knowledge) are fair game: the L train shutdown scare, the weekend reroutes that confused everyone, the flooding at Hoyt-Schermerhorn. The closer to a real incident the funnier it reads to subway riders.
 
 ---
 
@@ -261,11 +264,11 @@ Time in the status field is its own category because it adds a layer of specific
 
 **Realistic timed delays** use believable minute counts and plausible causes:
 ```
-status: "8 MIN DELAY"     detail: "Earlier disabled train at National Airport has cleared."
-status: "15 MIN DELAY"    detail: "Track obstruction between Dupont Circle and Woodley Park."
-status: "20 MIN DELAY"    detail: "Rail inspection between Reston Town Center and Wiehle-Reston."
-status: "6 MIN DELAY"     detail: "Door malfunction at Prince George's Plaza. Train now moving."
-status: "4 MIN DELAY"     detail: "Passenger assistance at Pentagon. Brief platform hold."
+status: "8 MIN DELAY"     detail: "Earlier disabled train at Fulton St has cleared."
+status: "15 MIN DELAY"    detail: "Track obstruction between 72 St and 96 St."
+status: "20 MIN DELAY"    detail: "Rail inspection between Bedford Ave and Lorimer St."
+status: "6 MIN DELAY"     detail: "Door malfunction at Borough Hall. Train now moving."
+status: "4 MIN DELAY"     detail: "Passenger assistance at Times Sq-42 St. Brief platform hold."
 ```
 
 **Funny timed delays** use the time itself as part of the joke:
@@ -298,12 +301,12 @@ status: "IMPROVEMENT PLAN"   detail: "We have a plan. The plan has been updated.
 status: "INVESTIGATION"      detail: "We are looking into it. We have been looking into it since 2011."
 status: "COMPLAINT REVIEWED" detail: "Your feedback has been received and closed as 'working as intended.'"
 status: "CUSTOMER FEEDBACK"  detail: "We've received your complaint. We've filed it appropriately."
-status: "AWARD WINNER"       detail: "Metro voted #1 transit system in the DC Metro area. Uncontested."
+status: "AWARD WINNER"       detail: "MTA voted #1 transit system in the New York area. Uncontested."
 status: "ON-TIME UPDATE"     detail: "We've updated our definition of 'on time.' You're welcome."
 ```
 
 **Tips:**
-- These work best with "ALL LINES" or "RED LINE" (Red Line has the most notorious reputation).
+- These work best with "ALL LINES" — in NYC the dysfunction is system-wide, not one line's reputation.
 - The key is that the statement is technically true or technically an action was taken, but it does nothing.
 - Circular logic ("the update has a plan", "delays caused by earlier delays") lands especially well.
 - Official-sounding award and recognition messages are a rich vein: an institution congratulating itself on something that isn't actually good.
@@ -348,14 +351,14 @@ This is the section the rest of the document doesn't tell you. Everything above 
 
 ### Start with the real thing
 
-The single best source of new ideas is real transit communication. WMATA, NYC MTA, London Underground, Tokyo Metro — these systems put out alerts, announcements, and notices constantly, and the gap between what they say and what they mean is where most of the comedy lives.
+The single best source of new ideas is real transit communication. NYC MTA, London Underground, Tokyo Metro, BART — these systems put out alerts, announcements, and notices constantly, and the gap between what they say and what they mean is where most of the comedy lives.
 
 **Ways to mine real transit for ideas:**
 
-- **Read actual WMATA alerts.** Follow [@WMATA on Twitter/X](https://twitter.com/wmata) or check the Metro service alerts page. Real alerts are often unintentionally funny: vague causes, circular explanations, things that happened weeks ago still listed as "residual." Take real language and either heighten it or undercut it.
-- **Ride the Metro.** If you're in DC, the overhead PA announcements are a goldmine. Operators have wildly different styles — some are robotic, some are genuinely warm, some sound like they've given up. All of them are material.
-- **Look at other transit systems.** The London Underground has a famous tradition of witty platform signage. Tokyo Metro is obsessively specific and polite. NYC MTA is blunt to the point of hostility. Each system has its own personality. What would a message sound like if WMATA suddenly adopted Tokyo's relentless courtesy? Or NYC's bluntness?
-- **Read historical transit incidents.** The 2009 Red Line crash. The 2015 L'Enfant Plaza smoke incident. The years of escalator failures. These are public knowledge and the way WMATA communicated about them (or didn't) is fascinating and sometimes absurd. You don't need to reference specific tragedies — but the patterns of how transit authorities talk around problems is useful material.
+- **Read actual MTA alerts.** Follow [@NYCTSubway on Twitter/X](https://twitter.com/NYCTSubway) or check the MTA service alerts page. Real alerts are often unintentionally funny: vague causes, circular explanations, things that happened weeks ago still listed as "residual." Take real language and either heighten it or undercut it.
+- **Ride the subway.** The overhead PA announcements are a goldmine. Operators have wildly different styles — some are robotic, some are genuinely warm, some sound like they've given up. All of them are material.
+- **Look at other transit systems.** The London Underground has a famous tradition of witty platform signage. Tokyo Metro is obsessively specific and polite. NYC MTA is blunt to the point of hostility. Each system has its own personality. What would a message sound like if the MTA suddenly adopted Tokyo's relentless courtesy? Or London's wit?
+- **Read historical transit incidents.** The 2019 L train shutdown that got cancelled four weeks before it was supposed to start. The recurring flooding at multiple stations. The years of weekend reroutes that never made sense. These are public knowledge and the way the MTA communicated about them (or didn't) is fascinating and sometimes absurd. You don't need to reference specific tragedies — but the patterns of how transit authorities talk around problems is useful material.
 
 ---
 
@@ -371,6 +374,10 @@ Most of the categories in this document came from asking a simple "what if" and 
 - **What if the board got philosophical?** About waiting. About movement. About the strange intimacy of being underground with strangers.
 - **What if a specific passenger got called out?** Not cruelly — but the person who clipped their nails on the train. The person with the speaker. The person who somehow has a full suitcase at rush hour.
 - **What if it were for a different audience entirely?** The squirrel. The train operator. The ghost of whoever designed the fare gates.
+- **What if the SHOWTIME performers got a service update?** "SHOWTIME IN PROGRESS / Car 4. ETA: 3 more stops. Please grip pole."
+- **What if the L train shutdown had actually happened?** A full year of suspended service that got cancelled four weeks before it was supposed to start. The board that never got to display it.
+- **What if the rats were unionized?** Platform fauna with collective bargaining rights. Demands: better lighting, fewer humans at 2am.
+- **What if the 24-hour service were acknowledged as a choice?** "The subway never closes. This is why maintenance is difficult. We have accepted this."
 
 ---
 
@@ -384,11 +391,11 @@ The flap board format — line, status, detail — is rigid, but the *voice* ins
 
 **Terms and conditions.** Nobody reads them. Everyone is bound by them. "By boarding this train you agree to our current service levels, which we define as whatever is currently happening."
 
-**Horoscopes.** Vague, personal, probably meaningless but weirdly specific. "ORANGE LINE / WEEKLY OUTLOOK / Expect turbulence near Ballston. The universe does not offer refunds."
+**Horoscopes.** Vague, personal, probably meaningless but weirdly specific. "ORANGE LINE / WEEKLY OUTLOOK / Expect turbulence near Atlantic Ave. The universe does not offer refunds."
 
 **Out-of-office messages.** "Train is currently out of service. For urgent travel needs, please try the bus. The bus is also out of service."
 
-**Weather forecasts.** "YELLOW LINE / 7-DAY FORECAST / Delays Monday through Sunday. Localized chaos near L'Enfant. Low chance of on-time arrival."
+**Weather forecasts.** "YELLOW LINE / 7-DAY FORECAST / Delays Monday through Sunday. Localized chaos near Times Sq. Low chance of on-time arrival."
 
 **Motivational posters.** The gap between inspirational language and transit reality is rich. "YOU'VE GOT THIS / The train is coming. Eventually. Believe."
 
@@ -406,10 +413,10 @@ Take any real message and invert it. If you have a delay message, write the vers
 |---|---|
 | Train arriving in 3 minutes | Train arrived 3 minutes ago. We forgot to tell you. |
 | Doors closing. Please stand clear. | Doors open. Have been open. We've stopped asking. |
-| This train is for Largo Town Center. | This train is for somewhere. Conductor will decide en route. |
-| Thank you for riding Metro. | You didn't have a choice. But thank you. |
+| This train is for Far Rockaway. | This train is for somewhere. Conductor will decide en route. |
+| Thank you for riding the subway. | You didn't have a choice. But thank you. |
 | Please report suspicious activity. | We reported suspicious activity. Nothing happened. |
-| Exit here for the National Mall. | Exit here for the National Mall. Walk for 25 minutes. |
+| Exit here for the High Line. | Exit here for the High Line. Walk for 15 minutes. Worth it. |
 
 The inversion doesn't always produce something usable — but it almost always produces something interesting, and interesting is the starting point.
 
@@ -417,16 +424,16 @@ The inversion doesn't always produce something usable — but it almost always p
 
 ### Mine the commuter experience directly
 
-The funniest messages in the pool are funny because they're true. Someone has experienced every single one. A useful exercise is to think through the full arc of a DC Metro commute and ask what actually happens at each step:
+The funniest messages in the pool are funny because they're true. Someone has experienced every single one. A useful exercise is to think through the full arc of an NYC subway commute and ask what actually happens at each step:
 
 1. **Checking the app** — the times are wrong. The app shows a train that has already left. The app shows a train that does not exist.
-2. **Buying/loading a SmarTrip** — gate rejects it. Balance is $0.05 short. The reload machine is out of service.
+2. **Buying/loading a MetroCard or tapping OMNY** — gate rejects it. Balance is $0.05 short. The MetroCard machine is out of service. The OMNY reader is blinking red. You tap three more times. Nothing.
 3. **The escalator** — broken. Has been broken. Is now a staircase. Is now a down escalator going up. Is now an art installation.
-4. **Waiting on the platform** — train is 2 minutes away, then 4 minutes away, then 2 minutes away again. The board resets. Another train arrives going the wrong direction.
-5. **Boarding** — someone holds the door. The door beeps. The door beeps again. The door closes on someone's bag. The door opens. The door beeps.
-6. **Riding** — announcements are inaudible. Or too loud. The operator's name sounds different every time they say it. The car sways more than seems reasonable. The AC is either off or set to arctic.
+4. **Waiting on the platform** — train is 2 minutes away, then 4 minutes away, then 2 minutes away again. The countdown board resets to dashes. Another train arrives going the wrong direction. A rat crosses the far track unbothered.
+5. **Boarding** — someone holds the door. The door beeps. The door beeps again. The door closes on someone's bag. The door opens. The door beeps. SHOWTIME has been announced in the next car.
+6. **Riding** — announcements are inaudible. Or too loud. The operator's name sounds different every time they say it. The car sways more than seems reasonable. The AC is either off or set to arctic. You cross the Manhattan Bridge and it's beautiful and you'll never admit you always look.
 7. **Transfers** — the escalator at the transfer station is also broken. The platform is on the opposite end from where you boarded. The connecting train just left.
-8. **Arriving** — exit gate rejects your card again. The elevator is out. You emerge on the wrong street.
+8. **Arriving** — exit gate rejects your card again. The elevator is out. You emerge on the wrong street. The street you wanted is one block away and somehow also on the wrong side.
 
 Every one of these steps is a category waiting to happen.
 
@@ -436,7 +443,7 @@ Every one of these steps is a category waiting to happen.
 
 The existing pool has good coverage of delays, service notices, and fourth-wall breaks. Here are categories that are underrepresented or don't exist yet:
 
-**Seasonal messages.** WMATA's behavior changes with the seasons in very predictable ways. Snow causes complete system collapse regardless of accumulation. Summer heat causes rail expansion and slow zones. Fall brings leaves on the tracks. Spring brings... optimism that is quickly defeated.
+**Seasonal messages.** The MTA's behavior changes with the seasons in very predictable ways. Snow causes complete system chaos regardless of accumulation. Summer heat causes rail expansion and slow zones. Fall brings leaves on the tracks. Spring brings... optimism that is quickly defeated.
 
 ```
 status: "FALL ADVISORY"      detail: "Leaf season has begun. All trains are now slower. By tradition."
@@ -459,7 +466,7 @@ status: "OPERATOR NOTE"      detail: "Operator requests passengers move to the c
 status: "STAFF ADVISORY"     detail: "Station manager unavailable. Station manager was never available."
 ```
 
-**Infrastructure complaints.** The escalators, the fare gates, the SmarTrip readers, the overhead displays. These are all characters in their own right and they all fail in specific, predictable ways.
+**Infrastructure complaints.** The escalators, the fare gates, the MetroCard/OMNY readers, the overhead displays. These are all characters in their own right and they all fail in specific, predictable ways.
 
 ```
 status: "ESCALATOR SVC"      detail: "Escalator operating as a staircase. Thank you for your patience."
@@ -467,7 +474,7 @@ status: "FARE GATE ERROR"    detail: "Gate rejected valid card. Please try again
 status: "DISPLAY OUTAGE"     detail: "This display is working. The display showing your train is not."
 ```
 
-**Philosophical / existential.** The Metro exists in a strange space — underground, between places, full of people going somewhere else. There's something genuinely strange about it that hasn't been touched yet.
+**Philosophical / existential.** The subway exists in a strange space — underground, between places, full of people going somewhere else. There's something genuinely strange about it that hasn't been touched yet.
 
 ```
 status: "REFLECTION TIME"    detail: "You are 40 feet underground going 35 mph. Take a moment."
@@ -483,11 +490,12 @@ status: "FEEDBACK NOTED"     detail: "We value your feedback. We have noted it. 
 status: "CASE OPENED"        detail: "Your complaint has been assigned a case number. The number is 7."
 ```
 
-**Cross-line commentary.** Lines commenting on other lines. The Red Line's reputation is public knowledge. What does the Green Line think about the Red Line? What does the Silver Line think about being the newest and least understood?
+**Cross-line commentary.** Lines commenting on other lines. The 1/2/3's delay reputation is known citywide. The A train has a reputation for being very, very long. The L nearly got shut down for a year and has never fully let anyone forget it. What does the Green Line (4/5/6) think about sharing a platform at Grand Central with the Purple Line (7)? What does the Silver Line (L) think about being the line Williamsburg hipsters depend on?
 
 ```
 status: "RED LINE UPDATE"    detail: "Still delayed. Green Line asks that you please stop asking." (on GREEN LINE)
-status: "SILVER LINE NOTE"   detail: "We go to Dulles. We have always gone to Dulles. Please tell people." (on SILVER LINE)
+status: "SILVER LINE NOTE"   detail: "We go to Canarsie. We have always gone to Canarsie. Please tell people." (on SILVER LINE)
+status: "A TRAIN NOTE"       detail: "A train to Far Rockaway: 42 stops. Plan accordingly." (on BLUE LINE)
 ```
 
 **Time-of-day messages.** The commute feels different at 7am versus 11pm. The board could reflect that.
@@ -506,7 +514,7 @@ When you sit down to write new messages, try this sequence:
 
 1. **Pick a real thing that's annoying about transit.** Not a fictional thing — something that actually happens. Delays, broken escalators, bad apps, confusing maps, fare gate failures, crowding, the smell, the heat.
 
-2. **Write the version WMATA would actually say.** Formal, vague, minimally helpful. "Service disruption reported. Crews investigating. Allow extra travel time."
+2. **Write the version MTA would actually say.** Formal, vague, minimally helpful. "Service disruption reported. Crews investigating. Allow extra travel time."
 
 3. **Write the honest version.** What is actually happening, with no institutional filter. "The escalator has been broken for four months. We have no plan to fix it."
 
@@ -524,7 +532,7 @@ When you sit down to write new messages, try this sequence:
 - It says something true about transit, or people, or bureaucracy — even if it's silly.
 - It earns its place in the pool: it couldn't be cut without the pool being slightly worse.
 - It doesn't need the surrounding messages to make sense — each one stands alone on the board.
-- Someone who has never ridden DC Metro still gets it, even if the joke lands differently for someone who has.
+- Someone who has never ridden the NYC subway still gets it, even if the joke lands differently for someone who has.
 
 ### Signs a message isn't working
 
@@ -549,7 +557,7 @@ These apply to all categories:
 
 4. **The narrator is always "we."** An indifferent transit authority. Not malicious, not apologetic, just... there. Vaguely aware that things are suboptimal.
 
-5. **Specificity beats vagueness every time.** "A squirrel" → "The squirrel at Branch Ave." "A long time" → "Sixty-seven minutes." "Some issues" → "Signal failure between Dupont Circle and Woodley Park." The detail is in the specificity.
+5. **Specificity beats vagueness every time.** "A squirrel" → "The squirrel at Pelham Bay Park." "A long time" → "Sixty-seven minutes." "Some issues" → "Signal failure between 72 St and 96 St." The detail is in the specificity.
 
 6. **Don't over-explain the joke.** If you find yourself writing a second sentence to make sure the reader gets it, cut the second sentence. Trust the setup.
 
