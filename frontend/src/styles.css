@@ -2651,7 +2651,7 @@ figure {
   align-items: baseline;
   gap: 10px;
   transform-origin: center top;
-  transition: transform 0.26s ease-in, opacity 0.26s ease-in;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 }
 
 .status-flap-card--out {
@@ -2660,7 +2660,7 @@ figure {
 }
 
 .status-flap-card--in {
-  animation: flap-in 0.28s ease-out forwards;
+  animation: flap-in 0.5s ease-out forwards;
 }
 
 @keyframes flap-in {

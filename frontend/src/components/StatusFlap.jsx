@@ -11,9 +11,9 @@ export default function StatusFlap() {
       setTimeout(() => {
         setIdx((i) => (i + 1) % LINES.length);
         setPhase("in");
-        setTimeout(() => setPhase("idle"), 280);
-      }, 260);
-    }, 5000);
+        setTimeout(() => setPhase("idle"), 500);
+      }, 500);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
