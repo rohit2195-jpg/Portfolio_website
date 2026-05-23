@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Clock from "../components/Clock";
-import BackToMap from "../components/sections/BackToMap";
 
 const CITIES = [
   { city: "Pittsburgh", timezone: "America/New_York" },
@@ -33,7 +32,6 @@ export default function Time() {
           <Clock key={city} city={city} timezone={timezone} />
         ))}
       </div>
-      <BackToMap />
     </>
   );
 }
