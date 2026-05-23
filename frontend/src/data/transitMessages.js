@@ -335,4 +335,262 @@ export const LINES = [
 
   // NYC additions — Fourth wall
   { line: "ALL LINES",   color: "#A1A1A4", status: "WRONG BOROUGH",      detail: "You've been on this page 3 minutes. You're in the wrong borough. Go up." },
+
+  // Round 3 — Normal service
+  { line: "YELLOW LINE", color: "#FFD200", status: "NO DELAYS",          detail: "Service operating normally between all stations." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "GOOD SERVICE",       detail: "No service alerts at this time." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "ON SCHEDULE",        detail: "Trains operating on published schedule." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "FULL SERVICE",       detail: "All trains running. All stations open." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "NORMAL SERVICE",     detail: "System operating within expected parameters." },
+
+  // Round 3 — Realistic delays
+  { line: "RED LINE",    color: "#BF0D3E", status: "DOOR PROBLEM",       detail: "Door issue at Christopher St. Crews assessing. Brief hold." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "SIGNAL PROBLEM",     detail: "Signal failure at 125 St. Trains running on single track." },
+  { line: "GREEN LINE",  color: "#00B140", status: "TRACK WORK",         detail: "Slow zone between 86 St and 59 St for rail work through Sunday." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "CROWDING",           detail: "Significant crowding at 34 St-Herald Sq. Next train in 4 minutes." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "TRACK FLOODING",     detail: "Water on tracks at Canal St. Trains bypassing. Service resuming." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "DISABLED TRAIN",     detail: "Disabled train at Vernon Blvd-Jackson Av cleared. Expect gaps." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "TRACK MAINT",        detail: "Maintenance at Morgan Ave. Single tracking in effect." },
+  { line: "GREEN LINE",  color: "#00B140", status: "RAIL DEFECT",        detail: "Rail defect between 86 St and 77 St. Trains at reduced speed." },
+
+  // Round 3 — Funny / chaotic
+  { line: "ALL LINES",   color: "#A1A1A4", status: "TERMS OF SERVICE",   detail: "By boarding, you accept delays, smells, and the human condition." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "TECH SUPPORT",       detail: "PA system rebooting. Expected downtime: forever. Use signage." },
+  { line: "GREEN LINE",  color: "#00B140", status: "NUTRITION INFO",     detail: "Per commute: 0 seats, 45 min wait, 12% daily patience. Serving: 1." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "HOROSCOPE",          detail: "N train: unexpected connection. Q train: delays, but growth." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "OUT OF OFFICE",      detail: "This train is out of service. For urgent trips: good luck." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "ERROR CODE",         detail: "Error code: L-TRAIN-MONDAY. Not a recognized error. Noted." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "MISSION STMT",       detail: "To connect communities. We are working on the connecting part." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "MOTIVATIONAL",       detail: "You are going to be late. You have survived being late before." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "DISCLAIMER",         detail: "This train may stop unexpectedly. So may everything else in life." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "7 TRAIN TRUTH",      detail: "We are the 7 train. We are aware you did not plan to take us." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "404 ERROR",          detail: "Train not found. The train you requested does not exist right now." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "FORECAST",           detail: "F train this week: delays Mon-Fri. Weekend: closed. Enjoy." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "WARNING LABEL",      detail: "Do not hold doors. Board only if physically possible. Results vary." },
+  { line: "GREEN LINE",  color: "#00B140", status: "WEEKLY REVIEW",      detail: "This week in 4-5-6 service: delays, a squirrel, and mild chaos." },
+
+  // Round 3 — Timed delays, realistic
+  { line: "BLUE LINE",   color: "#0072CE", status: "17 MIN DELAY",       detail: "Track work at 59 St-Columbus Circle. Crews finishing up." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "22 MIN DELAY",       detail: "Signal failure at 72 St cleared. Residual gaps expected." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "14 MIN DELAY",       detail: "Disabled train at DeKalb Ave. Single tracking now resolved." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "25 MIN DELAY",       detail: "Rail inspection at Jefferson St. Trains skipping Jefferson, Montrose." },
+
+  // Round 3 — Timed delays, funny
+  { line: "ALL LINES",   color: "#A1A1A4", status: "999 MIN DELAY",      detail: "We will update when we have information. Currently: no information." },
+  { line: "GREEN LINE",  color: "#00B140", status: "5 MIN DELAY",        detail: "Actually 8. We rounded. We always round. Accept this about us." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "42 MIN DELAY",       detail: "The meaning of life, and also today's delay. Coincidence: unlikely." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "23 MIN DELAY",       detail: "Twenty-three minutes. Michael Jordan's number. Unrelated. Or is it." },
+
+  // Round 3 — NYC easter eggs
+  { line: "ALL LINES",   color: "#A1A1A4", status: "G TRAIN NOTE",       detail: "G train not shown. G train is an independent study. Best of luck." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "WASHINGTON HTS",     detail: "Washington Heights: the city gets bigger above 168 St. Worth the ride." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "ASTORIA BOUND",      detail: "Astoria-Ditmars Blvd: end of the N. The pizza there was worth it." },
+  { line: "GREEN LINE",  color: "#00B140", status: "ASTOR PL NOTE",      detail: "Astor Pl: the cube used to spin. It moved. A piece of us left with it." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "HOYT-SCHERMERHORN",  detail: "Hoyt-Schermerhorn: set for many movies. You may recognize the platform." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "METS GAME SVC",      detail: "Mets game today at Citi Field. Mets-Willets Point: your stop." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "LINCOLN CENTER",     detail: "66 St-Lincoln Center. Opera, ballet, Juilliard. You look dressed for it." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "BUSHWICK NOTE",      detail: "Jefferson St: Bushwick. Many murals. Not many seats at this hour." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "WHITEHALL SVC",      detail: "Whitehall St-South Ferry. Take the Staten Island Ferry. Free. Worth it." },
+  { line: "GREEN LINE",  color: "#00B140", status: "HARLEM NOTE",        detail: "125 St stop: Harlem. One of the city's great neighborhoods. Look up." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "COLUMBUS CIRC",      detail: "59 St-Columbus Circle. Central Park is one block north. Go sometime." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "L APOLOGY",          detail: "We are sorry about the 2019 near-shutdown. We still think about it." },
+
+  // Round 3 — Seasonal
+  { line: "ALL LINES",   color: "#A1A1A4", status: "HUMIDITY ADV",       detail: "Heat index: 104F. Humidity: oppressive. Subway platform: worse." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "NOREASTER SVC",      detail: "Nor'easter expected Friday. Modified service. Expect everything." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "MARATHON SVC",       detail: "NYC Marathon Sunday. Street closures. Extra subway service in effect." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "PARADE SVC",         detail: "Parade route affecting B and D at 86 St. Expect platform crowding." },
+
+  // Round 3 — Passenger archetypes
+  { line: "ALL LINES",   color: "#A1A1A4", status: "MANSPREADING",       detail: "Passenger occupying two seats. One for themselves. One for their mood." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "NAIL CLIPPER",       detail: "Nail clipping reported in car 2. We cannot intervene. We are sorry." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "PHONE SPEAKER",      detail: "Audio playing without headphones in car 3. The song: not good." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "STROLLER NOTED",     detail: "Double stroller aboard. Please give space. Baby appears unbothered." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "TOURIST STOP",       detail: "Times Sq stop: 400 tourists boarding. We wish everyone luck." },
+
+  // Round 3 — Staff messages
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CONDUCTOR NOTE",     detail: "This conductor will say 'step in please.' They always say it. Respect." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "BOOTH UPDATE",       detail: "Token booth at 72 St is staffed. Please do not look surprised." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "SUPERVISOR OUT",     detail: "Supervisor on platform. Everyone behaving slightly better. For now." },
+
+  // Round 3 — Infrastructure
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BENCH REMOVED",      detail: "Platform bench removed for safety. Standing room only. As before." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "TURNSTILE OUT",      detail: "Two turnstiles at 72 St offline. One remaining. There is a line." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "NEW SIGNAGE",        detail: "New wayfinding signs installed. Old confusion now in a new font." },
+
+  // Round 3 — Philosophical
+  { line: "ALL LINES",   color: "#A1A1A4", status: "UNDERGROUND",        detail: "You are beneath the city. The city proceeds above you. This is fine." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "MORNING NOTICE",     detail: "7:45am. Tuesday. You are here. This is real. Train coming in 6 min." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "PERSPECTIVE",        detail: "You are on a train, under a river, reading this. What a time." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "L REFLECTION",       detail: "Bedford Ave to Canarsie is 14 stops. You have been here before." },
+
+  // Round 3 — Cross-line commentary
+  { line: "YELLOW LINE", color: "#FFD200", status: "N TRAIN NOTE",       detail: "N and Q are express. R is local. W ends at Times Sq. Write this down." },
+  { line: "GREEN LINE",  color: "#00B140", status: "4-5 NOTE",           detail: "4 express, 5 express, 6 local. The 6 does not envy the 4. Much." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "L NIGHT NOTE",       detail: "L runs every 20 min after midnight. Plan accordingly. Or don't." },
+
+  // Round 3 — Board is aware
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD NOTE",         detail: "I am displaying information no one acts on. We have that in common." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD OBSERVE",      detail: "The 8:22 rider is late again. I say nothing. I have seen too much." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "BOARD CONCERN",      detail: "I showed a 2 min delay. It became 18. I display what I'm given." },
+
+  // Round 3 — Fourth wall
+  { line: "ALL LINES",   color: "#A1A1A4", status: "RECRUITER SVC",      detail: "Recruiter alert: Rohit is a software engineer. Scroll up for proof." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "PORTFOLIO TIP",      detail: "Pro tip: the projects section is up. This section is also good, but." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "READING NOTICE",     detail: "This entire board is a bit. If you're still reading: respect." },
+
+  // Round 4 — Normal service
+  { line: "RED LINE",    color: "#BF0D3E", status: "RUNNING CLEAN",      detail: "No signal issues on the 1, 2, or 3. Enjoy while it lasts." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "ALL CLEAR",          detail: "A, C, and E operating normally. No alerts at this time." },
+  { line: "GREEN LINE",  color: "#00B140", status: "SCHEDULED SVC",      detail: "4, 5, and 6 running as scheduled. Nothing to report." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "FULL OPERATION",     detail: "B, D, F, and M operating. All stations open." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "RUNNING ON TIME",    detail: "N, Q, R, and W on time. Plan as if this will hold." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "NO ALERTS",          detail: "7 express and local running. No issues at this hour." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "QUIET PERIOD",       detail: "No service alerts active. Something may be overdue." },
+
+  // Round 4 — Realistic delays
+  { line: "RED LINE",    color: "#BF0D3E", status: "SIGNAL PROBLEM",     detail: "Between 137 St and 145 St. Crews investigating." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "DISABLED TRAIN",     detail: "Cleared at Spring St. Residual gaps expected on A." },
+  { line: "GREEN LINE",  color: "#00B140", status: "SLOW ZONE",          detail: "Track work at Bowling Green through Friday." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "PLATFORM HOLD",      detail: "Train holding at Broadway-Lafayette for spacing." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "57 ST CROWDING",     detail: "Heavy platform at 57 St-7 Av. Use all available doors." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "SINGLE TRACKING",    detail: "Between Jefferson St and Morgan Av. Expect 8-min gaps." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "DOOR PROBLEM",       detail: "7 train at Queensboro Plaza. Brief hold. Crews on scene." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "FLOODING",           detail: "Water on track at Hoyt-Schermerhorn. Trains bypassing." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "POLICE ACTIVITY",    detail: "At 145 St. Trains holding at 137 St and 157 St." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "TRACK WORK",         detail: "Slow zone between DeKalb Ave and Atlantic Ave. Through Sunday." },
+
+  // Round 4 — Funny / chaotic
+  { line: "RED LINE",    color: "#BF0D3E", status: "DOOR SITUATION",     detail: "Passenger and door at 23 St unable to reach agreement." },
+  { line: "GREEN LINE",  color: "#00B140", status: "WILDLIFE REPORT",    detail: "Second squirrel at Grand Central. May be the same squirrel." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "DEJA VU",            detail: "This delay has occurred before. And before that. Thursday pattern." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "F TRAIN ARRIVAL",    detail: "F train has arrived. F train appears uncertain. Stand by." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "7 TRAIN MEMO",       detail: "Express skipped your stop. Local also skipped your stop." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "EARBUD NOTICE",      detail: "You cannot hear this announcement. This is for everyone else." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "PRIORITY SEAT",      detail: "Occupant acknowledged the sign. Declined to act. Situation stable." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "GHOST STOP",         detail: "Train announced 96 St. Stopped at 86 St. Operator: also surprised." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CARD TRICK",         detail: "Passenger performing card trick in car 4. Volunteer not consulted." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "TRANSFER ADVICE",    detail: "Your connecting train left 90 seconds before you arrived. Classic." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "APP ADVISORY",       detail: "App shows 2 min. Board shows 6. Train shows nothing. Guess." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "L MEMORY",           detail: "2019: prepared full shutdown messaging. Never used. Still filed." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "LAST CAR NOTE",      detail: "Last car: least crowded, farthest from the exit. Your call." },
+  { line: "GREEN LINE",  color: "#00B140", status: "6 TRAIN NOTE",       detail: "We stop at every station. This is our whole thing. We're fine." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "SPARE CHANGE",       detail: "Passenger making case for contributions in car 2. Strong rhetoric." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "OVERNIGHT SVC",      detail: "Reduced frequency. Increased character. Plan accordingly." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "FAUNA UPDATE",       detail: "Platform rat at Canal St. Not a stray. A resident. Different." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "C TRAIN NOTE",       detail: "C local: every 8 minutes. Sometimes 12. Rarely 8. It averages." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "EXPRESS ENVY",       detail: "You boarded local. Express just passed you. You heard it." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "COUNTDOWN CLK",      detail: "Clock shows dashes. Dashes mean the train exists. Somewhere." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "WRONG PLATFORM",     detail: "Uptown is the other side. We understand. It happens to everyone." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "SHOWTIME UPDATE",    detail: "Car 4. Strong performance underway. 3 stops remain. Hold poles." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "OMNY ADVISORY",      detail: "OMNY preferred. MetroCard still works. Gates: indifferent." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "DELAY UNIT",         detail: "Delay estimated at 2 podcast episodes. Or 1 short album." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "PA ANNOUNCEMENT",    detail: "Conductor announcement made. We heard nothing. Doors, probably." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "A TRAIN MOMENT",     detail: "42 stops to Far Rockaway. You chose this. We support you." },
+
+  // Round 4 — Timed delays, realistic
+  { line: "RED LINE",    color: "#BF0D3E", status: "16 MIN DELAY",       detail: "Police activity at 145 St cleared. Trains resuming." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "21 MIN DELAY",       detail: "Disabled train at Hoyt-Schermerhorn. Single tracking restored." },
+  { line: "GREEN LINE",  color: "#00B140", status: "8 MIN DELAY",        detail: "Door problem at 68 St-Hunter College. Train now moving." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "13 MIN DELAY",       detail: "Flooding at DeKalb Ave cleared. Southbound service resuming." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "11 MIN DELAY",       detail: "Platform hold at Queensboro Plaza lifted. Residual gaps expected." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "27 MIN DELAY",       detail: "Power issue between Bedford Av and Lorimer St resolved." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "6 MIN DELAY",        detail: "Crowding at Flushing-Main St clearing. Trains now moving." },
+
+  // Round 4 — Timed delays, funny
+  { line: "ALL LINES",   color: "#A1A1A4", status: "3 MIN DELAY",        detail: "Three minutes. Not 2, not 4. Three. We measured this one." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "INFINITY DELAY",     detail: "We have stopped estimating. Please use your own judgment." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "NEGATIVE DELAY",     detail: "Train arrived 3 min early. This does not balance the ledger." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "33 MIN DELAY",       detail: "Not 30, not 40. Thirty-three. We're being precise today." },
+
+  // Round 4 — Dry / bureaucratic
+  { line: "ALL LINES",   color: "#A1A1A4", status: "STRATEGIC PLAN",     detail: "Phase 1: acknowledge delay. Phase 2: TBD. Phase 3: resolution." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "QUARTERLY RPT",      detail: "Q3 delays down 2% vs Q2. Q2 was our worst quarter. Progress." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "ACTION ITEM",        detail: "Repair scheduled. Rescheduled. Pending reschedule. On track." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "ROOT CAUSE",         detail: "Root cause identified as: root cause. Analysis ongoing." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "KEY METRIC",         detail: "On-time performance: measured. Results: filed. Action: also filed." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "POLICY UPDATE",      detail: "New policy effective immediately. Supersedes previous new policy." },
+
+  // Round 4 — Honest transit authority
+  { line: "ALL LINES",   color: "#A1A1A4", status: "REAL ANSWER",        detail: "We don't know when the train is coming. Neither does the app." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "ACTUAL CAUSE",       detail: "We wrote 'signal problem.' It's always signal problem. Always." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "ACTUAL FIGURES",     detail: "Delay is 22 minutes. We listed 8. We hoped for the best." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CANDID UPDATE",      detail: "We have no update. This is the update. Thank you for waiting." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "HONEST SERVICE",     detail: "A train arrives every 8-12 minutes unless it doesn't." },
+
+  // Round 4 — Format-stealing
+  { line: "ALL LINES",   color: "#A1A1A4", status: "LIABILITY NOTE",     detail: "Do not board if doors are closing. They will reopen. Repeat." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "7-DAY FORECAST",     detail: "Mon-Fri: delays. Weekend: modified. Extended outlook: unclear." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "OUT OF OFFICE",      detail: "System unavailable overnight. For urgent transit: good luck." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "SUPPORT TICKET",     detail: "Your delay logged. Ticket number: 0. Resolution: Q4." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "PUSH NOTIF",         detail: "ALERT: your train departed. This notification: 4 min late." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "USER FEEDBACK",      detail: "We asked for your feedback. Received it. Form now closed." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "FINE PRINT",         detail: "Delays implied but not guaranteed. Void where service operates." },
+
+  // Round 4 — Sentient train
+  { line: "RED LINE",    color: "#BF0D3E", status: "TRAIN JOURNAL",      detail: "242 St to South Ferry: 38 stops. Every day. We know every turn." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "A TRAIN LOG",        detail: "Inwood-207 St to Far Rockaway: 42 stops. We do not rush." },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "L TRAIN DIARY",      detail: "Bedford Av again. The brunch crowd. We have seen them all." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "F TRAIN DIARY",      detail: "Jamaica-179 St to Stillwell Av. Very long. We are aware." },
+
+  // Round 4 — The board is aware
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD THOUGHT",      detail: "I've shown '2 MIN DELAY' 11,402 times. Was it ever 2 min? Unknown." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD OBSERVE",      detail: "Red bag, 8:14am, every weekday. Never makes the train. I see them." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD QUERY",        detail: "If I display a delay and no one reads it, did the delay happen?" },
+  { line: "SILVER LINE", color: "#A1A1A4", status: "BOARD MEMORY",       detail: "In 2019 I had L train shutdown messages ready. Still here. Unused." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "BOARD STATUS",       detail: "Operational. Always operational. I don't sleep. I don't know how." },
+
+  // Round 4 — Philosophical
+  { line: "ALL LINES",   color: "#A1A1A4", status: "FARE PHILOSOPHY",    detail: "One fare. Any distance. Any borough. Remarkable deal, actually." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "TRAIN THERAPY",      detail: "This delay is not about you. The train is not angry at you." },
+
+  // Round 4 — Fourth wall
+  { line: "ALL LINES",   color: "#A1A1A4", status: "FULL DISCLOSURE",    detail: "Yes, this is a portfolio. These alerts are fake. You're still here." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CAREER NOTICE",      detail: "Hiring managers: scroll up. You've spent enough time down here." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "FROM ROHIT",         detail: "Rohit built this. The delays are fake. The portfolio is real." },
+
+  // Round 5 — NYC Easter Eggs (things only riders know)
+
+  // Operational knowledge — only frequent riders understand
+  { line: "ALL LINES",   color: "#A1A1A4", status: "HELD MOMENTARILY",   detail: "We are being held momentarily by the train dispatcher. (Hi.)" },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CAR SELECTION",      detail: "Knowing which car to board for your exit: the real New York skill." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "LET THEM OFF",       detail: "Step aside. Let people off. This is the only rule. It still gets broken." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "TIMING ADVISORY",    detail: "The train will arrive exactly as you're swiping. This is scheduled." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "ARRIVAL DISPLAY",    detail: "Countdown showed 1 min for 7 straight minutes. This is allowed. We checked." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "WEEKEND REROUTE",    detail: "Service changes affecting 11 lines this weekend. Map: approximate." },
+
+  // Line geography — things you learn after months of riding
+  { line: "ALL LINES",   color: "#A1A1A4", status: "23 ST NOTICE",       detail: "F-M, C-E, and N-R-W: three different 23 St stations. None connect." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "A-C NOTICE",         detail: "A goes express in Brooklyn. C goes local. Same tracks, different lives." },
+  { line: "GREEN LINE",  color: "#00B140", status: "4-5 DIVERGE",        detail: "4 train: Bronx. 5 train: Brooklyn. They share tracks through Manhattan." },
+  { line: "GREEN LINE",  color: "#00B140", status: "5 TRAIN SPLIT",      detail: "Flatbush Ave-Brooklyn College or New Lots Ave. Check the front sign." },
+  { line: "GREEN LINE",  color: "#00B140", status: "6 EXPRESS NOTE",     detail: "6 express runs rush hour only. Look for the diamond sign." },
+  { line: "GREEN LINE",  color: "#00B140", status: "EXPRESS PARALLEL",   detail: "4 runs express alongside the 6 local. The 6 has accepted this." },
+  { line: "GREEN LINE",  color: "#00B140", status: "2-5 SHARED",         detail: "2 and 5 run together from Atlantic Ave to Flatbush. Then split." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "ASTORIA NOTE",       detail: "Astoria-Ditmars is served by N and W, not Q. Q goes to Coney Island." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "49 ST NOTE",         detail: "Between 42 St and 57 St: 49 St station. N, Q, R, W. Less crowded." },
+  { line: "YELLOW LINE", color: "#FFD200", status: "BMT NOTE",           detail: "N, Q, R, and W: the old BMT lines. Unified with IRT and IND in 1940." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "J-Z ADVISORY",       detail: "J: all stops. Z: rush hour, express. Identical line, different strategy." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "S TRAIN ADVISORY",   detail: "S shuttle: 3 stops. Times Sq to Grand Central. On time. Rarely noticed." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "168 ST LEVELS",      detail: "1 train upstairs, A-C-B-D downstairs at 168 St. Two stations, one name." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "2AM GAP",            detail: "Every 20-30 min after midnight. The subway never closes. Respect that." },
+
+  // Station lore — history and geography that rewards attention
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CITY HALL 1904",     detail: "Opened 1904, closed 1945. Loop used for turnaround. Still gorgeous." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "OLD SOUTH FERRY",    detail: "Old station visible through the new station's windows on the curve." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "DEKALB AVE",         detail: "Most complex rail junction in the world. 5 lines. Under Brooklyn." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "SMITH-9 STS",        detail: "Highest above-grade F stop in Brooklyn. Open air. Manhattan in sight." },
+  { line: "ORANGE LINE", color: "#E3801C", status: "BLEECKER XFER",      detail: "Free transfer between Broadway-Lafayette and Bleecker St. Same complex." },
+  { line: "BLUE LINE",   color: "#0072CE", status: "HIGH ST NOTE",       detail: "A and C at High St: 1936 IND station. Original tilework. Look up." },
+  { line: "GREEN LINE",  color: "#00B140", status: "TRANSIT MUSEUM",     detail: "Old Court St IND station, now a transit museum. Vintage cars inside." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "CURVE ADVISORY",     detail: "IRT curves: the screeching is normal. Wheels on 120-year-old tracks." },
+  { line: "RED LINE",    color: "#BF0D3E", status: "PENN STATION",       detail: "Six subway lines at 34 St-Penn Station. Entrances spread over 3 blocks." },
+  { line: "PURPLE LINE", color: "#6950A1", status: "FLUSHING MAIN",      detail: "Flushing-Main St: end of the 7 train. Best food court access in Queens." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "CHAMBERS ST XFR",    detail: "Two Chambers St stations, one underground connection. Free transfer exists." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "WILLIAMSBURG BR",    detail: "J, M, Z on the Williamsburg Bridge: outdoor deck. Cold in December." },
+
+  // System history — the stuff on the subway trivia cards
+  { line: "ALL LINES",   color: "#A1A1A4", status: "SINCE 1904",         detail: "IRT, 1904: 28 stations, nickel fare. Now: 472 stations. Same delay." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "TOKEN MEMORIAL",     detail: "Last NYC subway token accepted in 2003. Worked every time. Gone now." },
+  { line: "ALL LINES",   color: "#A1A1A4", status: "REDBIRD CARS",       detail: "NYC Redbird cars retired 2003, now reef habitat off the Atlantic coast." },
 ];
