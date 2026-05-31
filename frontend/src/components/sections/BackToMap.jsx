@@ -30,7 +30,7 @@ export default function BackToMap() {
         aria-label="Back to map"
       >
         <i className="fa-solid fa-arrow-up" aria-hidden="true" />
-        <span className="back-to-map-fab-label">Map</span>
+        <span className="back-to-map-fab-label">WAY OUT</span>
       </Link>
     );
   }
@@ -46,7 +46,7 @@ export default function BackToMap() {
       aria-label="Back to map"
     >
       <i className="fa-solid fa-arrow-up" aria-hidden="true" />
-      <span className="back-to-map-fab-label">Map</span>
+      <span className="back-to-map-fab-label">WAY OUT</span>
     </a>
   );
 }

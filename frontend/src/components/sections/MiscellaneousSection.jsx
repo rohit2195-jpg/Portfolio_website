@@ -47,7 +47,7 @@ export default function MiscellaneousSection() {
               <p className="misc-strip-pron">[stay-tuhs bord]</p>
             </header>
             <p className="misc-strip-blurb">
-              All RSTA lines. Live service status on a split-flap departure board.
+              Live service status on a split-flap departure board.
             </p>
             <Link to="/miscellaneous/board" className="misc-card-link">
               View board →

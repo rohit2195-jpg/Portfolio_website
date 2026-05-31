@@ -166,7 +166,7 @@ export default function AboutSection() {
           >
             <div className="service-alert-header">
               <span aria-hidden="true" style={{ fontSize: "20px" }}>⚠</span>
-              <span className="service-alert-agency">WMATA SERVICE ALERT</span>
+              <span className="service-alert-agency">SERVICE NOTICE</span>
               <button
                 className="service-alert-close"
                 onClick={() => setAlertOpen(false)}
@@ -204,7 +204,7 @@ export default function AboutSection() {
                   day: "numeric",
                   year: "numeric",
                 })}{" "}
-                — Rohit Sattuluri Transit Authority
+                — Service Information
               </p>
             </div>
           </div>

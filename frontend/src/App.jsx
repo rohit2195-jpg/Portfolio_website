@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import FlapBoard from "./pages/FlapBoard";
 import HomePage from "./pages/HomePage";
+import NotFound from "./pages/NotFound";
 import PhotoAlbumPage from "./pages/PhotoAlbumPage";
 import PhotosPage from "./pages/PhotosPage";
 import Time from "./pages/Time";
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="time" element={<Time />} />
           <Route path="board" element={<FlapBoard />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

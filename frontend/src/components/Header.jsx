@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import Roundel from "./transit/Roundel";
 
 export default function Header({ theme, onToggleTheme }) {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" aria-label="Rohit Sattuluri home" end>
-        <span className="brand-rsta-badge" aria-hidden="true">RSTA</span>
+        <Roundel color="#BF0D3E" monogram="R" size={48} />
         <span className="brand-text">
           <span className="brand-name">Rohit Sattuluri</span>
-          <span className="brand-role">Purdue Computer Science · Pittsburgh, PA</span>
+          <span className="brand-role">Purdue CS · Pittsburgh, PA</span>
         </span>
       </NavLink>
 

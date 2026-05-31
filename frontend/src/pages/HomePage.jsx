@@ -12,6 +12,7 @@ import MiscellaneousSection from "../components/sections/MiscellaneousSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
 import TimelineSection from "../components/sections/TimelineSection";
 import { useActiveSection } from "../hooks/useActiveSection";
+import DepartureBoard from "../components/transit/DepartureBoard";
 
 const SECTION_TO_ANCHOR = {
   about: "about",
@@ -78,15 +79,22 @@ export default function HomePage({ initialSection }) {
   }, [initialSection, location.state?.scrollTo]);
 
   const handleNavigate = useCallback((section) => {
-    if (section === "map") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = prefersReduced ? "auto" : "smooth";
+    if (section === "map") { window.scrollTo({ top: 0, behavior }); return; }
     const anchor = SECTION_TO_ANCHOR[section];
     if (!anchor) return;
     const el = document.getElementById(anchor);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior, block: "start" });
   }, []);
+
+  const boardRows = [
+    { color: "#BF0D3E", dest: "ABOUT",    sub: "the person behind it", status: "NOW BOARDING", statusColor: "var(--led-green)", onClick: () => handleNavigate("about") },
+    { color: "#0072CE", dest: "PROJECTS", sub: "things I've built",     status: "2 MIN", onClick: () => handleNavigate("projects") },
+    { color: "#00B140", dest: "TIMELINE", sub: "the journey so far",    status: "4 MIN", onClick: () => handleNavigate("timeline") },
+    { color: "#E3801C", dest: "MISC",     sub: "off the clock",         status: "6 MIN", onClick: () => handleNavigate("miscellaneous") },
+    { color: "#FFD200", dest: "CONTACT",  sub: "say hello",             status: "8 MIN", onClick: () => handleNavigate("contact") },
+  ];
 
   return (
     <>
@@ -95,9 +103,21 @@ export default function HomePage({ initialSection }) {
         style={{ "--scroll-pct": `${scrollPct}%`, "--bar-color": activeColor }}
         aria-hidden="true"
       />
-      <div id="map" ref={mapRef}>
-        <MetroMap onNavigateToSection={handleNavigate} />
-        <MetroMapMobile onNavigateToSection={handleNavigate} />
+      <div id="map" ref={mapRef} className="hero-band">
+        <div className="hero-in">
+          <div className="hero-grid">
+            <div className="hero-left">
+              <DepartureBoard rows={boardRows} />
+            </div>
+            <div className="hero-mapcard">
+              <p className="hero-mapcard-cap" aria-hidden="true"><span>System Map</span><span style={{ color: "#00863b" }}>● live · click a stop</span></p>
+              <div className="hero-mapbox">
+                <MetroMap onNavigateToSection={handleNavigate} />
+                <MetroMapMobile onNavigateToSection={handleNavigate} />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <StatusFlap />
 

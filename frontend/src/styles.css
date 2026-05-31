@@ -20,17 +20,27 @@
   --metro-line-yellow: #FFD200;
   --metro-line-green: #00B140;
   --metro-line-purple: #6950A1;
+  /* ---- subway-redesign tokens ---- */
+  --line-weight: 6px;
+  --board-bg: #23232a;        /* charcoal board, both themes */
+  --board-ink: #f4f2ee;
+  --board-accent: #FFC850;    /* amber status/clock */
+  --board-rule: #34343d;
+  --led-amber: #FFB000;
+  --led-green: #39FF80;
+  --scrim-top: 0.56;          /* hero bg readability (light) */
+  --scrim-bottom: 0.74;
   /* Project card palette */
   --card-bg: #f9f4e2;
   --card-text: #2a2a2a;
   --card-muted: #4a4538;
   --card-hero-img-bg: #e8e2cd;
   /* Section tints */
-  --section-about-bg: #faf8fd;
-  --section-projects-bg: #f0f6ff;
-  --section-timeline-bg: #f5fbf7;
-  --section-misc-bg: #fdf8f3;
-  --section-contact-bg: #fefef2;
+  --section-about-bg: rgba(250, 248, 253, 0.93);
+  --section-projects-bg: rgba(240, 246, 255, 0.93);
+  --section-timeline-bg: rgba(245, 251, 247, 0.93);
+  --section-misc-bg: rgba(253, 248, 243, 0.93);
+  --section-contact-bg: rgba(254, 254, 242, 0.93);
   /* Spotlight intensities */
   --spot-about: rgba(105, 80, 161, 0.14);
   --spot-projects: rgba(0, 114, 206, 0.12);
@@ -39,6 +49,8 @@
   --spot-contact: rgba(255, 210, 0, 0.1);
   /* Transit typography */
   --font-transit: "Barlow Condensed", "Arial Narrow", sans-serif;
+  /* A/B: lead with Hanken Grotesk; to revert to the original, remove 'Hanken Grotesk', from this stack */
+  --font-body: 'Hanken Grotesk', 'Source Sans 3', 'Source Sans Pro', sans-serif;
   /* No tile pattern in light mode */
   --tile-pattern: none;
   color-scheme: light;
@@ -62,11 +74,11 @@
   --card-muted: #d4ccb8;
   --card-hero-img-bg: #1f1c17;
   /* Section tints */
-  --section-about-bg: #0d0b10;
-  --section-projects-bg: #0b0f18;
-  --section-timeline-bg: #0a0f0c;
-  --section-misc-bg: #100e0a;
-  --section-contact-bg: #100f08;
+  --section-about-bg: rgba(13, 11, 16, 0.93);
+  --section-projects-bg: rgba(11, 15, 24, 0.93);
+  --section-timeline-bg: rgba(10, 15, 12, 0.93);
+  --section-misc-bg: rgba(16, 14, 10, 0.93);
+  --section-contact-bg: rgba(16, 15, 8, 0.93);
   /* Spotlight intensities (brighter in dark mode) */
   --spot-about: rgba(105, 80, 161, 0.28);
   --spot-projects: rgba(0, 114, 206, 0.24);
@@ -75,6 +87,8 @@
   --spot-contact: rgba(255, 210, 0, 0.16);
   /* Tile texture dark */
   --tile-pattern: none;
+  --scrim-top: 0.80;
+  --scrim-bottom: 0.90;
   color-scheme: dark;
 }
 
@@ -89,7 +103,7 @@
   font-size: 14px;
   color: var(--muted);
   margin: 12px 0 0;
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
 }
 
 .metro-map-frame {
@@ -146,7 +160,7 @@
 }
 
 .metro-marker-svg-label {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   font-size: 22px;
   font-weight: 700;
   fill: #111111;
@@ -300,7 +314,7 @@
 }
 
 .dictionary-def {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: 18px;
   color: var(--muted);
@@ -339,7 +353,7 @@
    ============================ */
 
 .section {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
 }
 
@@ -473,7 +487,7 @@
 }
 
 .about-subheading {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 26px;
   line-height: 1.1;
@@ -1189,11 +1203,19 @@ section[id] {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
-    Segoe UI, sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
-  background: var(--bg);
+  /* Site-wide subway-map backdrop: fixed (stays put on scroll) under a readability scrim */
+  background:
+    linear-gradient(180deg, rgba(243, 241, 234, var(--scrim-top)), rgba(243, 241, 234, var(--scrim-bottom))) fixed,
+    var(--bg) url("./assets/subway-bg.jpg") center / cover no-repeat fixed;
   line-height: 1.6;
+}
+
+[data-theme="dark"] body {
+  background:
+    linear-gradient(180deg, rgba(16, 18, 22, var(--scrim-top)), rgba(16, 18, 22, var(--scrim-bottom))) fixed,
+    var(--bg) url("./assets/subway-bg.jpg") center / cover no-repeat fixed;
 }
 
 a {
@@ -2275,7 +2297,7 @@ figure {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
 }
 
 .station-pylon-body {
@@ -3118,7 +3140,7 @@ figure {
 }
 
 .metro-mobile-title {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 18px;
   color: var(--text);
@@ -3126,7 +3148,7 @@ figure {
 }
 
 .metro-mobile-pron {
-  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: 13px;
   color: var(--muted);
@@ -3578,3 +3600,158 @@ figure {
     color: #7a96c0;
   }
 }
+
+/* ===== subway texture utilities ===== */
+.tactile {
+  background-image: radial-gradient(circle at 50% 50%,
+    rgba(0,0,0,.16) 0 3px, transparent 3.5px);
+  background-size: 18px 18px;
+}
+[data-theme="dark"] .tactile {
+  background-image: radial-gradient(circle at 50% 50%,
+    rgba(255,255,255,.10) 0 3px, transparent 3.5px);
+}
+.platform-edge {
+  height: 14px;
+  background: repeating-linear-gradient(45deg,
+    var(--metro-line-yellow) 0 14px, #111 14px 28px);
+}
+.subway-tile {
+  background-color: #fafafa;
+  background-image:
+    linear-gradient(335deg, rgba(0,0,0,.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 46px 24px;
+}
+
+/* ===== station nodes ===== */
+.station-node { display:inline-block; box-sizing:border-box; }
+.station-node--tick {
+  width:14px; height:14px; border-radius:50%;
+  background:#111;
+  box-shadow:0 0 0 4px #fff, 0 0 0 6px var(--node-color, #111);
+}
+.station-node--interchange {
+  width:22px; height:22px; border-radius:50%;
+  background:#fff; border:4px solid #111;
+}
+.station-node--terminus {
+  width:30px; height:16px; border-radius:9px;
+  background:#fff; border:4px solid var(--node-color, #111);
+}
+[data-theme="dark"] .station-node--tick { box-shadow:0 0 0 4px #15171c, 0 0 0 6px var(--node-color,#111); }
+[data-theme="dark"] .station-node--interchange,
+[data-theme="dark"] .station-node--terminus { background:#15171c; }
+
+/* ===== roundel ===== */
+.roundel {
+  position:relative; flex:0 0 auto;
+  width:var(--roundel-size,58px); height:var(--roundel-size,58px);
+  border:calc(var(--roundel-size,58px) * .17) solid var(--roundel-color,#BF0D3E);
+  border-radius:50%; display:grid; place-items:center;
+  background:rgba(255,255,255,.5);
+}
+[data-theme="dark"] .roundel { background:rgba(20,22,28,.5); }
+.roundel-monogram {
+  font:800 calc(var(--roundel-size,58px) * .4)/1 var(--font-transit, 'Barlow Condensed'), sans-serif;
+  color:var(--roundel-color,#BF0D3E);
+}
+.roundel-bar {
+  position:absolute; left:-12%; right:-12%; top:50%; transform:translateY(-50%);
+  background:var(--roundel-color,#BF0D3E); color:#fff;
+  text-align:center; font:700 calc(var(--roundel-size,58px) * .2)/1.6 var(--font-transit,'Barlow Condensed'),sans-serif;
+  letter-spacing:.06em; text-transform:uppercase;
+}
+
+/* ===== split-flap ===== */
+.flaprow { display:inline-flex; gap:3px; }
+.flap {
+  display:inline-grid; place-items:center;
+  min-width:1.05em; height:1.5em; padding:0 .12em;
+  background:var(--board-bg); color:var(--board-ink);
+  font:800 clamp(16px,2.4vw,24px)/1 var(--font-transit,'Barlow Condensed'),sans-serif;
+  border-radius:3px; position:relative; box-shadow:inset 0 -1px 0 #000;
+}
+.flap::after { content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:rgba(255,255,255,.10); }
+
+/* ===== departures board ===== */
+.board { background:var(--board-bg); border-radius:11px; padding:14px 16px;
+  box-shadow:0 10px 26px rgba(0,0,0,.30); }
+.board-head { display:flex; justify-content:space-between; align-items:center;
+  border-bottom:1px solid var(--board-rule); padding-bottom:9px; margin-bottom:4px; }
+.board-head-t { font:700 13px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.26em; color:var(--board-accent); text-transform:uppercase; }
+.board-head-clk { font:600 13px ui-monospace,monospace; color:var(--board-accent); letter-spacing:.12em; }
+.board-rows { list-style:none; margin:0; padding:0; }
+.brow { width:100%; background:none; border:0; cursor:pointer; text-align:left;
+  display:grid; grid-template-columns:15px 1fr auto; column-gap:10px; align-items:baseline;
+  padding:9px 0; border-bottom:1px dashed var(--board-rule); }
+.board-rows li:last-child .brow { border-bottom:0; }
+.bbullet { width:14px; height:14px; border-radius:50%; align-self:center; }
+.bdest { font:700 18px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.05em; color:var(--board-ink); }
+.binfo { grid-column:2; font:400 12px ui-monospace,monospace; color:#9a9aa2; margin-top:1px; }
+.bstat { grid-row:1; grid-column:3; font:600 11px ui-monospace,monospace; letter-spacing:.06em; text-align:right; }
+.brow:focus-visible { outline:none; box-shadow:0 0 0 3px var(--board-bg), 0 0 0 5px var(--led-amber); border-radius:6px; }
+
+/* ===== redesign hero ===== */
+.hero-band { position:relative; border-radius:14px; overflow:hidden; margin:0 auto; max-width:1080px; }
+.hero-bg { position:absolute; inset:0; background-image:var(--hero-bg-image); background-size:cover; background-position:center; }
+.hero-scrim { position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(243,241,234,var(--scrim-top)), rgba(243,241,234,var(--scrim-bottom))); }
+[data-theme="dark"] .hero-scrim { background:linear-gradient(180deg, rgba(16,18,22,var(--scrim-top)), rgba(16,18,22,var(--scrim-bottom))); }
+.hero-in { position:relative; padding:28px 30px 32px; }
+.hero-grid { display:grid; grid-template-columns:4fr 6fr; gap:22px; align-items:stretch; }
+.hero-left { display:flex; flex-direction:column; }
+.hero-lockup { display:flex; align-items:center; gap:14px; min-height:58px; margin-bottom:18px; }
+.hero-name h1 { margin:0; font:800 32px/.95 var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.02em; text-transform:uppercase; color:var(--text); }
+.hero-name p { margin:3px 0 0; font:600 12px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.2em; text-transform:uppercase; color:#5f5f5f; }
+.hero-left .board { margin-bottom:0; }
+.hero-mapcard { background:rgba(255,255,255,.80); backdrop-filter:blur(2px); border-radius:11px; padding:14px 18px 16px; display:flex; flex-direction:column; }
+[data-theme="dark"] .hero-mapcard { background:rgba(20,22,28,.78); }
+.hero-mapcard-cap { font:600 12px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#888; margin:0 0 8px; display:flex; justify-content:space-between; }
+.hero-mapbox { flex:1; display:flex; align-items:center; justify-content:center; }
+@media (max-width:760px){ .hero-grid { grid-template-columns:1fr; } .hero-left .board { margin-bottom:22px; } }
+/* dark-mode legibility for hero role line over the darker scrim */
+[data-theme="dark"] .hero-name p { color:#b9bcc4; }
+/* the consolidated name lockup uses the site RSTA badge, scaled up for the hero */
+.hero-lockup .brand-rsta-badge { width:58px; height:58px; font-size:1.05rem; border-width:4px; }
+/* hero band is transparent so the site-wide background shows through it too */
+
+/* roundel badge in section headers */
+.section-header-row > .roundel { margin-right: 12px; align-self: center; }
+@media (max-width: 640px){ .section-header-row > .roundel { width:38px !important; height:38px !important; } }
+
+/* "Way Out" wayfinding treatment for the back-to-map FAB */
+.back-to-map-fab .back-to-map-fab-label { text-transform: uppercase; letter-spacing: .08em; font-family: var(--font-transit, sans-serif); font-weight: 700; }
+
+/* Mind the Gap 404 */
+.notfound { max-width: 640px; margin: 8vh auto; padding: 0 24px; text-align: center; }
+.notfound-stripe { height: 16px; margin: 0 auto 28px; max-width: 320px; background: repeating-linear-gradient(45deg, var(--metro-line-yellow) 0 16px, #111 16px 32px); border-radius: 3px; }
+.notfound-kicker { font-family: var(--font-transit, sans-serif); text-transform: uppercase; letter-spacing: .24em; font-size: 12px; color: var(--muted); margin: 0 0 8px; }
+.notfound-title { font-family: var(--font-transit, sans-serif); text-transform: uppercase; font-size: clamp(40px, 8vw, 72px); line-height: .95; margin: 0 0 16px; color: var(--text); }
+.notfound-text { color: var(--muted); font-size: 17px; margin: 0 auto 24px; max-width: 460px; }
+.notfound-link { font-family: var(--font-transit, sans-serif); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; text-decoration: none; }
+
+/* ===== MetroCard (fare card) ===== */
+.metrocard {
+  --mc-gold: #F2A900;
+  position: relative; max-width: 360px; margin: 0 auto 22px;
+  aspect-ratio: 1.586; /* credit-card ratio */
+  background: var(--mc-gold);
+  color: #0a1a3f;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  /* cut top-right corner like a MetroCard */
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+}
+.metrocard-row { display: flex; align-items: center; justify-content: space-between; }
+.metrocard-brand { font-family: var(--font-transit, sans-serif); font-weight: 800; letter-spacing: .18em; text-transform: uppercase; font-size: 13px; color: var(--metro-line-blue); }
+.metrocard-chip { width: 30px; height: 22px; border-radius: 4px; background: linear-gradient(135deg,#d9b34a,#b8862b); box-shadow: inset 0 0 0 1px rgba(0,0,0,.25); }
+.metrocard-body { display: flex; flex-direction: column; gap: 2px; }
+.metrocard-name { font-family: var(--font-transit, sans-serif); font-weight: 800; text-transform: uppercase; letter-spacing: .03em; font-size: clamp(22px, 4vw, 30px); line-height: 1; }
+.metrocard-sub { font-family: ui-monospace, monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #0a1a3f; opacity: .8; }
+.metrocard-row--foot { font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; }
+.metrocard-valid { font-weight: 700; }
+.metrocard-serial { opacity: .75; }
+.hero-band { background:transparent; }

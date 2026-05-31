@@ -1,5 +1,6 @@
 import resumePdf from "../../assets/Rohit_Sattuluri_Resume.pdf";
 import SectionHeader from "./SectionHeader";
+import MetroCard from "../transit/MetroCard";
 
 const CONTACTS = [
   {
@@ -43,6 +44,8 @@ export default function ContactSection() {
         definition="an establishing of communication with someone"
       />
 
+      <MetroCard name="Rohit Sattuluri" subtitle="Software Engineer" serial="No. 2195" />
+
       <div className="contact-board-wrapper">
         <div className="station-entrance-sign" aria-hidden="true">
           <span className="station-entrance-arrow">↓</span>
@@ -79,7 +82,7 @@ export default function ContactSection() {
           ))}
         </div>
         <div className="departure-board-footer" aria-hidden="true">
-          ROHIT SATTULURI TRANSIT AUTHORITY
+          ROHIT SATTULURI · DEPARTURES
         </div>
       </div>
       </div>
