@@ -1,16 +1,16 @@
 export const experience = [
   {
-    title: "Incoming Technology Intern",
+    title: "Technology Intern",
     company: "Duke Energy",
     location: "Charlotte, NC",
-    dateRange: "May 2026 - Aug 2026",
+    dateRange: "May 2026 - Present",
     bullets: ["Incoming role."],
   },
   {
     title: "Machine Learning Researcher",
     company: "The Data Mine - Purdue University",
     location: "West Lafayette, IN",
-    dateRange: "Aug 2025 - Present",
+    dateRange: "Aug 2025 - May 2026",
     bullets: [
       "Partnering with Johnson & Johnson to automate budget and invoice reporting through Power BI pipelines and interactive dashboards that surface committed spending across departments.",
     ],

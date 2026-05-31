@@ -7,7 +7,7 @@ export default function Header({ theme, onToggleTheme }) {
         <span className="brand-rsta-badge" aria-hidden="true">RSTA</span>
         <span className="brand-text">
           <span className="brand-name">Rohit Sattuluri</span>
-          <span className="brand-role">Purdue CS · Pittsburgh, PA</span>
+          <span className="brand-role">Purdue Computer Science · Pittsburgh, PA</span>
         </span>
       </NavLink>
 

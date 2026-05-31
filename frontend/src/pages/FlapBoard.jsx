@@ -114,6 +114,7 @@ function FlapRow({ startOffset, interval, onFlap }) {
           className="flap-field flap-field--detail"
         />
       </div>
+      <p className="flap-row-detail-text">{entry.detail.toUpperCase()}</p>
     </div>
   );
 }

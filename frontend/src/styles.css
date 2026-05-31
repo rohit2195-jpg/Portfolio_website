@@ -328,6 +328,10 @@
     font-size: 36px;
     letter-spacing: -0.015em;
   }
+  .section-header-row {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 /* ============================
@@ -1094,9 +1098,15 @@
 }
 
 .misc-clock-grid--page {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .misc-clock-grid--page {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .misc-clock-grid .clock-container {
@@ -3466,6 +3476,10 @@ figure {
   white-space: nowrap;
 }
 
+.flap-row-detail-text {
+  display: none;
+}
+
 /* Dark mode: dark flaps, white text — no cell borders */
 .flap-field [data-kind="digit"] {
   background: #1e1e1e;
@@ -3513,10 +3527,54 @@ figure {
 
   .flap-row {
     padding: 12px 14px;
+    gap: 4px 10px;
   }
 
   .flap-row-cells {
-    gap: 6px;
-    flex-wrap: wrap;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  /* Shrink LINE + STATUS tiles to fit mobile width */
+  .flap-field [data-kind="digit"] {
+    font-size: 0.6rem;
+    margin: 0 0.4px;
+  }
+
+  .flap-field [data-kind="hinge"] {
+    height: 1px;
+  }
+
+  /* Prevent tiles from wrapping inside their FlapDisplay container */
+  .flap-field {
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* Hide the 72-char detail flap animation on mobile */
+  .flap-row-detail {
+    display: none;
+  }
+
+  /* Show plain-text detail instead */
+  .flap-row-detail-text {
+    display: block;
+    grid-column: 2;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6a8abf;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    padding-top: 2px;
+  }
+
+  [data-theme="light"] .flap-row-detail-text {
+    color: #7a96c0;
   }
 }

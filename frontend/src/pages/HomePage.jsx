@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AboutSection from "../components/sections/AboutSection";
 import ContactSection from "../components/sections/ContactSection";
@@ -69,15 +69,12 @@ export default function HomePage({ initialSection }) {
   const activeSection = useActiveSection(OBSERVED_IDS);
   const activeColor = SECTION_COLOR[activeSection] ?? "#A1A1A4";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const section = initialSection ?? location.state?.scrollTo;
     if (!section) return;
     const anchor = SECTION_TO_ANCHOR[section] ?? section;
     if (!anchor) return;
-    const timer = setTimeout(() => {
-      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 150);
-    return () => clearTimeout(timer);
+    document.getElementById(anchor)?.scrollIntoView({ behavior: "instant", block: "start" });
   }, [initialSection, location.state?.scrollTo]);
 
   const handleNavigate = useCallback((section) => {
