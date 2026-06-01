@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
+import ExitSign from "../components/transit/ExitSign";
 import { photoAlbums } from "../photoAlbums";
 
 export default function PhotosPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <p className="eyebrow">
-          <i className="fa-solid fa-arrow-left icon-inline" aria-hidden="true"></i>
-          <Link to="/" state={{ scrollTo: "miscellaneous" }}>Miscellaneous</Link>
-        </p>
+        <ExitSign to="/" state={{ scrollTo: "miscellaneous" }} />
         <h2>
           Photos
           <span className="page-pronunciation">[foh-tohz]</span>

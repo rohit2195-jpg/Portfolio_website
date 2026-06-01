@@ -5,6 +5,7 @@
 export const DIM_KEY = "metro:bg.dim";
 export const REDUCE_MOTION_KEY = "metro:reduceMotion";
 export const FONT_SCALE_KEY = "metro:fontScale";
+export const PANEL_ALPHA_KEY = "metro:panelAlpha";
 
 // Defaults
 export const DIM_DEFAULT = 0.56; // matches the light-theme --scrim-top alpha
@@ -13,6 +14,9 @@ export const FONT_SCALE_MIN = 0.95;
 export const FONT_SCALE_MAX = 1.2;
 export const DIM_MIN = 0.3;
 export const DIM_MAX = 0.95;
+export const PANEL_ALPHA_DEFAULT = 1; // fully opaque panels by default
+export const PANEL_ALPHA_MIN = 0.45;
+export const PANEL_ALPHA_MAX = 1;
 
 const hasWindow = () => typeof window !== "undefined";
 
@@ -45,6 +49,30 @@ export function setDim(value) {
   const v = clamp(parseFloat(value), DIM_MIN, DIM_MAX);
   window.localStorage.setItem(DIM_KEY, String(v));
   applyDim(v);
+}
+
+// ---- Panel opacity -------------------------------------------------------
+// Controls how much of the background image shows through content panels.
+// Every panel surface derives from `--surface: rgba(var(--surface-rgb), var(--panel-alpha))`
+// and the section tints multiply their alpha by --panel-alpha, so setting this
+// one variable on documentElement fades all panels together.
+export function getPanelAlpha() {
+  if (!hasWindow()) return PANEL_ALPHA_DEFAULT;
+  const raw = parseFloat(window.localStorage.getItem(PANEL_ALPHA_KEY));
+  return Number.isNaN(raw) ? PANEL_ALPHA_DEFAULT : clamp(raw, PANEL_ALPHA_MIN, PANEL_ALPHA_MAX);
+}
+
+export function applyPanelAlpha(value) {
+  if (!hasWindow()) return;
+  const v = clamp(parseFloat(value), PANEL_ALPHA_MIN, PANEL_ALPHA_MAX);
+  document.documentElement.style.setProperty("--panel-alpha", v.toFixed(3));
+}
+
+export function setPanelAlpha(value) {
+  if (!hasWindow()) return;
+  const v = clamp(parseFloat(value), PANEL_ALPHA_MIN, PANEL_ALPHA_MAX);
+  window.localStorage.setItem(PANEL_ALPHA_KEY, String(v));
+  applyPanelAlpha(v);
 }
 
 // ---- Reduce motion -------------------------------------------------------
@@ -91,6 +119,7 @@ export function setFontScale(value) {
 export function applyAllSettings() {
   if (!hasWindow()) return;
   applyDim(getDim());
+  applyPanelAlpha(getPanelAlpha());
   applyReduceMotion(getReduceMotion());
   applyFontScale(getFontScale());
 }
@@ -101,9 +130,11 @@ export function applyAllSettings() {
 export function resetSettings() {
   if (!hasWindow()) return;
   window.localStorage.removeItem(DIM_KEY);
+  window.localStorage.removeItem(PANEL_ALPHA_KEY);
   window.localStorage.removeItem(REDUCE_MOTION_KEY);
   window.localStorage.removeItem(FONT_SCALE_KEY);
   applyDim(DIM_DEFAULT);
+  applyPanelAlpha(PANEL_ALPHA_DEFAULT);
   applyReduceMotion(false);
   applyFontScale(FONT_SCALE_DEFAULT);
 }

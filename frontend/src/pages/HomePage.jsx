@@ -49,6 +49,35 @@ export default function HomePage({ initialSection }) {
     new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false })
   );
   const mapRef = useRef(null);
+  const heroFitRef = useRef(null);
+
+  // Scale the hero (board + map + status board) down to fit one viewport on
+  // shorter screens so nothing is cut off and the About section never peeks
+  // above the fold. The .hero-screen is a fixed-height band (one viewport minus
+  // the header); we measure the hero's natural height and scale it to fit.
+  useLayoutEffect(() => {
+    const fit = () => {
+      const el = heroFitRef.current;
+      const screen = el?.closest(".hero-screen");
+      if (!el || !screen) return;
+      el.style.transform = "none";
+      const natural = el.getBoundingClientRect().height;
+      const avail = screen.clientHeight - 6;
+      if (natural <= 0) return;
+      const scale = Math.max(0.6, Math.min(1, avail / natural));
+      el.style.transform = `scale(${scale})`;
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    // refit once fonts/images settle
+    const raf = requestAnimationFrame(fit);
+    const t = setTimeout(fit, 400);
+    return () => {
+      window.removeEventListener("resize", fit);
+      cancelAnimationFrame(raf);
+      clearTimeout(t);
+    };
+  }, []);
 
   useEffect(() => {
     const tick = () =>
@@ -115,6 +144,8 @@ export default function HomePage({ initialSection }) {
         style={{ "--scroll-pct": `${scrollPct}%`, "--bar-color": activeColor }}
         aria-hidden="true"
       />
+      <div className="hero-screen">
+      <div className="hero-fit" ref={heroFitRef}>
       <div id="map" ref={mapRef} className="hero-band">
         <div className="hero-in">
           <div className="hero-grid">
@@ -140,6 +171,8 @@ export default function HomePage({ initialSection }) {
         </div>
       </div>
       <StatusFlap />
+      </div>
+      </div>
 
       <AboutSection />
       <StationStop color="var(--metro-line-blue)" destination="Projects" lineName="Blue Line" />

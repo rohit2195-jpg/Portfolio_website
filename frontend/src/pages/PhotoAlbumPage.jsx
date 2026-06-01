@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ExitSign from "../components/transit/ExitSign";
 import { getPhotoAlbum } from "../photoAlbums";
 
 export default function PhotoAlbumPage() {
@@ -60,10 +61,7 @@ export default function PhotoAlbumPage() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <p className="eyebrow">
-          <i className="fa-regular fa-image icon-inline" aria-hidden="true"></i>
-          <Link to="/miscellaneous/photos">All albums</Link>
-        </p>
+        <ExitSign to="/miscellaneous/photos" />
         <h2>{album.title}</h2>
 
         <p className="page-lead">

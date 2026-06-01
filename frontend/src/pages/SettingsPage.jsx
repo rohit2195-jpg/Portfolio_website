@@ -1,17 +1,22 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import ExitSign from "../components/transit/ExitSign";
+import BuildFacts from "../components/BuildFacts";
 import { BACKGROUNDS, getBackgroundId, setBackground } from "../lib/background";
 import {
   DIM_MIN,
   DIM_MAX,
   FONT_SCALE_MIN,
   FONT_SCALE_MAX,
+  PANEL_ALPHA_MIN,
+  PANEL_ALPHA_MAX,
   getDim,
   getFontScale,
+  getPanelAlpha,
   getReduceMotion,
   resetSettings,
   setDim,
   setFontScale,
+  setPanelAlpha,
   setReduceMotion,
 } from "../lib/settings";
 
@@ -97,6 +102,7 @@ export default function SettingsPage() {
   const [theme, setThemeState] = useState(getTheme);
   const [bg, setBgState] = useState(getBackgroundId);
   const [dim, setDimState] = useState(getDim);
+  const [panelAlpha, setPanelAlphaState] = useState(getPanelAlpha);
   const [reduceMotion, setReduceMotionState] = useState(getReduceMotion);
   const [fontScale, setFontScaleState] = useState(getFontScale);
   const [active, setActive] = useState(STATIONS[0].id);
@@ -120,6 +126,11 @@ export default function SettingsPage() {
   const changeDim = (v) => {
     setDimState(v);
     setDim(v);
+  };
+
+  const changePanelAlpha = (v) => {
+    setPanelAlphaState(v);
+    setPanelAlpha(v);
   };
 
   const toggleMotion = (on) => {
@@ -163,14 +174,8 @@ export default function SettingsPage() {
 
   return (
     <section className="settings-room">
-      {/* WAY OUT wayfinding sign */}
-      <Link to="/" className="settings-wayout">
-        <span className="settings-wayout__arrow" aria-hidden="true">↑</span>
-        <span className="settings-wayout__text">
-          <span className="settings-wayout__kicker">Way Out</span>
-          <span className="settings-wayout__main">Back to the Map</span>
-        </span>
-      </Link>
+      {/* Emergency-exit "running man" way-out sign */}
+      <ExitSign to="/" />
 
       <header className="settings-room__head">
         <p className="settings-room__kicker">Station Control Room</p>
@@ -259,6 +264,20 @@ export default function SettingsPage() {
                 readout={`${Math.round(dim * 100)}%`}
               />
             </Field>
+            <Field
+              label="Panel Opacity"
+              hint="How much backdrop shows through cards and panels."
+            >
+              <Fader
+                ariaLabel="Panel opacity"
+                min={PANEL_ALPHA_MIN}
+                max={PANEL_ALPHA_MAX}
+                step={0.01}
+                value={panelAlpha}
+                onChange={changePanelAlpha}
+                readout={`${Math.round(panelAlpha * 100)}%`}
+              />
+            </Field>
           </Group>
 
           {/* 3. Motion */}
@@ -315,6 +334,8 @@ export default function SettingsPage() {
                 <dd>v2.0</dd>
               </div>
             </dl>
+
+            <BuildFacts />
             <div className="settings-about__links">
               <a
                 href="https://github.com/rohit2195-jpg"

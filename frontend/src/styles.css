@@ -7,7 +7,12 @@
   --border: #d8d8d8;
   --accent: #1f4fa3;
   --accent-hover: #163b7b;
-  --surface: #f3f3f1;
+  /* Panel surface as an rgb triplet + adjustable alpha so the background image
+     can show through every content panel. The Settings "Panel Opacity" fader
+     overrides --panel-alpha on <html>. */
+  --surface-rgb: 243, 243, 241;
+  --panel-alpha: 1;
+  --surface: rgba(var(--surface-rgb), var(--panel-alpha));
   --content-width: 900px;
   /* Metro palette (light) */
   --metro-land: #ffffff;
@@ -36,11 +41,11 @@
   --card-muted: #4a4538;
   --card-hero-img-bg: #e8e2cd;
   /* Section tints */
-  --section-about-bg: rgba(250, 248, 253, 0.93);
-  --section-projects-bg: rgba(240, 246, 255, 0.93);
-  --section-timeline-bg: rgba(245, 251, 247, 0.93);
-  --section-misc-bg: rgba(253, 248, 243, 0.93);
-  --section-contact-bg: rgba(254, 254, 242, 0.93);
+  --section-about-bg: rgba(250, 248, 253, calc(0.93 * var(--panel-alpha)));
+  --section-projects-bg: rgba(240, 246, 255, calc(0.93 * var(--panel-alpha)));
+  --section-timeline-bg: rgba(245, 251, 247, calc(0.93 * var(--panel-alpha)));
+  --section-misc-bg: rgba(253, 248, 243, calc(0.93 * var(--panel-alpha)));
+  --section-contact-bg: rgba(254, 254, 242, calc(0.93 * var(--panel-alpha)));
   /* Spotlight intensities */
   --spot-about: rgba(105, 80, 161, 0.14);
   --spot-projects: rgba(0, 114, 206, 0.12);
@@ -63,7 +68,8 @@
   --border: #3a3d40;
   --accent: #8fb8ff;
   --accent-hover: #bfd4ff;
-  --surface: #1a1d20;
+  --surface-rgb: 26, 29, 32;
+  --surface: rgba(var(--surface-rgb), var(--panel-alpha));
   /* Metro palette (dark / night map) */
   --metro-land: #1a1d24;
   --metro-water: #2a4d6e;
@@ -74,11 +80,11 @@
   --card-muted: #d4ccb8;
   --card-hero-img-bg: #1f1c17;
   /* Section tints */
-  --section-about-bg: rgba(13, 11, 16, 0.93);
-  --section-projects-bg: rgba(11, 15, 24, 0.93);
-  --section-timeline-bg: rgba(10, 15, 12, 0.93);
-  --section-misc-bg: rgba(16, 14, 10, 0.93);
-  --section-contact-bg: rgba(16, 15, 8, 0.93);
+  --section-about-bg: rgba(13, 11, 16, calc(0.93 * var(--panel-alpha)));
+  --section-projects-bg: rgba(11, 15, 24, calc(0.93 * var(--panel-alpha)));
+  --section-timeline-bg: rgba(10, 15, 12, calc(0.93 * var(--panel-alpha)));
+  --section-misc-bg: rgba(16, 14, 10, calc(0.93 * var(--panel-alpha)));
+  --section-contact-bg: rgba(16, 15, 8, calc(0.93 * var(--panel-alpha)));
   /* Spotlight intensities (brighter in dark mode) */
   --spot-about: rgba(105, 80, 161, 0.28);
   --spot-projects: rgba(0, 114, 206, 0.24);
@@ -109,7 +115,7 @@
 .metro-map-frame {
   position: relative;
   width: 100%;
-  max-width: min(1100px, calc((100vh - 200px) * 760 / 630));
+  max-width: min(1100px, calc((100svh - 250px) * 760 / 630));
   margin: 0 auto;
   overflow: hidden;
   background: #ffffff;
@@ -3693,6 +3699,19 @@ figure {
 .brow:focus-visible { outline:none; box-shadow:0 0 0 3px var(--board-bg), 0 0 0 5px var(--led-amber); border-radius:6px; }
 
 /* ===== redesign hero ===== */
+/* First screen: hero card + status board fill exactly one viewport so the
+   About section never peeks above the fold. --hero-top reserves the header
+   strip + page padding above <main>. Tuned by in-browser check. */
+.hero-screen {
+  --hero-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  height: calc(100svh - var(--hero-top));
+}
+.hero-fit { width: 100%; transform-origin: top center; }
+.hero-screen .status-flap { border-radius: 0 0 14px 14px; margin-top: -1px; }
 .hero-band { position:relative; border-radius:14px; overflow:hidden; margin:0 auto; max-width:1080px; }
 .hero-bg { position:absolute; inset:0; background-image:var(--hero-bg-image); background-size:cover; background-position:center; }
 .hero-scrim { position:absolute; inset:0;
@@ -3705,8 +3724,8 @@ figure {
 .hero-name h1 { margin:0; font:800 32px/.95 var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.02em; text-transform:uppercase; color:var(--text); }
 .hero-name p { margin:3px 0 0; font:600 12px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.2em; text-transform:uppercase; color:#5f5f5f; }
 .hero-left .board { margin-bottom:0; }
-.hero-mapcard { background:rgba(255,255,255,.80); backdrop-filter:blur(2px); border-radius:11px; padding:14px 18px 16px; display:flex; flex-direction:column; }
-[data-theme="dark"] .hero-mapcard { background:rgba(20,22,28,.78); }
+.hero-mapcard { background:rgba(255,255,255,calc(.80 * var(--panel-alpha))); backdrop-filter:blur(2px); border-radius:11px; padding:14px 18px 16px; display:flex; flex-direction:column; }
+[data-theme="dark"] .hero-mapcard { background:rgba(20,22,28,calc(.78 * var(--panel-alpha))); }
 .hero-mapcard-cap { font:600 12px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#888; margin:0 0 8px; display:flex; justify-content:space-between; }
 .hero-mapbox { flex:1; display:flex; align-items:center; justify-content:center; }
 @media (max-width:760px){ .hero-grid { grid-template-columns:1fr; } .hero-left .board { margin-bottom:22px; } }
@@ -4059,15 +4078,32 @@ figure {
 .project-card-v2 .project-card-hero-image { position: relative; z-index: 1; border-radius: 6px; }
 /* ===== End Barman moquette ===== */
 
-/* ===== misc sub-page back link as a green EXIT / "Way Out" sign (ref -4.jpg) ===== */
-.page-intro .eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--metro-line-green); color: #fff;
-  padding: 7px 14px; border-radius: 8px; margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+/* ===== Emergency-exit "running man" back / way-out sign (ExitSign.jsx) ===== */
+.exit-sign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+  padding: 0.45rem 0.95rem 0.45rem 0.7rem;
+  background: var(--metro-line-green);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 7px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.28), 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: filter 140ms ease, transform 140ms ease;
 }
-.page-intro .eyebrow a { color: #fff; text-decoration: none; font-weight: 700; font-family: var(--font-transit, sans-serif); text-transform: uppercase; letter-spacing: .06em; }
-.page-intro .eyebrow .icon-inline { color: #fff; }
+.exit-sign:hover { filter: brightness(1.07); }
+.exit-sign:active { transform: translateY(1px); }
+.exit-sign:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.exit-sign__arrow { font-size: 1.15rem; line-height: 1; }
+.exit-sign__man { width: 1.5rem; height: 1.6rem; display: block; color: #fff; }
+.exit-sign__text {
+  font-family: var(--font-transit, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
 
 /* ===== hero fits the viewport on load (no cut-off) ===== */
 .hero-band { max-width: 960px; }
@@ -4084,41 +4120,6 @@ figure {
   max-width: 1040px;
   margin: 0 auto;
   padding: 1.5rem 1rem 4rem;
-}
-
-/* WAY OUT wayfinding sign (green transit signage) */
-.settings-wayout {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1.75rem;
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
-  background: var(--metro-line-green);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
-}
-.settings-wayout:hover { filter: brightness(1.06); }
-.settings-wayout__arrow {
-  font-size: 1.4rem;
-  line-height: 1;
-  font-weight: 700;
-}
-.settings-wayout__text { display: flex; flex-direction: column; line-height: 1.05; }
-.settings-wayout__kicker {
-  font-family: var(--font-transit);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.7rem;
-  opacity: 0.92;
-}
-.settings-wayout__main {
-  font-family: var(--font-transit);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 1.05rem;
-  font-weight: 700;
 }
 
 .settings-room__head { margin-bottom: 2rem; }
@@ -4478,6 +4479,156 @@ figure {
 .settings-reset:hover { filter: brightness(1.05); }
 .settings-reset__note { font-size: 0.78rem; color: var(--muted); margin: 0.5rem 0 0; }
 
+/* ===== About this build: live GitHub facts + inspiration gallery ===== */
+.build-facts { margin-top: 1.25rem; }
+.build-facts__kicker {
+  font-family: var(--font-transit);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+.build-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+.build-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--board-bg);
+  border-radius: 8px;
+  border: 1px solid var(--board-rule);
+}
+.build-stat__value {
+  font-family: ui-monospace, "SFMono-Regular", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--board-accent);
+  line-height: 1.1;
+}
+.build-stat__label {
+  font-family: var(--font-transit);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  color: #9a9aa2;
+}
+.build-facts__repo { margin: 0.75rem 0 0; font-size: 0.86rem; }
+.build-facts__repo a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.build-facts__repo a:hover { text-decoration: underline; }
+
+.build-facts__subhead {
+  margin: 1.6rem 0 0.15rem;
+  font-family: var(--font-transit);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+}
+.build-facts__sub { margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted); }
+
+.build-gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.55rem;
+}
+.build-gallery__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--surface);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.build-gallery__btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); }
+.build-gallery__btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.build-gallery__btn img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.build-gallery__cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem 0.45rem 0.35rem;
+  font-family: var(--font-transit);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78));
+}
+
+.build-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 4vw;
+  background: rgba(0, 0, 0, 0.82);
+}
+.build-lightbox__fig {
+  margin: 0;
+  max-width: min(900px, 92vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.build-lightbox__fig img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.build-lightbox__fig figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.6rem;
+  color: #f3f1ea;
+  font-family: var(--font-body);
+}
+.build-lightbox__fig figcaption strong {
+  font-family: var(--font-transit);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.build-lightbox__fig figcaption span { font-size: 0.85rem; color: #c8c4b8; }
+.build-lightbox__close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.build-lightbox__close:hover { background: rgba(255, 255, 255, 0.26); }
+
 /* Mobile: stack to one column */
 @media (max-width: 760px) {
   .settings-room__grid { grid-template-columns: 1fr; gap: 1.25rem; }
@@ -4501,26 +4652,3 @@ figure {
 .site-header-controls { display: inline-flex !important; align-items: center; gap: 10px !important; width: auto !important; }
 .site-header-controls > .theme-toggle { width: 44px !important; height: 44px !important; margin: 0 !important; flex: 0 0 auto !important; }
 
-/* ===== EXIT-sign back button on misc sub-pages (ref -4.jpg / EXIT sign) ===== */
-.page-intro .eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  background: var(--metro-line-green); color: #fff;
-  padding: 9px 16px; border-radius: 8px; margin-bottom: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-.page-intro .eyebrow .icon-inline { color: #fff; font-size: 18px; }
-/* hide the "Miscellaneous" word — sign is just symbol + arrow */
-.page-intro .eyebrow a { color: transparent; font-size: 0; text-decoration: none; display: inline-flex; align-items: center; }
-.page-intro .eyebrow a::before {
-  content: "\f70c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
-  color: #fff; font-size: 18px; margin-right: 8px;
-}
-.page-intro .eyebrow a::after {
-  content: "EXIT"; color: #fff; font: 800 15px/1 var(--font-transit, sans-serif); letter-spacing: .14em;
-}
-
-/* ===== settings Way Out: add the EXIT running-figure pictogram for consistency ===== */
-.settings-wayout::before {
-  content: "\f70c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
-  font-size: 20px; margin-right: 6px; line-height: 1;
-}

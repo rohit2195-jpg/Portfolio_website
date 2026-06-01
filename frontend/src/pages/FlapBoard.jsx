@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import ExitSign from "../components/transit/ExitSign";
 import { FlapDisplay, Presets } from "react-split-flap-effect";
 import { LINES } from "../data/transitMessages";
 
@@ -151,10 +151,7 @@ export default function FlapBoard() {
   return (
     <>
       <section className="page-intro page-intro-compact">
-        <p className="eyebrow">
-          <i className="fa-solid fa-arrow-left icon-inline" aria-hidden="true" />
-          <Link to="/" state={{ scrollTo: "miscellaneous" }}>Miscellaneous</Link>
-        </p>
+        <ExitSign to="/" state={{ scrollTo: "miscellaneous" }} />
         <h2>
           Status Board
           <span className="page-pronunciation">[stay-tuhs bord]</span>
