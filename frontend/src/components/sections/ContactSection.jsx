@@ -44,8 +44,6 @@ export default function ContactSection() {
         definition="an establishing of communication with someone"
       />
 
-      <MetroCard name="Rohit Sattuluri" subtitle="Software Engineer" serial="No. 2195" />
-
       <div className="contact-board-wrapper">
         <div className="station-entrance-sign" aria-hidden="true">
           <span className="station-entrance-arrow">↓</span>
@@ -86,6 +84,19 @@ export default function ContactSection() {
         </div>
       </div>
       </div>
+
+      <MetroCard name="Rohit Sattuluri" subtitle="Software Engineer" serial="No. 2195" />
+
+      <a className="help-point" href="mailto:rohit.sattuluri@gmail.com">
+        <span className="help-point-badge" aria-hidden="true">
+          <i className="fa-solid fa-circle-info" />
+        </span>
+        <span className="help-point-text">
+          <span className="help-point-title">Help Point</span>
+          <span className="help-point-sub">Press for assistance</span>
+        </span>
+        <span className="help-point-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
   );
 }

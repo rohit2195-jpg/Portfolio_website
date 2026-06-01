@@ -7,9 +7,9 @@ import SectionHeader from "./SectionHeader";
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
 
 const SKILL_ROWS = [
-  { key: "languages", label: "Languages" },
-  { key: "libraries", label: "Libraries" },
-  { key: "tools", label: "Tools" },
+  { key: "languages", label: "Languages", zone: 1 },
+  { key: "libraries", label: "Libraries", zone: 2 },
+  { key: "tools", label: "Tools", zone: 3 },
 ];
 
 const SKILL_LINE_COLORS = {
@@ -50,7 +50,7 @@ export default function AboutSection() {
 
       {/* Station pylon card — bio wrapped as Red Line station sign */}
       <div className="station-pylon">
-        <div className="station-pylon-header" aria-hidden="true">
+        <div className="station-pylon-header moquette" aria-hidden="true">
           <span className="station-pylon-badge">PL</span>
           <span className="station-pylon-name">Dupont Circle</span>
         </div>
@@ -120,10 +120,11 @@ export default function AboutSection() {
         <h3 className="about-subheading">Skills</h3>
         <div className="transit-legend-panel">
           <div className="transit-legend-title" aria-hidden="true">
-            <span className="transit-legend-system-badge">SYSTEM MAP</span>
+            <span className="transit-legend-system-badge">FARE ZONES</span>
           </div>
-          {SKILL_ROWS.map(({ key, label }) => (
-            <div key={key} className="transit-legend-line">
+          {SKILL_ROWS.map(({ key, label, zone }) => (
+            <div key={key} className="transit-legend-line" style={{ "--zone-color": SKILL_LINE_COLORS[key] }}>
+              <span className="zone-badge" aria-hidden="true"><span>Zone</span><span className="zone-badge-num">{zone}</span></span>
               <div
                 className="transit-legend-line-swatch"
                 style={{ background: SKILL_LINE_COLORS[key] }}

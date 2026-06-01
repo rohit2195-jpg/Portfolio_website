@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { applyBackground, getBackgroundId } from "../lib/background";
+import { applyAllSettings } from "../lib/settings";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -26,6 +28,11 @@ export default function Layout() {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
+
+  useEffect(() => {
+    applyBackground(getBackgroundId());
+    applyAllSettings();
+  }, []);
 
   return (
     <div className="page-shell">

@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import PhotoAlbumPage from "./pages/PhotoAlbumPage";
 import PhotosPage from "./pages/PhotosPage";
+import SettingsPage from "./pages/SettingsPage";
 import Time from "./pages/Time";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="time" element={<Time />} />
           <Route path="board" element={<FlapBoard />} />
         </Route>
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -13,6 +13,8 @@ import ProjectsSection from "../components/sections/ProjectsSection";
 import TimelineSection from "../components/sections/TimelineSection";
 import { useActiveSection } from "../hooks/useActiveSection";
 import DepartureBoard from "../components/transit/DepartureBoard";
+import StationStop from "../components/transit/StationStop";
+import OysterReader from "../components/transit/OysterReader";
 
 const SECTION_TO_ANCHOR = {
   about: "about",
@@ -43,7 +45,17 @@ export default function HomePage({ initialSection }) {
   const location = useLocation();
   const [scrollPct, setScrollPct] = useState(0);
   const [dockVisible, setDockVisible] = useState(false);
+  const [clock, setClock] = useState(() =>
+    new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false })
+  );
   const mapRef = useRef(null);
+
+  useEffect(() => {
+    const tick = () =>
+      setClock(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }));
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -89,7 +101,7 @@ export default function HomePage({ initialSection }) {
   }, []);
 
   const boardRows = [
-    { color: "#BF0D3E", dest: "ABOUT",    sub: "the person behind it", status: "NOW BOARDING", statusColor: "var(--led-green)", onClick: () => handleNavigate("about") },
+    { color: "#6950A1", dest: "ABOUT",    sub: "the person behind it", status: "NOW BOARDING", statusColor: "var(--led-green)", onClick: () => handleNavigate("about") },
     { color: "#0072CE", dest: "PROJECTS", sub: "things I've built",     status: "2 MIN", onClick: () => handleNavigate("projects") },
     { color: "#00B140", dest: "TIMELINE", sub: "the journey so far",    status: "4 MIN", onClick: () => handleNavigate("timeline") },
     { color: "#E3801C", dest: "MISC",     sub: "off the clock",         status: "6 MIN", onClick: () => handleNavigate("miscellaneous") },
@@ -107,7 +119,8 @@ export default function HomePage({ initialSection }) {
         <div className="hero-in">
           <div className="hero-grid">
             <div className="hero-left">
-              <DepartureBoard rows={boardRows} />
+              <DepartureBoard rows={boardRows} clock={clock} />
+              <OysterReader onTap={() => handleNavigate("about")} />
             </div>
             <div className="hero-mapcard">
               <p className="hero-mapcard-cap" aria-hidden="true"><span>System Map</span><span style={{ color: "#00863b" }}>● live · click a stop</span></p>
@@ -115,6 +128,13 @@ export default function HomePage({ initialSection }) {
                 <MetroMap onNavigateToSection={handleNavigate} />
                 <MetroMapMobile onNavigateToSection={handleNavigate} />
               </div>
+              <ul className="map-legend" aria-hidden="true">
+                <li><span style={{ background: "var(--metro-line-red)" }} />Red · About</li>
+                <li><span style={{ background: "var(--metro-line-blue)" }} />Blue · Projects</li>
+                <li><span style={{ background: "var(--metro-line-green)" }} />Green · Timeline</li>
+                <li><span style={{ background: "var(--metro-line-orange)" }} />Orange · Misc</li>
+                <li><span style={{ background: "var(--metro-line-yellow)" }} />Yellow · Contact</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -122,33 +142,13 @@ export default function HomePage({ initialSection }) {
       <StatusFlap />
 
       <AboutSection />
-      <div className="station-divider" aria-hidden="true">
-        <span className="station-divider-line" style={{ background: "var(--metro-line-blue)" }} />
-        <span className="station-divider-node" />
-        <span className="station-divider-label">Next Stop: Projects</span>
-        <span className="station-divider-line" style={{ background: "var(--metro-line-blue)" }} />
-      </div>
+      <StationStop color="var(--metro-line-blue)" destination="Projects" lineName="Blue Line" />
       <ProjectsSection />
-      <div className="station-divider" aria-hidden="true">
-        <span className="station-divider-line" style={{ background: "var(--metro-line-green)" }} />
-        <span className="station-divider-node" />
-        <span className="station-divider-label">Next Stop: Timeline</span>
-        <span className="station-divider-line" style={{ background: "var(--metro-line-green)" }} />
-      </div>
+      <StationStop color="var(--metro-line-green)" destination="Timeline" lineName="Green Line" />
       <TimelineSection />
-      <div className="station-divider" aria-hidden="true">
-        <span className="station-divider-line" style={{ background: "var(--metro-line-orange)" }} />
-        <span className="station-divider-node" />
-        <span className="station-divider-label">Next Stop: Miscellaneous</span>
-        <span className="station-divider-line" style={{ background: "var(--metro-line-orange)" }} />
-      </div>
+      <StationStop color="var(--metro-line-orange)" destination="Miscellaneous" lineName="Orange Line" />
       <MiscellaneousSection />
-      <div className="station-divider" aria-hidden="true">
-        <span className="station-divider-line" style={{ background: "var(--metro-line-yellow)" }} />
-        <span className="station-divider-node" />
-        <span className="station-divider-label">Next Stop: Contact</span>
-        <span className="station-divider-line" style={{ background: "var(--metro-line-yellow)" }} />
-      </div>
+      <StationStop color="var(--metro-line-yellow)" destination="Contact" lineName="Yellow Line" />
       <ContactSection />
 
       <AnimatePresence>

@@ -92,6 +92,58 @@ The vocabulary we draw from (full research catalog archived below in §12). Rank
 
 ---
 
+### 2.4 Additional motif ideas (backlog, added 2026-05-31)
+
+More real-world transit elements to draw from, beyond §2.3. Implement opportunistically during Phase 5.
+
+| Element | Real source | Web use |
+|---|---|---|
+| **Seat moquette** | LU/NYC/Tokyo woven seat fabric | distinctive geometric pattern for section/card backgrounds (CSS gradients/SVG); the most "transit" texture we lack |
+| **Destination rollsign / headsign** | front-of-train destination blind | animate section titles / hero name as a rolling or dot-matrix headsign |
+| **"Calling at…" announcements** | onboard stopping-pattern voice | section intros as train announcements ("This is a Green Line service calling at: …") |
+| **Vintage platform poster frames** | LU travel posters (Pick era) | render each Project as a framed Underground travel poster |
+| **Help Point** | station "Press for assistance" SOS | Contact CTA styled as a help point |
+| **"Good Service" status legend** | TfL line-status board | compact system-status key (complements `StatusFlap`) |
+| **Fare zones (rings)** | London Zones 1–9 | group skills/experience into concentric zones |
+| **Safety-slogan micro-copy** | "Stand on the right", "See it. Say it. Sorted.", "Mind the closing doors" | tasteful easter-egg copy |
+| **Tap-in / Oyster reader** | yellow contactless reader + beep | "tap to enter" intro affordance |
+| **Map legend / key** | map legend box | small key mapping each line → section |
+
+**Decisions (2026-05-31):** implement all of the above **except #3 "Calling at…" announcements** (declined). Also a placement fix: in the **Contact** section, render the **MetroCard *after* the contact departure board** — primary info (email/links) first, decorative fare card after.
+
+### 2.5 Round-2 idea backlog (from research agent, 2026-05-31)
+Top picks, ranked distinctiveness ÷ effort (full set in chat research):
+1. **NYC mosaic name-tablet** section headers (glazed faience tiled border) — the most iconic unused NYC artifact.
+2. **Japanese station numbering** badges (e.g. About = R-01, Projects = B-02) in colored rings.
+3. **London dot-matrix "Next Train" queue** indicator (amber DMI list, distinct from the split-flap).
+4. **Carnet "ticket stub"** component (perforated edge + magnetic stripe) for résumé/download CTA.
+5. **NYC "Bing-Bong" door chime + "stand clear of the closing doors"** caption on navigation (optional sound toggle).
+6. **Naples Toledo earth→sea** background gradient that deepens to ocean-blue as you scroll ("descending into the metro").
+7. **Escalator scroll-progress rail** with a depth readout ("−42 m") + "stand on the right" micro-copy.
+8. **Suica/Octopus tap-gate** with balance + mascot (richer than a generic Oyster reader).
+9. **Leslie Green tile bands** with wayfinding labels baked into the tile pattern.
+10. **Berlin "Zurückbleiben, bitte!"** caution toast paired with the existing caution stripes.
+
+### 2.6 Round-2 research (2026-05-31) — viewed all curated art + web research
+
+**From the curated art:** the collection leans **bold flat-color modernism, line-as-form abstraction, ticket/sign object studies, vintage rail posters.** Strongest cues: Nike "transit data-plate" sticker sheet → rolling-stock data-plate cards; Vignelli posters (`-6`, `Massimo Vignelli`) → single fat line that bends through every section as nav+art; Big City Metro tickets (`-7`) → boarding-pass "journey" spine; Warsaw METRO posters → constructivist diagonal swoop dividers; `TOMBOLARE` (BR night loco) → dark-mode twin-headlight hero; Helvetica poster → "typography line" skills; SNCB TEE → speed-line transition.
+
+**Top 12 for Round 2 (impact ÷ effort):**
+1. HK MTR cross-platform **slash interchange glyph** on shared nodes (low)
+2. **Constructivist diagonal swoop dividers** (Warsaw posters; pure clip-path) (low)
+3. **Tokyo letter-in-ring section codes** (About=R-01…) used in anchors/breadcrumb (low)
+4. **"Excavation in progress" empty-state** (Rådhuset) for unbuilt areas (low)
+5. **Roll-sign scrolling section title** (mechanical fabric blind) (med)
+6. **Boarding-pass / journey ticket spine** (origin→arrow→destination, foil active bullet) (med)
+7. **Hidden "Life Underground" mascots** (Otterness) as Easter eggs (med)
+8. **Naples "Crater de Luz" light-well** that brightens as you scroll deeper (med)
+9. **Azulejo tile divider band** (Lisbon-in-Paris) (low-med)
+10. **Venetian-mast illuminated masthead** holding the roundel (low)
+11. **Masstransiscope scroll-zoetrope** — animation only while "the train moves" (high; signature)
+12. **Guimard Art-Nouveau frame** for the Photos route (med)
+
+**Bold whole-site concepts:** (a) "the train only moves when you scroll" — zoetrope strip + roll-sign + headlight sweep unified; (b) two-system **interchange toggle** (Modernist Line ↔ Heritage Line skins); (c) **single continuous Vignelli line** as the entire nav/scroll/art; (d) **boarding-pass spine** validating at Contact; (e) constructivist swoop dividers + rolling-stock data-plate cards.
+
 ## 3. The hero (LOCKED)
 
 A single hero band, replacing/wrapping the current map hero. Reference mockup: `.superpowers/brainstorm/.../hero-blend-v9.html`.
@@ -246,7 +298,11 @@ Verified live in the browser (light + dark) at `localhost`. Legend: ✅ done · 
 
 **TRANSIT_MESSAGES.md:** ✅ it's a *writing guide*; its messages live in `src/data/transitMessages.js` and are displayed via `StatusFlap` + `FlapBoard` — content is in the app.
 
-**Net:** Phases 1–2 complete; a large slice of Phase-4 motifs added. Remaining: the Phase-5 "C" flourishes (scroll train, interactive ticket, branching routes) + small motif applications (subway-tile, pictograms, DotMatrixText, duotone).
+**Net:** Phases 1–2 complete; large Phase-4/5 motif pass done.
+
+**Phase-5 completed (2026-05-31):** poster "Next Stop" station panels · seat-moquette texture · hero map legend · live real-time board clock · single 1-letter section badge · Projects as framed travel posters · Help Point CTA · safety-slogan footer · fare-zone skills · destination rollsign marquee · Oyster "tap to ride" reader. ("Good Service legend" already covered by the `/miscellaneous/board` FlapBoard.)
+
+**Still remaining (future):** scroll-driven train on the line, interactive ticket, branching/merging routes, continuous `LineSpine`, `DotMatrixText`, subway-tile panels, AIGA pictograms, duotone bg — plus the §2.5 Round-2 backlog (NYC mosaic tablets, station numbering, ticket-stub, door chime, Naples blue-descent, escalator scroll-rail, etc.).
 
 ## 12. Research appendix (sources)
 

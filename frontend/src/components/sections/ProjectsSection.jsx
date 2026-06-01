@@ -53,7 +53,7 @@ export default function ProjectsSection() {
                 </div>
               ) : (
                 <div
-                  className="project-card-hero"
+                  className="project-card-hero moquette"
                   style={{
                     background: `linear-gradient(135deg, ${color}, ${color}aa)`,
                   }}
