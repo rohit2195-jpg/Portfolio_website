@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ExitSign from "../components/transit/ExitSign";
+import EmptyWayfindingState from "../components/transit/EmptyWayfindingState";
 import { photoAlbums } from "../photoAlbums";
 
 export default function PhotosPage() {
@@ -36,17 +37,11 @@ export default function PhotosPage() {
           ))}
         </section>
       ) : (
-        <section className="empty-state">
-          <p className="eyebrow">
-            <i className="fa-regular fa-folder-open icon-inline" aria-hidden="true"></i>
-            No albums yet
-          </p>
-          <p>
-            Add folders under <code>frontend/src/assets/photos</code>, include a{" "}
-            <code>cover.jpg</code> or similar file in each one, and the albums will
-            appear here automatically.
-          </p>
-        </section>
+        <EmptyWayfindingState
+          title="No albums in service"
+          message="This route has no albums running right now. Take the transfer back to Miscellaneous for other destinations."
+          action={{ to: "/", state: { scrollTo: "miscellaneous" }, label: "Transfer to Miscellaneous" }}
+        />
       )}
     </>
   );

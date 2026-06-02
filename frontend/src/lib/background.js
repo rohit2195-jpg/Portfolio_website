@@ -1,9 +1,17 @@
 import vignelli from "../assets/subway-bg-vignelli.jpg";
 import concept from "../assets/subway-bg.jpg";
+import { INSPIRATION } from "../data/inspiration";
+
+function slug(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
 export const BACKGROUNDS = [
+  // Defaults (clean map backdrops).
   { id: "vignelli", label: "Vignelli Diagram", url: vignelli },
   { id: "concept", label: "NYC Concept Map", url: concept },
+  // Inspiration posters offered as optional wallpapers (none are the default).
+  ...INSPIRATION.map((p) => ({ id: `poster-${slug(p.title)}`, label: p.title, url: p.src })),
 ];
 const KEY = "portfolio-bg";
 export const DEFAULT_BG = "vignelli";

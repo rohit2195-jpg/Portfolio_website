@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ExitSign from "../components/transit/ExitSign";
+import EmptyWayfindingState from "../components/transit/EmptyWayfindingState";
 import { getPhotoAlbum } from "../photoAlbums";
 
 export default function PhotoAlbumPage() {
@@ -84,13 +85,11 @@ export default function PhotoAlbumPage() {
           ))}
         </section>
       ) : (
-        <section className="empty-state">
-          <p className="eyebrow">
-            <i className="fa-regular fa-images icon-inline" aria-hidden="true"></i>
-            Empty album
-          </p>
-          <p>Add image files to this album folder and they will appear here automatically.</p>
-        </section>
+        <EmptyWayfindingState
+          title="Empty album"
+          message="No photos are on display at this platform yet."
+          action={{ to: "/miscellaneous/photos", label: "Back to all albums" }}
+        />
       )}
 
       {activeImage ? (
