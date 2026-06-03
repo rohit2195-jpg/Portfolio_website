@@ -61,6 +61,10 @@ export default function HomePage({ initialSection }) {
       const screen = el?.closest(".hero-screen");
       if (!el || !screen) return;
       el.style.transform = "none";
+      // On narrow viewports the hero stacks vertically (board over the mobile
+      // map list) and is far taller than one screen. Scaling it to fit would
+      // crush it to ~60% with big side gaps — let it flow and scroll instead.
+      if (window.innerWidth <= 760) return;
       const natural = el.getBoundingClientRect().height;
       const avail = screen.clientHeight - 6;
       if (natural <= 0) return;

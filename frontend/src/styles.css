@@ -3728,7 +3728,7 @@ figure {
 [data-theme="dark"] .hero-mapcard { background:rgba(20,22,28,calc(.78 * var(--panel-alpha))); }
 .hero-mapcard-cap { font:600 12px var(--font-transit,'Barlow Condensed'),sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#888; margin:0 0 8px; display:flex; justify-content:space-between; }
 .hero-mapbox { flex:1; display:flex; align-items:center; justify-content:center; }
-@media (max-width:760px){ .hero-grid { grid-template-columns:1fr; } .hero-left .board { margin-bottom:22px; } }
+@media (max-width:760px){ .hero-screen { height:auto; } .hero-grid { grid-template-columns:1fr; } .hero-left .board { margin-bottom:22px; } .hero-in { padding:22px 18px 24px; } }
 /* dark-mode legibility for hero role line over the darker scrim */
 [data-theme="dark"] .hero-name p { color:#b9bcc4; }
 /* the consolidated name lockup uses the site RSTA badge, scaled up for the hero */
